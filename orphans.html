@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="bower/html5shiv/html5shiv.min.js"></script>
+  <script src="bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="components.html" title="List of system components">Components</a></li>-->
+			<li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>Utility Tables</h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+              <h3 class="box-title">Orphan Tables</h3>
+            </div>			
+            <div class="box-body">
+			<div id="grid" data-columns>
+				<div class="item">
+					<img src='diagrams/orphans/dual.1degree.png' usemap='#dual' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_selection.1degree.png' usemap='#t_selection' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_selection2.1degree.png' usemap='#t_selection2' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_alter_column.1degree.png' usemap='#t_alter_column' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_labelprinter.1degree.png' usemap='#ad_labelprinter' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_style.1degree.png' usemap='#ad_style' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/k_source.1degree.png' usemap='#k_source' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_attributesearch.1degree.png' usemap='#m_attributesearch' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_parttype.1degree.png' usemap='#m_parttype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_promotiongroup.1degree.png' usemap='#m_promotiongroup' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_issuestatus.1degree.png' usemap='#r_issuestatus' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_standardresponse.1degree.png' usemap='#r_standardresponse' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_reconciliation.1degree.png' usemap='#t_reconciliation' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/u_blacklistcheque.1degree.png' usemap='#u_blacklistcheque' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/u_web_properties.1degree.png' usemap='#u_web_properties' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_fundingmode.1degree.png' usemap='#a_fundingmode' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_printcolor.1degree.png' usemap='#ad_printcolor' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_printfont.1degree.png' usemap='#ad_printfont' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_jobcategory.1degree.png' usemap='#c_jobcategory' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/hr_listtype.1degree.png' usemap='#hr_listtype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/k_category.1degree.png' usemap='#k_category' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/k_indexlog.1degree.png' usemap='#k_indexlog' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_costtype.1degree.png' usemap='#m_costtype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_qualitytest.1degree.png' usemap='#m_qualitytest' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_rmatype.1degree.png' usemap='#m_rmatype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/pa_reportcolumnset.1degree.png' usemap='#pa_reportcolumnset' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/pa_reportlineset.1degree.png' usemap='#pa_reportlineset' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_issuerecommendation.1degree.png' usemap='#r_issuerecommendation' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_resolution.1degree.png' usemap='#r_resolution' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/s_timetype.1degree.png' usemap='#s_timetype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_mrp_crp.1degree.png' usemap='#t_mrp_crp' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_reval_index.1degree.png' usemap='#a_asset_reval_index' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/asp_module.1degree.png' usemap='#asp_module' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_bankstatementmatcher.1degree.png' usemap='#c_bankstatementmatcher' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_chargetype.1degree.png' usemap='#c_chargetype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_conversiontype.1degree.png' usemap='#c_conversiontype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_greeting.1degree.png' usemap='#c_greeting' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_projecttype.1degree.png' usemap='#c_projecttype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_subscriptiontype.1degree.png' usemap='#c_subscriptiontype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_taxcategory.1degree.png' usemap='#c_taxcategory' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_taxgroup.1degree.png' usemap='#c_taxgroup' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_taxtype.1degree.png' usemap='#c_taxtype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/cm_accessprofile.1degree.png' usemap='#cm_accessprofile' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/gl_budget.1degree.png' usemap='#gl_budget' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_freightcategory.1degree.png' usemap='#m_freightcategory' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/pa_benchmark.1degree.png' usemap='#pa_benchmark' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_interestarea.1degree.png' usemap='#r_interestarea' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_statuscategory.1degree.png' usemap='#r_statuscategory' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ws_webservice.1degree.png' usemap='#ws_webservice' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_depreciation_method.1degree.png' usemap='#a_depreciation_method' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_depreciation_table_detail.1degree.png' usemap='#a_depreciation_table_detail' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_depreciation_table_header.1degree.png' usemap='#a_depreciation_table_header' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_1099box.1degree.png' usemap='#c_1099box' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_activity.1degree.png' usemap='#c_activity' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_dunning.1degree.png' usemap='#c_dunning' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_revenuerecognition.1degree.png' usemap='#c_revenuerecognition' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/exp_processor_type.1degree.png' usemap='#exp_processor_type' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/gl_category.1degree.png' usemap='#gl_category' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/imp_processor_type.1degree.png' usemap='#imp_processor_type' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/k_type.1degree.png' usemap='#k_type' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_costelement.1degree.png' usemap='#m_costelement' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_distributionlist.1degree.png' usemap='#m_distributionlist' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/pa_sla_criteria.1degree.png' usemap='#pa_sla_criteria' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_bankregister.1degree.png' usemap='#t_bankregister' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_type.1degree.png' usemap='#a_asset_type' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_depreciation.1degree.png' usemap='#a_depreciation' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_depreciation_convention.1degree.png' usemap='#a_depreciation_convention' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_storageprovider.1degree.png' usemap='#ad_storageprovider' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_salesstage.1degree.png' usemap='#c_salesstage' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_taxbase.1degree.png' usemap='#c_taxbase' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/r_mailtext.1degree.png' usemap='#r_mailtext' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_info_tax.1degree.png' usemap='#a_asset_info_tax' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_postendertype.1degree.png' usemap='#c_postendertype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_taxdeclaration.1degree.png' usemap='#c_taxdeclaration' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_changenotice.1degree.png' usemap='#m_changenotice' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_lotctl.1degree.png' usemap='#m_lotctl' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_sernoctl.1degree.png' usemap='#m_sernoctl' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_info_ins.1degree.png' usemap='#a_asset_info_ins' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_entitytype.1degree.png' usemap='#ad_entitytype' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_package_imp_proc.1degree.png' usemap='#ad_package_imp_proc' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_remuneration.1degree.png' usemap='#c_remuneration' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_ctxhelp.1degree.png' usemap='#ad_ctxhelp' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_discountschema.1degree.png' usemap='#m_discountschema' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/m_shippingprocessorcfg.1degree.png' usemap='#m_shippingprocessorcfg' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_class.1degree.png' usemap='#a_asset_class' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_schedule.1degree.png' usemap='#ad_schedule' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_invoiceschedule.1degree.png' usemap='#c_invoiceschedule' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_migrationscript.1degree.png' usemap='#ad_migrationscript' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_printpaper.1degree.png' usemap='#ad_printpaper' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_package_exp.1degree.png' usemap='#ad_package_exp' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_package_imp_inst.1degree.png' usemap='#ad_package_imp_inst' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_spread.1degree.png' usemap='#a_asset_spread' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_bom_indented.1degree.png' usemap='#t_bom_indented' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/a_asset_info_oth.1degree.png' usemap='#a_asset_info_oth' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_passwordrule.1degree.png' usemap='#ad_passwordrule' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/c_paymentterm.1degree.png' usemap='#c_paymentterm' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_bomline.1degree.png' usemap='#t_bomline' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_cashflow.1degree.png' usemap='#t_cashflow' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/cust_hs_client_registration.1degree.png' usemap='#cust_hs_client_registration' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/t_1099extract.1degree.png' usemap='#t_1099extract' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+				<div class="item">
+					<img src='diagrams/orphans/ad_system.1degree.png' usemap='#ad_system' style="max-width:100%;" border='0' alt='' align='top'></img>
+				</div>
+			</div>
+			<map id="dual" name="dual">
+<area shape="rect" id="node1" href="tables/dual.html" title="dual" alt="" coords="5,5,120,99">
+</map>
+<map id="t_selection" name="t_selection">
+<area shape="rect" id="node1" href="tables/t_selection.html" title="t_selection" alt="" coords="5,5,197,157">
+</map>
+<map id="t_selection2" name="t_selection2">
+<area shape="rect" id="node1" href="tables/t_selection2.html" title="t_selection2" alt="" coords="5,5,197,157">
+</map>
+<map id="t_alter_column" name="t_alter_column">
+<area shape="rect" id="node1" href="tables/t_alter_column.html" title="t_alter_column" alt="" coords="5,5,191,216">
+</map>
+<map id="ad_labelprinter" name="ad_labelprinter">
+<area shape="rect" id="node1" href="tables/ad_labelprinter.html" title="ad_labelprinter" alt="" coords="5,5,221,392">
+</map>
+<map id="ad_style" name="ad_style">
+<area shape="rect" id="node1" href="tables/ad_style.html" title="ad_style" alt="" coords="5,5,160,392">
+</map>
+<map id="k_source" name="k_source">
+<area shape="rect" id="node1" href="tables/k_source.html" title="k_source" alt="" coords="5,5,180,392">
+</map>
+<map id="m_attributesearch" name="m_attributesearch">
+<area shape="rect" id="node1" href="tables/m_attributesearch.html" title="m_attributesearch" alt="" coords="5,5,251,392">
+</map>
+<map id="m_parttype" name="m_parttype">
+<area shape="rect" id="node1" href="tables/m_parttype.html" title="m_parttype" alt="" coords="5,5,188,392">
+</map>
+<map id="m_promotiongroup" name="m_promotiongroup">
+<area shape="rect" id="node1" href="tables/m_promotiongroup.html" title="m_promotiongroup" alt="" coords="5,5,256,392">
+</map>
+<map id="r_issuestatus" name="r_issuestatus">
+<area shape="rect" id="node1" href="tables/r_issuestatus.html" title="r_issuestatus" alt="" coords="5,5,204,392">
+</map>
+<map id="r_standardresponse" name="r_standardresponse">
+<area shape="rect" id="node1" href="tables/r_standardresponse.html" title="r_standardresponse" alt="" coords="5,5,264,392">
+</map>
+<map id="t_reconciliation" name="t_reconciliation">
+<area shape="rect" id="node1" href="tables/t_reconciliation.html" title="t_reconciliation" alt="" coords="5,5,223,392">
+</map>
+<map id="u_blacklistcheque" name="u_blacklistcheque">
+<area shape="rect" id="node1" href="tables/u_blacklistcheque.html" title="u_blacklistcheque" alt="" coords="5,5,245,392">
+</map>
+<map id="u_web_properties" name="u_web_properties">
+<area shape="rect" id="node1" href="tables/u_web_properties.html" title="u_web_properties" alt="" coords="5,5,243,392">
+</map>
+<map id="a_fundingmode" name="a_fundingmode">
+<area shape="rect" id="node1" href="tables/a_fundingmode.html" title="a_fundingmode" alt="" coords="5,5,223,421">
+</map>
+<map id="ad_printcolor" name="ad_printcolor">
+<area shape="rect" id="node1" href="tables/ad_printcolor.html" title="ad_printcolor" alt="" coords="5,5,204,421">
+</map>
+<map id="ad_printfont" name="ad_printfont">
+<area shape="rect" id="node1" href="tables/ad_printfont.html" title="ad_printfont" alt="" coords="5,5,196,421">
+</map>
+<map id="c_jobcategory" name="c_jobcategory">
+<area shape="rect" id="node1" href="tables/c_jobcategory.html" title="c_jobcategory" alt="" coords="5,5,209,421">
+</map>
+<map id="hr_listtype" name="hr_listtype">
+<area shape="rect" id="node1" href="tables/hr_listtype.html" title="hr_listtype" alt="" coords="5,5,180,421">
+</map>
+<map id="k_category" name="k_category">
+<area shape="rect" id="node1" href="tables/k_category.html" title="k_category" alt="" coords="5,5,183,421">
+</map>
+<map id="k_indexlog" name="k_indexlog">
+<area shape="rect" id="node1" href="tables/k_indexlog.html" title="k_indexlog" alt="" coords="5,5,208,421">
+</map>
+<map id="m_costtype" name="m_costtype">
+<area shape="rect" id="node1" href="tables/m_costtype.html" title="m_costtype" alt="" coords="5,5,188,421">
+</map>
+<map id="m_qualitytest" name="m_qualitytest">
+<area shape="rect" id="node1" href="tables/m_qualitytest.html" title="m_qualitytest" alt="" coords="5,5,208,421">
+</map>
+<map id="m_rmatype" name="m_rmatype">
+<area shape="rect" id="node1" href="tables/m_rmatype.html" title="m_rmatype" alt="" coords="5,5,185,421">
+</map>
+<map id="pa_reportcolumnset" name="pa_reportcolumnset">
+<area shape="rect" id="node1" href="tables/pa_reportcolumnset.html" title="pa_reportcolumnset" alt="" coords="5,5,265,421">
+</map>
+<map id="pa_reportlineset" name="pa_reportlineset">
+<area shape="rect" id="node1" href="tables/pa_reportlineset.html" title="pa_reportlineset" alt="" coords="5,5,233,421">
+</map>
+<map id="r_issuerecommendation" name="r_issuerecommendation">
+<area shape="rect" id="node1" href="tables/r_issuerecommendation.html" title="r_issuerecommendation" alt="" coords="5,5,300,421">
+</map>
+<map id="r_resolution" name="r_resolution">
+<area shape="rect" id="node1" href="tables/r_resolution.html" title="r_resolution" alt="" coords="5,5,192,421">
+</map>
+<map id="s_timetype" name="s_timetype">
+<area shape="rect" id="node1" href="tables/s_timetype.html" title="s_timetype" alt="" coords="5,5,184,421">
+</map>
+<map id="t_mrp_crp" name="t_mrp_crp">
+<area shape="rect" id="node1" href="tables/t_mrp_crp.html" title="t_mrp_crp" alt="" coords="5,5,197,421">
+</map>
+<map id="a_asset_reval_index" name="a_asset_reval_index">
+<area shape="rect" id="node1" href="tables/a_asset_reval_index.html" title="a_asset_reval_index" alt="" coords="5,5,263,451">
+</map>
+<map id="asp_module" name="asp_module">
+<area shape="rect" id="node1" href="tables/asp_module.html" title="asp_module" alt="" coords="5,5,192,451">
+</map>
+<map id="c_bankstatementmatcher" name="c_bankstatementmatcher">
+<area shape="rect" id="node1" href="tables/c_bankstatementmatcher.html" title="c_bankstatementmatcher" alt="" coords="5,5,315,451">
+</map>
+<map id="c_chargetype" name="c_chargetype">
+<area shape="rect" id="node1" href="tables/c_chargetype.html" title="c_chargetype" alt="" coords="5,5,204,451">
+</map>
+<map id="c_conversiontype" name="c_conversiontype">
+<area shape="rect" id="node1" href="tables/c_conversiontype.html" title="c_conversiontype" alt="" coords="5,5,241,451">
+</map>
+<map id="c_greeting" name="c_greeting">
+<area shape="rect" id="node1" href="tables/c_greeting.html" title="c_greeting" alt="" coords="5,5,195,451">
+</map>
+<map id="c_projecttype" name="c_projecttype">
+<area shape="rect" id="node1" href="tables/c_projecttype.html" title="c_projecttype" alt="" coords="5,5,207,451">
+</map>
+<map id="c_subscriptiontype" name="c_subscriptiontype">
+<area shape="rect" id="node1" href="tables/c_subscriptiontype.html" title="c_subscriptiontype" alt="" coords="5,5,255,451">
+</map>
+<map id="c_taxcategory" name="c_taxcategory">
+<area shape="rect" id="node1" href="tables/c_taxcategory.html" title="c_taxcategory" alt="" coords="5,5,211,451">
+</map>
+<map id="c_taxgroup" name="c_taxgroup">
+<area shape="rect" id="node1" href="tables/c_taxgroup.html" title="c_taxgroup" alt="" coords="5,5,184,451">
+</map>
+<map id="c_taxtype" name="c_taxtype">
+<area shape="rect" id="node1" href="tables/c_taxtype.html" title="c_taxtype" alt="" coords="5,5,172,451">
+</map>
+<map id="cm_accessprofile" name="cm_accessprofile">
+<area shape="rect" id="node1" href="tables/cm_accessprofile.html" title="cm_accessprofile" alt="" coords="5,5,237,451">
+</map>
+<map id="gl_budget" name="gl_budget">
+<area shape="rect" id="node1" href="tables/gl_budget.html" title="gl_budget" alt="" coords="5,5,175,451">
+</map>
+<map id="m_freightcategory" name="m_freightcategory">
+<area shape="rect" id="node1" href="tables/m_freightcategory.html" title="m_freightcategory" alt="" coords="5,5,251,451">
+</map>
+<map id="pa_benchmark" name="pa_benchmark">
+<area shape="rect" id="node1" href="tables/pa_benchmark.html" title="pa_benchmark" alt="" coords="5,5,216,451">
+</map>
+<map id="r_interestarea" name="r_interestarea">
+<area shape="rect" id="node1" href="tables/r_interestarea.html" title="r_interestarea" alt="" coords="5,5,212,451">
+</map>
+<map id="r_statuscategory" name="r_statuscategory">
+<area shape="rect" id="node1" href="tables/r_statuscategory.html" title="r_statuscategory" alt="" coords="5,5,237,451">
+</map>
+<map id="ws_webservice" name="ws_webservice">
+<area shape="rect" id="node1" href="tables/ws_webservice.html" title="ws_webservice" alt="" coords="5,5,219,451">
+</map>
+<map id="a_depreciation_method" name="a_depreciation_method">
+<area shape="rect" id="node1" href="tables/a_depreciation_method.html" title="a_depreciation_method" alt="" coords="5,5,295,480">
+</map>
+<map id="a_depreciation_table_detail" name="a_depreciation_table_detail">
+<area shape="rect" id="node1" href="tables/a_depreciation_table_detail.html" title="a_depreciation_table_detail" alt="" coords="5,5,331,480">
+</map>
+<map id="a_depreciation_table_header" name="a_depreciation_table_header">
+<area shape="rect" id="node1" href="tables/a_depreciation_table_header.html" title="a_depreciation_table_header" alt="" coords="5,5,343,480">
+</map>
+<map id="c_1099box" name="c_1099box">
+<area shape="rect" id="node1" href="tables/c_1099box.html" title="c_1099box" alt="" coords="5,5,180,480">
+</map>
+<map id="c_activity" name="c_activity">
+<area shape="rect" id="node1" href="tables/c_activity.html" title="c_activity" alt="" coords="5,5,169,480">
+</map>
+<map id="c_dunning" name="c_dunning">
+<area shape="rect" id="node1" href="tables/c_dunning.html" title="c_dunning" alt="" coords="5,5,275,480">
+</map>
+<map id="c_revenuerecognition" name="c_revenuerecognition">
+<area shape="rect" id="node1" href="tables/c_revenuerecognition.html" title="c_revenuerecognition" alt="" coords="5,5,279,480">
+</map>
+<map id="exp_processor_type" name="exp_processor_type">
+<area shape="rect" id="node1" href="tables/exp_processor_type.html" title="exp_processor_type" alt="" coords="5,5,263,480">
+</map>
+<map id="gl_category" name="gl_category">
+<area shape="rect" id="node1" href="tables/gl_category.html" title="gl_category" alt="" coords="5,5,189,480">
+</map>
+<map id="imp_processor_type" name="imp_processor_type">
+<area shape="rect" id="node1" href="tables/imp_processor_type.html" title="imp_processor_type" alt="" coords="5,5,264,480">
+</map>
+<map id="k_type" name="k_type">
+<area shape="rect" id="node1" href="tables/k_type.html" title="k_type" alt="" coords="5,5,171,480">
+</map>
+<map id="m_costelement" name="m_costelement">
+<area shape="rect" id="node1" href="tables/m_costelement.html" title="m_costelement" alt="" coords="5,5,221,480">
+</map>
+<map id="m_distributionlist" name="m_distributionlist">
+<area shape="rect" id="node1" href="tables/m_distributionlist.html" title="m_distributionlist" alt="" coords="5,5,244,480">
+</map>
+<map id="pa_sla_criteria" name="pa_sla_criteria">
+<area shape="rect" id="node1" href="tables/pa_sla_criteria.html" title="pa_sla_criteria" alt="" coords="5,5,215,480">
+</map>
+<map id="t_bankregister" name="t_bankregister">
+<area shape="rect" id="node1" href="tables/t_bankregister.html" title="t_bankregister" alt="" coords="5,5,216,480">
+</map>
+<map id="a_asset_type" name="a_asset_type">
+<area shape="rect" id="node1" href="tables/a_asset_type.html" title="a_asset_type" alt="" coords="5,5,200,509">
+</map>
+<map id="a_depreciation" name="a_depreciation">
+<area shape="rect" id="node1" href="tables/a_depreciation.html" title="a_depreciation" alt="" coords="5,5,217,509">
+</map>
+<map id="a_depreciation_convention" name="a_depreciation_convention">
+<area shape="rect" id="node1" href="tables/a_depreciation_convention.html" title="a_depreciation_convention" alt="" coords="5,5,325,509">
+</map>
+<map id="ad_storageprovider" name="ad_storageprovider">
+<area shape="rect" id="node1" href="tables/ad_storageprovider.html" title="ad_storageprovider" alt="" coords="5,5,260,509">
+</map>
+<map id="c_salesstage" name="c_salesstage">
+<area shape="rect" id="node1" href="tables/c_salesstage.html" title="c_salesstage" alt="" coords="5,5,199,509">
+</map>
+<map id="c_taxbase" name="c_taxbase">
+<area shape="rect" id="node1" href="tables/c_taxbase.html" title="c_taxbase" alt="" coords="5,5,173,509">
+</map>
+<map id="r_mailtext" name="r_mailtext">
+<area shape="rect" id="node1" href="tables/r_mailtext.html" title="r_mailtext" alt="" coords="5,5,176,509">
+</map>
+<map id="a_asset_info_tax" name="a_asset_info_tax">
+<area shape="rect" id="node1" href="tables/a_asset_info_tax.html" title="a_asset_info_tax" alt="" coords="5,5,232,539">
+</map>
+<map id="c_postendertype" name="c_postendertype">
+<area shape="rect" id="node1" href="tables/c_postendertype.html" title="c_postendertype" alt="" coords="5,5,235,539">
+</map>
+<map id="c_taxdeclaration" name="c_taxdeclaration">
+<area shape="rect" id="node1" href="tables/c_taxdeclaration.html" title="c_taxdeclaration" alt="" coords="5,5,233,539">
+</map>
+<map id="m_changenotice" name="m_changenotice">
+<area shape="rect" id="node1" href="tables/m_changenotice.html" title="m_changenotice" alt="" coords="5,5,231,539">
+</map>
+<map id="m_lotctl" name="m_lotctl">
+<area shape="rect" id="node1" href="tables/m_lotctl.html" title="m_lotctl" alt="" coords="5,5,168,539">
+</map>
+<map id="m_sernoctl" name="m_sernoctl">
+<area shape="rect" id="node1" href="tables/m_sernoctl.html" title="m_sernoctl" alt="" coords="5,5,183,539">
+</map>
+<map id="a_asset_info_ins" name="a_asset_info_ins">
+<area shape="rect" id="node1" href="tables/a_asset_info_ins.html" title="a_asset_info_ins" alt="" coords="5,5,229,568">
+</map>
+<map id="ad_entitytype" name="ad_entitytype">
+<area shape="rect" id="node1" href="tables/ad_entitytype.html" title="ad_entitytype" alt="" coords="5,5,209,568">
+</map>
+<map id="ad_package_imp_proc" name="ad_package_imp_proc">
+<area shape="rect" id="node1" href="tables/ad_package_imp_proc.html" title="ad_package_imp_proc" alt="" coords="5,5,280,568">
+</map>
+<map id="c_remuneration" name="c_remuneration">
+<area shape="rect" id="node1" href="tables/c_remuneration.html" title="c_remuneration" alt="" coords="5,5,225,597">
+</map>
+<map id="ad_ctxhelp" name="ad_ctxhelp">
+<area shape="rect" id="node1" href="tables/ad_ctxhelp.html" title="ad_ctxhelp" alt="" coords="5,5,213,627">
+</map>
+<map id="m_discountschema" name="m_discountschema">
+<area shape="rect" id="node1" href="tables/m_discountschema.html" title="m_discountschema" alt="" coords="5,5,256,627">
+</map>
+<map id="m_shippingprocessorcfg" name="m_shippingprocessorcfg">
+<area shape="rect" id="node1" href="tables/m_shippingprocessorcfg.html" title="m_shippingprocessorcfg" alt="" coords="5,5,304,627">
+</map>
+<map id="a_asset_class" name="a_asset_class">
+<area shape="rect" id="node1" href="tables/a_asset_class.html" title="a_asset_class" alt="" coords="5,5,220,656">
+</map>
+<map id="ad_schedule" name="ad_schedule">
+<area shape="rect" id="node1" href="tables/ad_schedule.html" title="ad_schedule" alt="" coords="5,5,265,656">
+</map>
+<map id="c_invoiceschedule" name="c_invoiceschedule">
+<area shape="rect" id="node1" href="tables/c_invoiceschedule.html" title="c_invoiceschedule" alt="" coords="5,5,252,656">
+</map>
+<map id="ad_migrationscript" name="ad_migrationscript">
+<area shape="rect" id="node1" href="tables/ad_migrationscript.html" title="ad_migrationscript" alt="" coords="5,5,255,685">
+</map>
+<map id="ad_printpaper" name="ad_printpaper">
+<area shape="rect" id="node1" href="tables/ad_printpaper.html" title="ad_printpaper" alt="" coords="5,5,212,715">
+</map>
+<map id="ad_package_exp" name="ad_package_exp">
+<area shape="rect" id="node1" href="tables/ad_package_exp.html" title="ad_package_exp" alt="" coords="5,5,273,744">
+</map>
+<map id="ad_package_imp_inst" name="ad_package_imp_inst">
+<area shape="rect" id="node1" href="tables/ad_package_imp_inst.html" title="ad_package_imp_inst" alt="" coords="5,5,275,744">
+</map>
+<map id="a_asset_spread" name="a_asset_spread">
+<area shape="rect" id="node1" href="tables/a_asset_spread.html" title="a_asset_spread" alt="" coords="5,5,240,803">
+</map>
+<map id="t_bom_indented" name="t_bom_indented">
+<area shape="rect" id="node1" href="tables/t_bom_indented.html" title="t_bom_indented" alt="" coords="5,5,228,803">
+</map>
+<map id="a_asset_info_oth" name="a_asset_info_oth">
+<area shape="rect" id="node1" href="tables/a_asset_info_oth.html" title="a_asset_info_oth" alt="" coords="5,5,233,832">
+</map>
+<map id="ad_passwordrule" name="ad_passwordrule">
+<area shape="rect" id="node1" href="tables/ad_passwordrule.html" title="ad_passwordrule" alt="" coords="5,5,297,861">
+</map>
+<map id="c_paymentterm" name="c_paymentterm">
+<area shape="rect" id="node1" href="tables/c_paymentterm.html" title="c_paymentterm" alt="" coords="5,5,231,949">
+</map>
+<map id="t_bomline" name="t_bomline">
+<area shape="rect" id="node1" href="tables/t_bomline.html" title="t_bomline" alt="" coords="5,5,260,949">
+</map>
+<map id="t_cashflow" name="t_cashflow">
+<area shape="rect" id="node1" href="tables/t_cashflow.html" title="t_cashflow" alt="" coords="5,5,219,949">
+</map>
+<map id="cust_hs_client_registration" name="cust_hs_client_registration">
+<area shape="rect" id="node1" href="tables/cust_hs_client_registration.html" title="cust_hs_client_registration" alt="" coords="5,5,331,979">
+</map>
+<map id="t_1099extract" name="t_1099extract">
+<area shape="rect" id="node1" href="tables/t_1099extract.html" title="t_1099extract" alt="" coords="5,5,209,1008">
+</map>
+<map id="ad_system" name="ad_system">
+<area shape="rect" id="node1" href="tables/ad_system.html" title="ad_system" alt="" coords="5,5,327,1331">
+</map>
+
+			</div>
+		</div>			
+      </section>    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="bower/codemirror/codemirror.js"></script>
+<script src="bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="bower/admin-lte/dist/js/app.min.js"></script>
+<script src=""></script>
+<script src="schemaSpy.js"></script>
+</body>
+</html>

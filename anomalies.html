@@ -1,0 +1,4094 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="bower/html5shiv/html5shiv.min.js"></script>
+  <script src="bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="components.html" title="List of system components">Components</a></li>-->
+			<li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>Anomalies</h1></br>
+		<div class="callout callout-warning">        
+			<p>Things that might not be 'quite right' about your database and schema</p>
+		</div>		
+      </section>
+      <!-- Main content -->
+      <section class="content">
+	  <div class="row">
+		<div class="col-md-6"> <!-- Implied Relationship -->
+			<div class="box box-success">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Columns whose name and type imply a relationship to another table's primary key</h3>
+				  <div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				  </div>
+				</div>	
+				<div class="box-body">
+					<table id="implied_constraints" class="table table-bordered table-striped dataTable" role="grid">
+					<thead align='left'>
+					<tr>
+					  <th>Child Column</th>					  
+					  <th>Implied Parent Column</th>						  
+					</tr>
+					</thead>
+					<tbody>
+									<tr>
+					 <td><a href='tables/a_asset_change.html'>a_asset_change</a>.[a_asset_acct_id]</td>
+					 <td><a href='tables/a_asset_acct.html'>a_asset_acct</a>.[a_asset_acct_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_ins.html'>a_asset_info_ins</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_oth.html'>a_asset_info_oth</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_tax.html'>a_asset_info_tax</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_split.html'>a_asset_split</a>.[a_asset_acct_id]</td>
+					 <td><a href='tables/a_asset_acct.html'>a_asset_acct</a>.[a_asset_acct_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_split.html'>a_asset_split</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_split.html'>a_asset_split</a>.[a_depreciation_workfile_id]</td>
+					 <td><a href='tables/a_depreciation_workfile.html'>a_depreciation_workfile</a>.[a_depreciation_workfile_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_transfer.html'>a_asset_transfer</a>.[a_asset_acct_id]</td>
+					 <td><a href='tables/a_asset_acct.html'>a_asset_acct</a>.[a_asset_acct_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_column.html'>ad_column</a>.[pa_dashboardcontent_id]</td>
+					 <td><a href='tables/pa_dashboardcontent.html'>pa_dashboardcontent</a>.[pa_dashboardcontent_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_form_id]</td>
+					 <td><a href='tables/ad_form.html'>ad_form</a>.[ad_form_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_infowindow_id]</td>
+					 <td><a href='tables/ad_infowindow.html'>ad_infowindow</a>.[ad_infowindow_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_process_id]</td>
+					 <td><a href='tables/ad_process.html'>ad_process</a>.[ad_process_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_tab_id]</td>
+					 <td><a href='tables/ad_tab.html'>ad_tab</a>.[ad_tab_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_table_id]</td>
+					 <td><a href='tables/ad_table.html'>ad_table</a>.[ad_table_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_task_id]</td>
+					 <td><a href='tables/ad_task.html'>ad_task</a>.[ad_task_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a>.[ad_workflow_id]</td>
+					 <td><a href='tables/ad_workflow.html'>ad_workflow</a>.[ad_workflow_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_orginfo.html'>ad_orginfo</a>.[pa_goal_id]</td>
+					 <td><a href='tables/pa_goal.html'>pa_goal</a>.[pa_goal_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_backup.html'>ad_package_imp_backup</a>.[ad_package_imp_detail_id]</td>
+					 <td><a href='tables/ad_package_imp_detail.html'>ad_package_imp_detail</a>.[ad_package_imp_detail_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_backup.html'>ad_package_imp_backup</a>.[ad_package_imp_id]</td>
+					 <td><a href='tables/ad_package_imp.html'>ad_package_imp</a>.[ad_package_imp_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_backup.html'>ad_package_imp_backup</a>.[ad_table_id]</td>
+					 <td><a href='tables/ad_table.html'>ad_table</a>.[ad_table_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replicationdocument.html'>ad_replicationdocument</a>.[ad_replicationstrategy_id]</td>
+					 <td><a href='tables/ad_replicationstrategy.html'>ad_replicationstrategy</a>.[ad_replicationstrategy_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymenttransaction.html'>c_paymenttransaction</a>.[c_doctype_id]</td>
+					 <td><a href='tables/c_doctype.html'>c_doctype</a>.[c_doctype_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_asset.html'>i_asset</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_fajournal.html'>i_fajournal</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_fajournal.html'>i_fajournal</a>.[c_conversiontype_id]</td>
+					 <td><a href='tables/c_conversiontype.html'>c_conversiontype</a>.[c_conversiontype_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_fajournal.html'>i_fajournal</a>.[c_subacct_id]</td>
+					 <td><a href='tables/c_subacct.html'>c_subacct</a>.[c_subacct_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_1099extract.html'>t_1099extract</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_1099extract.html'>t_1099extract</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_1099extract.html'>t_1099extract</a>.[c_location_id]</td>
+					 <td><a href='tables/c_location.html'>c_location</a>.[c_location_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bankregister.html'>t_bankregister</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bankregister.html'>t_bankregister</a>.[c_bank_id]</td>
+					 <td><a href='tables/c_bank.html'>c_bank</a>.[c_bank_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bankregister.html'>t_bankregister</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bom_indented.html'>t_bom_indented</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bom_indented.html'>t_bom_indented</a>.[m_costelement_id]</td>
+					 <td><a href='tables/m_costelement.html'>m_costelement</a>.[m_costelement_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bom_indented.html'>t_bom_indented</a>.[m_product_id]</td>
+					 <td><a href='tables/m_product.html'>m_product</a>.[m_product_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[m_costelement_id]</td>
+					 <td><a href='tables/m_costelement.html'>m_costelement</a>.[m_costelement_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[m_costtype_id]</td>
+					 <td><a href='tables/m_costtype.html'>m_costtype</a>.[m_costtype_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[m_product_id]</td>
+					 <td><a href='tables/m_product.html'>m_product</a>.[m_product_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[pp_product_bom_id]</td>
+					 <td><a href='tables/pp_product_bom.html'>pp_product_bom</a>.[pp_product_bom_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a>.[pp_product_bomline_id]</td>
+					 <td><a href='tables/pp_product_bomline.html'>pp_product_bomline</a>.[pp_product_bomline_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_activity_id]</td>
+					 <td><a href='tables/c_activity.html'>c_activity</a>.[c_activity_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_campaign_id]</td>
+					 <td><a href='tables/c_campaign.html'>c_campaign</a>.[c_campaign_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_cashplanline_id]</td>
+					 <td><a href='tables/c_cashplanline.html'>c_cashplanline</a>.[c_cashplanline_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_charge_id]</td>
+					 <td><a href='tables/c_charge.html'>c_charge</a>.[c_charge_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_elementvalue_id]</td>
+					 <td><a href='tables/c_elementvalue.html'>c_elementvalue</a>.[c_elementvalue_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_invoice_id]</td>
+					 <td><a href='tables/c_invoice.html'>c_invoice</a>.[c_invoice_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_order_id]</td>
+					 <td><a href='tables/c_order.html'>c_order</a>.[c_order_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[c_project_id]</td>
+					 <td><a href='tables/c_project.html'>c_project</a>.[c_project_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a>.[m_product_id]</td>
+					 <td><a href='tables/m_product.html'>m_product</a>.[m_product_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_mrp_crp.html'>t_mrp_crp</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_reconciliation.html'>t_reconciliation</a>.[ad_pinstance_id]</td>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a>.[ad_pinstance_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_reconciliation.html'>t_reconciliation</a>.[fact_acct_id]</td>
+					 <td><a href='tables/fact_acct.html'>fact_acct</a>.[fact_acct_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_replenish.html'>t_replenish</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a>.[c_project_id]</td>
+					 <td><a href='tables/c_project.html'>c_project</a>.[c_project_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a>.[m_inout_id]</td>
+					 <td><a href='tables/m_inout.html'>m_inout</a>.[m_inout_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a>.[m_inventory_id]</td>
+					 <td><a href='tables/m_inventory.html'>m_inventory</a>.[m_inventory_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a>.[m_movement_id]</td>
+					 <td><a href='tables/m_movement.html'>m_movement</a>.[m_movement_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a>.[m_production_id]</td>
+					 <td><a href='tables/m_production.html'>m_production</a>.[m_production_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[a_asset_id]</td>
+					 <td><a href='tables/a_asset.html'>a_asset</a>.[a_asset_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[ad_table_id]</td>
+					 <td><a href='tables/ad_table.html'>ad_table</a>.[ad_table_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_activity_id]</td>
+					 <td><a href='tables/c_activity.html'>c_activity</a>.[c_activity_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_campaign_id]</td>
+					 <td><a href='tables/c_campaign.html'>c_campaign</a>.[c_campaign_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_currency_id]</td>
+					 <td><a href='tables/c_currency.html'>c_currency</a>.[c_currency_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_period_id]</td>
+					 <td><a href='tables/c_period.html'>c_period</a>.[c_period_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_project_id]</td>
+					 <td><a href='tables/c_project.html'>c_project</a>.[c_project_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_salesregion_id]</td>
+					 <td><a href='tables/c_salesregion.html'>c_salesregion</a>.[c_salesregion_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_tax_id]</td>
+					 <td><a href='tables/c_tax.html'>c_tax</a>.[c_tax_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[c_uom_id]</td>
+					 <td><a href='tables/c_uom.html'>c_uom</a>.[c_uom_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[gl_budget_id]</td>
+					 <td><a href='tables/gl_budget.html'>gl_budget</a>.[gl_budget_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[gl_category_id]</td>
+					 <td><a href='tables/gl_category.html'>gl_category</a>.[gl_category_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[m_locator_id]</td>
+					 <td><a href='tables/m_locator.html'>m_locator</a>.[m_locator_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a>.[m_product_id]</td>
+					 <td><a href='tables/m_product.html'>m_product</a>.[m_product_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[c_bpartner_id]</td>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a>.[c_bpartner_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[c_currency_id]</td>
+					 <td><a href='tables/c_currency.html'>c_currency</a>.[c_currency_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[c_location_id]</td>
+					 <td><a href='tables/c_location.html'>c_location</a>.[c_location_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[c_payment_id]</td>
+					 <td><a href='tables/c_payment.html'>c_payment</a>.[c_payment_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[c_uom_id]</td>
+					 <td><a href='tables/c_uom.html'>c_uom</a>.[c_uom_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[m_locator_id]</td>
+					 <td><a href='tables/m_locator.html'>m_locator</a>.[m_locator_id]</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a>.[m_product_id]</td>
+					 <td><a href='tables/m_product.html'>m_product</a>.[m_product_id]</td>
+					</tr>				
+													</tbody>
+					</table>				
+				</div>
+			</div>	
+		</div>	
+		<div class="col-md-6"> <!-- Tables without indexes -->
+			<div class="box box-danger">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Tables without indexes</h3>
+				  <div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				  </div>
+				</div>	
+				<div class="box-body">
+					<table id="un_indexed_tables" class="table table-bordered table-striped dataTable" role="grid">
+					<thead align='left'>
+					<tr>
+					  <th>Table</th>
+					  <th>Rows</th>		
+				  					</tr>
+					</thead>
+					<tbody>
+									<tr>
+					 <td><a href='tables/a_asset.html'>a_asset</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_acct.html'>a_asset_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_addition.html'>a_asset_addition</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_change.html'>a_asset_change</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_change_amt.html'>a_asset_change_amt</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_class.html'>a_asset_class</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_delivery.html'>a_asset_delivery</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_disposed.html'>a_asset_disposed</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_group.html'>a_asset_group</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_group_acct.html'>a_asset_group_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_group_trl.html'>a_asset_group_trl</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_fin.html'>a_asset_info_fin</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_ins.html'>a_asset_info_ins</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_lic.html'>a_asset_info_lic</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_oth.html'>a_asset_info_oth</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_info_tax.html'>a_asset_info_tax</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_product.html'>a_asset_product</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_retirement.html'>a_asset_retirement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_reval.html'>a_asset_reval</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_reval_entry.html'>a_asset_reval_entry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_reval_index.html'>a_asset_reval_index</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_split.html'>a_asset_split</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_spread.html'>a_asset_spread</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_transfer.html'>a_asset_transfer</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_type.html'>a_asset_type</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_use.html'>a_asset_use</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation.html'>a_depreciation</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_build.html'>a_depreciation_build</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_convention.html'>a_depreciation_convention</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_entry.html'>a_depreciation_entry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_exp.html'>a_depreciation_exp</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_forecast.html'>a_depreciation_forecast</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_method.html'>a_depreciation_method</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_table_detail.html'>a_depreciation_table_detail</a></td>
+					 <td>2579</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_table_header.html'>a_depreciation_table_header</a></td>
+					 <td>122</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_depreciation_workfile.html'>a_depreciation_workfile</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_fundingmode.html'>a_fundingmode</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_fundingmode_acct.html'>a_fundingmode_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_registration.html'>a_registration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_registrationattribute.html'>a_registrationattribute</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_registrationproduct.html'>a_registrationproduct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_registrationvalue.html'>a_registrationvalue</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_accesslog.html'>ad_accesslog</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_alert.html'>ad_alert</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_alertprocessor.html'>ad_alertprocessor</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_alertprocessorlog.html'>ad_alertprocessorlog</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_alertrecipient.html'>ad_alertrecipient</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_alertrule.html'>ad_alertrule</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_archive.html'>ad_archive</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_attachment.html'>ad_attachment</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_attachmentnote.html'>ad_attachmentnote</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_attribute.html'>ad_attribute</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_attribute_value.html'>ad_attribute_value</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_broadcastmessage.html'>ad_broadcastmessage</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_broadcastmessage_trl.html'>ad_broadcastmessage_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_changelog.html'>ad_changelog</a></td>
+					 <td>2855</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_chart.html'>ad_chart</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_chart_trl.html'>ad_chart_trl</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_chartdatasource.html'>ad_chartdatasource</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_client.html'>ad_client</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_clientinfo.html'>ad_clientinfo</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_clientshare.html'>ad_clientshare</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_color.html'>ad_color</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_color_trl.html'>ad_color_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_column.html'>ad_column</a></td>
+					 <td>24680</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_column_access.html'>ad_column_access</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_column_trl.html'>ad_column_trl</a></td>
+					 <td>24680</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelp.html'>ad_ctxhelp</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelpmsg.html'>ad_ctxhelpmsg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ctxhelpmsg_trl.html'>ad_ctxhelpmsg_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_desktop.html'>ad_desktop</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_desktop_trl.html'>ad_desktop_trl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_desktopworkbench.html'>ad_desktopworkbench</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_document_action_access.html'>ad_document_action_access</a></td>
+					 <td>4018</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_element.html'>ad_element</a></td>
+					 <td>5576</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_element_trl.html'>ad_element_trl</a></td>
+					 <td>5576</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_entitytype.html'>ad_entitytype</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_error.html'>ad_error</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_field.html'>ad_field</a></td>
+					 <td>19580</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_field_trl.html'>ad_field_trl</a></td>
+					 <td>19580</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_fieldgroup.html'>ad_fieldgroup</a></td>
+					 <td>69</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_fieldgroup_trl.html'>ad_fieldgroup_trl</a></td>
+					 <td>69</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_find.html'>ad_find</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_form.html'>ad_form</a></td>
+					 <td>41</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_form_access.html'>ad_form_access</a></td>
+					 <td>206</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_form_trl.html'>ad_form_trl</a></td>
+					 <td>41</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_housekeeping.html'>ad_housekeeping</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_image.html'>ad_image</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_impformat.html'>ad_impformat</a></td>
+					 <td>15</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_impformat_row.html'>ad_impformat_row</a></td>
+					 <td>163</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_importtemplate.html'>ad_importtemplate</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_importtemplateaccess.html'>ad_importtemplateaccess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_indexcolumn.html'>ad_indexcolumn</a></td>
+					 <td>1300</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infocolumn.html'>ad_infocolumn</a></td>
+					 <td>113</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infocolumn_trl.html'>ad_infocolumn_trl</a></td>
+					 <td>113</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infoprocess.html'>ad_infoprocess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_inforelated.html'>ad_inforelated</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infowindow.html'>ad_infowindow</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infowindow_access.html'>ad_infowindow_access</a></td>
+					 <td>64</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_infowindow_trl.html'>ad_infowindow_trl</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_issue.html'>ad_issue</a></td>
+					 <td>124</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_labelprinter.html'>ad_labelprinter</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_labelprinterfunction.html'>ad_labelprinterfunction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_language.html'>ad_language</a></td>
+					 <td>109</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ldapaccess.html'>ad_ldapaccess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ldapprocessor.html'>ad_ldapprocessor</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ldapprocessorlog.html'>ad_ldapprocessorlog</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_menu.html'>ad_menu</a></td>
+					 <td>751</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_menu_trl.html'>ad_menu_trl</a></td>
+					 <td>751</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_message.html'>ad_message</a></td>
+					 <td>1663</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_message_trl.html'>ad_message_trl</a></td>
+					 <td>1663</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_migrationscript.html'>ad_migrationscript</a></td>
+					 <td>336</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_modelvalidator.html'>ad_modelvalidator</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_modification.html'>ad_modification</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_note.html'>ad_note</a></td>
+					 <td>18</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_org.html'>ad_org</a></td>
+					 <td>12</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_orginfo.html'>ad_orginfo</a></td>
+					 <td>12</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_orgtype.html'>ad_orgtype</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_exp.html'>ad_package_exp</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_exp_common.html'>ad_package_exp_common</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_exp_detail.html'>ad_package_exp_detail</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp.html'>ad_package_imp</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_backup.html'>ad_package_imp_backup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_detail.html'>ad_package_imp_detail</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_inst.html'>ad_package_imp_inst</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_imp_proc.html'>ad_package_imp_proc</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_uuid_map.html'>ad_package_uuid_map</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_password_history.html'>ad_password_history</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_passwordrule.html'>ad_passwordrule</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_pinstance.html'>ad_pinstance</a></td>
+					 <td>175</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_pinstance_log.html'>ad_pinstance_log</a></td>
+					 <td>16</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_pinstance_para.html'>ad_pinstance_para</a></td>
+					 <td>69</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_preference.html'>ad_preference</a></td>
+					 <td>56</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printcolor.html'>ad_printcolor</a></td>
+					 <td>20</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printcolor_trl.html'>ad_printcolor_trl</a></td>
+					 <td>20</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printfont.html'>ad_printfont</a></td>
+					 <td>66</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printform.html'>ad_printform</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printformat.html'>ad_printformat</a></td>
+					 <td>109</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printformat_trl.html'>ad_printformat_trl</a></td>
+					 <td>109</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printformatitem.html'>ad_printformatitem</a></td>
+					 <td>3785</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printformatitem_trl.html'>ad_printformatitem_trl</a></td>
+					 <td>3785</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printgraph.html'>ad_printgraph</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printlabel.html'>ad_printlabel</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printlabelline.html'>ad_printlabelline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printlabelline_trl.html'>ad_printlabelline_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printpaper.html'>ad_printpaper</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_printtableformat.html'>ad_printtableformat</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_private_access.html'>ad_private_access</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process.html'>ad_process</a></td>
+					 <td>426</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process_access.html'>ad_process_access</a></td>
+					 <td>2258</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process_para.html'>ad_process_para</a></td>
+					 <td>1029</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process_para_trl.html'>ad_process_para_trl</a></td>
+					 <td>1029</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process_trl.html'>ad_process_trl</a></td>
+					 <td>426</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_recentitem.html'>ad_recentitem</a></td>
+					 <td>17</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_record_access.html'>ad_record_access</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ref_list.html'>ad_ref_list</a></td>
+					 <td>1365</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ref_list_trl.html'>ad_ref_list_trl</a></td>
+					 <td>1365</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_ref_table.html'>ad_ref_table</a></td>
+					 <td>208</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_reference.html'>ad_reference</a></td>
+					 <td>515</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_reference_trl.html'>ad_reference_trl</a></td>
+					 <td>515</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_registration.html'>ad_registration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_relationtype.html'>ad_relationtype</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replication.html'>ad_replication</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replication_log.html'>ad_replication_log</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replication_run.html'>ad_replication_run</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replicationdocument.html'>ad_replicationdocument</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replicationstrategy.html'>ad_replicationstrategy</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_replicationtable.html'>ad_replicationtable</a></td>
+					 <td>473</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_reportview.html'>ad_reportview</a></td>
+					 <td>102</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_reportview_col.html'>ad_reportview_col</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_reportview_column.html'>ad_reportview_column</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_role.html'>ad_role</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_role_included.html'>ad_role_included</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_role_orgaccess.html'>ad_role_orgaccess</a></td>
+					 <td>24</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_rule.html'>ad_rule</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_schedule.html'>ad_schedule</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_scheduler.html'>ad_scheduler</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_scheduler_para.html'>ad_scheduler_para</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_schedulerlog.html'>ad_schedulerlog</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_schedulerrecipient.html'>ad_schedulerrecipient</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_searchdefinition.html'>ad_searchdefinition</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_sequence.html'>ad_sequence</a></td>
+					 <td>1691</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_sequence_audit.html'>ad_sequence_audit</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_sequence_no.html'>ad_sequence_no</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_session.html'>ad_session</a></td>
+					 <td>270</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_statusline.html'>ad_statusline</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_statuslineusedin.html'>ad_statuslineusedin</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_storageprovider.html'>ad_storageprovider</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_style.html'>ad_style</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_styleline.html'>ad_styleline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_sysconfig.html'>ad_sysconfig</a></td>
+					 <td>100</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_system.html'>ad_system</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_tab.html'>ad_tab</a></td>
+					 <td>1064</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_tab_customization.html'>ad_tab_customization</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_tab_trl.html'>ad_tab_trl</a></td>
+					 <td>1064</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_table.html'>ad_table</a></td>
+					 <td>950</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_table_access.html'>ad_table_access</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_table_scriptvalidator.html'>ad_table_scriptvalidator</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_table_trl.html'>ad_table_trl</a></td>
+					 <td>950</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_tableindex.html'>ad_tableindex</a></td>
+					 <td>1047</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_task.html'>ad_task</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_task_access.html'>ad_task_access</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_task_trl.html'>ad_task_trl</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_taskinstance.html'>ad_taskinstance</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_toolbarbutton.html'>ad_toolbarbutton</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_toolbarbuttonrestrict.html'>ad_toolbarbuttonrestrict</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_tree.html'>ad_tree</a></td>
+					 <td>39</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treebar.html'>ad_treebar</a></td>
+					 <td>22</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenode.html'>ad_treenode</a></td>
+					 <td>530</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodebp.html'>ad_treenodebp</a></td>
+					 <td>25</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodecmc.html'>ad_treenodecmc</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodecmm.html'>ad_treenodecmm</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodecms.html'>ad_treenodecms</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodecmt.html'>ad_treenodecmt</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodemm.html'>ad_treenodemm</a></td>
+					 <td>752</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodepr.html'>ad_treenodepr</a></td>
+					 <td>57</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodeu1.html'>ad_treenodeu1</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodeu2.html'>ad_treenodeu2</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodeu3.html'>ad_treenodeu3</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_treenodeu4.html'>ad_treenodeu4</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_user.html'>ad_user</a></td>
+					 <td>12</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_user_orgaccess.html'>ad_user_orgaccess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_user_roles.html'>ad_user_roles</a></td>
+					 <td>23</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_user_substitute.html'>ad_user_substitute</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userbpaccess.html'>ad_userbpaccess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userdef_field.html'>ad_userdef_field</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userdef_tab.html'>ad_userdef_tab</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userdef_win.html'>ad_userdef_win</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_usermail.html'>ad_usermail</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userpreference.html'>ad_userpreference</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_userquery.html'>ad_userquery</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_val_rule.html'>ad_val_rule</a></td>
+					 <td>281</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_viewcolumn.html'>ad_viewcolumn</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_viewcomponent.html'>ad_viewcomponent</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_activity.html'>ad_wf_activity</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_activityapprover.html'>ad_wf_activityapprover</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_activityresult.html'>ad_wf_activityresult</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_block.html'>ad_wf_block</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_eventaudit.html'>ad_wf_eventaudit</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_nextcondition.html'>ad_wf_nextcondition</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_node.html'>ad_wf_node</a></td>
+					 <td>250</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_node_para.html'>ad_wf_node_para</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_node_trl.html'>ad_wf_node_trl</a></td>
+					 <td>250</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_nodenext.html'>ad_wf_nodenext</a></td>
+					 <td>196</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_process.html'>ad_wf_process</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_processdata.html'>ad_wf_processdata</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_responsible.html'>ad_wf_responsible</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_window.html'>ad_window</a></td>
+					 <td>412</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_window_access.html'>ad_window_access</a></td>
+					 <td>2013</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_window_trl.html'>ad_window_trl</a></td>
+					 <td>412</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wizardprocess.html'>ad_wizardprocess</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workbench.html'>ad_workbench</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workbench_trl.html'>ad_workbench_trl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workbenchwindow.html'>ad_workbenchwindow</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workflow.html'>ad_workflow</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workflow_access.html'>ad_workflow_access</a></td>
+					 <td>304</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workflow_trl.html'>ad_workflow_trl</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workflowprocessor.html'>ad_workflowprocessor</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_workflowprocessorlog.html'>ad_workflowprocessorlog</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_zoomcondition.html'>ad_zoomcondition</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_clientexception.html'>asp_clientexception</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_clientlevel.html'>asp_clientlevel</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_field.html'>asp_field</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_form.html'>asp_form</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_level.html'>asp_level</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_module.html'>asp_module</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_process.html'>asp_process</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_process_para.html'>asp_process_para</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_ref_list.html'>asp_ref_list</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_tab.html'>asp_tab</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_task.html'>asp_task</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_window.html'>asp_window</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/asp_workflow.html'>asp_workflow</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_bid.html'>b_bid</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_bidcomment.html'>b_bidcomment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_buyer.html'>b_buyer</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_buyerfunds.html'>b_buyerfunds</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_offer.html'>b_offer</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_seller.html'>b_seller</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_sellerfunds.html'>b_sellerfunds</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_topic.html'>b_topic</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_topiccategory.html'>b_topiccategory</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/b_topictype.html'>b_topictype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_1099box.html'>c_1099box</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctprocessor.html'>c_acctprocessor</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctprocessorlog.html'>c_acctprocessorlog</a></td>
+					 <td>417</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctschema.html'>c_acctschema</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctschema_default.html'>c_acctschema_default</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctschema_element.html'>c_acctschema_element</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_acctschema_gl.html'>c_acctschema_gl</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_activity.html'>c_activity</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_activity_trl.html'>c_activity_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_addresstransaction.html'>c_addresstransaction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_addressvalidation.html'>c_addressvalidation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_addressvalidationcfg.html'>c_addressvalidationcfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_allocationhdr.html'>c_allocationhdr</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_allocationline.html'>c_allocationline</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bank.html'>c_bank</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankaccount.html'>c_bankaccount</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankaccount_acct.html'>c_bankaccount_acct</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankaccount_processor.html'>c_bankaccount_processor</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankaccountdoc.html'>c_bankaccountdoc</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankstatement.html'>c_bankstatement</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankstatementline.html'>c_bankstatementline</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankstatementloader.html'>c_bankstatementloader</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bankstatementmatcher.html'>c_bankstatementmatcher</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_bankaccount.html'>c_bp_bankaccount</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_customer_acct.html'>c_bp_customer_acct</a></td>
+					 <td>23</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_edi.html'>c_bp_edi</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_employee_acct.html'>c_bp_employee_acct</a></td>
+					 <td>17</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_group.html'>c_bp_group</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_group_acct.html'>c_bp_group_acct</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_relation.html'>c_bp_relation</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_shippingacct.html'>c_bp_shippingacct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_vendor_acct.html'>c_bp_vendor_acct</a></td>
+					 <td>23</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bp_withholding.html'>c_bp_withholding</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a></td>
+					 <td>23</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bpartner_location.html'>c_bpartner_location</a></td>
+					 <td>19</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bpartner_product.html'>c_bpartner_product</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_calendar.html'>c_calendar</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_campaign.html'>c_campaign</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_campaign_trl.html'>c_campaign_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cash.html'>c_cash</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cashbook.html'>c_cashbook</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cashbook_acct.html'>c_cashbook_acct</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cashline.html'>c_cashline</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cashplan.html'>c_cashplan</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cashplanline.html'>c_cashplanline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_channel.html'>c_channel</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_charge.html'>c_charge</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_charge_acct.html'>c_charge_acct</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_charge_trl.html'>c_charge_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_chargetype.html'>c_chargetype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_chargetype_doctype.html'>c_chargetype_doctype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_city.html'>c_city</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_commission.html'>c_commission</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_commissionamt.html'>c_commissionamt</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_commissiondetail.html'>c_commissiondetail</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_commissionline.html'>c_commissionline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_commissionrun.html'>c_commissionrun</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_contactactivity.html'>c_contactactivity</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_conversion_rate.html'>c_conversion_rate</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_conversiontype.html'>c_conversiontype</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_country.html'>c_country</a></td>
+					 <td>247</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_country_trl.html'>c_country_trl</a></td>
+					 <td>247</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_countrygroup.html'>c_countrygroup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_countrygroup_trl.html'>c_countrygroup_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_countrygroupcountry.html'>c_countrygroupcountry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_currency.html'>c_currency</a></td>
+					 <td>174</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_currency_acct.html'>c_currency_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_currency_trl.html'>c_currency_trl</a></td>
+					 <td>174</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cycle.html'>c_cycle</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cyclephase.html'>c_cyclephase</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_cyclestep.html'>c_cyclestep</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_depositbatch.html'>c_depositbatch</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_depositbatchline.html'>c_depositbatchline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_doctype.html'>c_doctype</a></td>
+					 <td>144</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_doctype_trl.html'>c_doctype_trl</a></td>
+					 <td>144</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_doctypecounter.html'>c_doctypecounter</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunning.html'>c_dunning</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunninglevel.html'>c_dunninglevel</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunninglevel_trl.html'>c_dunninglevel_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunningrun.html'>c_dunningrun</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunningrunentry.html'>c_dunningrunentry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_dunningrunline.html'>c_dunningrunline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_element.html'>c_element</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_elementvalue.html'>c_elementvalue</a></td>
+					 <td>489</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_elementvalue_trl.html'>c_elementvalue_trl</a></td>
+					 <td>489</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_greeting.html'>c_greeting</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_greeting_trl.html'>c_greeting_trl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_interorg_acct.html'>c_interorg_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoice.html'>c_invoice</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoicebatch.html'>c_invoicebatch</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoicebatchline.html'>c_invoicebatchline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoiceline.html'>c_invoiceline</a></td>
+					 <td>27</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoicepayschedule.html'>c_invoicepayschedule</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoiceschedule.html'>c_invoiceschedule</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_invoicetax.html'>c_invoicetax</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_job.html'>c_job</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_jobassignment.html'>c_jobassignment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_jobcategory.html'>c_jobcategory</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_jobremuneration.html'>c_jobremuneration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_landedcost.html'>c_landedcost</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_landedcostallocation.html'>c_landedcostallocation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_location.html'>c_location</a></td>
+					 <td>39</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_nonbusinessday.html'>c_nonbusinessday</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_onlinetrxhistory.html'>c_onlinetrxhistory</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_opportunity.html'>c_opportunity</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_order.html'>c_order</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_orderlandedcost.html'>c_orderlandedcost</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_orderlandedcostallocation.html'>c_orderlandedcostallocation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_orderline.html'>c_orderline</a></td>
+					 <td>25</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_orderpayschedule.html'>c_orderpayschedule</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_ordersource.html'>c_ordersource</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_ordertax.html'>c_ordertax</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_orgassignment.html'>c_orgassignment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_payment.html'>c_payment</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentallocate.html'>c_paymentallocate</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentbatch.html'>c_paymentbatch</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentprocessor.html'>c_paymentprocessor</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentterm.html'>c_paymentterm</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentterm_trl.html'>c_paymentterm_trl</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymenttransaction.html'>c_paymenttransaction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_payschedule.html'>c_payschedule</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_payselection.html'>c_payselection</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_payselectioncheck.html'>c_payselectioncheck</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_payselectionline.html'>c_payselectionline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_period.html'>c_period</a></td>
+					 <td>228</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_periodcontrol.html'>c_periodcontrol</a></td>
+					 <td>6240</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_phase.html'>c_phase</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_pos.html'>c_pos</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_poskey.html'>c_poskey</a></td>
+					 <td>163</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_poskeylayout.html'>c_poskeylayout</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_pospayment.html'>c_pospayment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_postendertype.html'>c_postendertype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_project.html'>c_project</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_project_acct.html'>c_project_acct</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projectissue.html'>c_projectissue</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projectissuema.html'>c_projectissuema</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projectline.html'>c_projectline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projectphase.html'>c_projectphase</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projecttask.html'>c_projecttask</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_projecttype.html'>c_projecttype</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_recurring.html'>c_recurring</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_recurring_run.html'>c_recurring_run</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_recurringgroup.html'>c_recurringgroup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_region.html'>c_region</a></td>
+					 <td>357</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_region_trl.html'>c_region_trl</a></td>
+					 <td>357</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_remuneration.html'>c_remuneration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_revenuerecognition.html'>c_revenuerecognition</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_revenuerecognition_plan.html'>c_revenuerecognition_plan</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_revenuerecognition_run.html'>c_revenuerecognition_run</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfq.html'>c_rfq</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfq_topic.html'>c_rfq_topic</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfq_topicsubscriber.html'>c_rfq_topicsubscriber</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfq_topicsubscriberonly.html'>c_rfq_topicsubscriberonly</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfqline.html'>c_rfqline</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfqlineqty.html'>c_rfqlineqty</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfqresponse.html'>c_rfqresponse</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfqresponseline.html'>c_rfqresponseline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_rfqresponselineqty.html'>c_rfqresponselineqty</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_salesregion.html'>c_salesregion</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_salesregion_trl.html'>c_salesregion_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_salesstage.html'>c_salesstage</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_salesstage_trl.html'>c_salesstage_trl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_servicelevel.html'>c_servicelevel</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_servicelevelline.html'>c_servicelevelline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_subacct.html'>c_subacct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_subscription.html'>c_subscription</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_subscription_delivery.html'>c_subscription_delivery</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_subscriptiontype.html'>c_subscriptiontype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_task.html'>c_task</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_tax.html'>c_tax</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_tax_acct.html'>c_tax_acct</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_tax_trl.html'>c_tax_trl</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxbase.html'>c_taxbase</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxcategory.html'>c_taxcategory</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxcategory_trl.html'>c_taxcategory_trl</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxdeclaration.html'>c_taxdeclaration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxdeclarationacct.html'>c_taxdeclarationacct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxdeclarationline.html'>c_taxdeclarationline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxdefinition.html'>c_taxdefinition</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxgroup.html'>c_taxgroup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxpostal.html'>c_taxpostal</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxprovider.html'>c_taxprovider</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxprovidercfg.html'>c_taxprovidercfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_taxtype.html'>c_taxtype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_uom.html'>c_uom</a></td>
+					 <td>14</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_uom_conversion.html'>c_uom_conversion</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_uom_trl.html'>c_uom_trl</a></td>
+					 <td>14</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_userremuneration.html'>c_userremuneration</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_validcombination.html'>c_validcombination</a></td>
+					 <td>198</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_withholding.html'>c_withholding</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_withholding_acct.html'>c_withholding_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_year.html'>c_year</a></td>
+					 <td>19</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accesscontainer.html'>cm_accesscontainer</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accesslistbpgroup.html'>cm_accesslistbpgroup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accesslistrole.html'>cm_accesslistrole</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accessmedia.html'>cm_accessmedia</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accessnewschannel.html'>cm_accessnewschannel</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accessprofile.html'>cm_accessprofile</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_accessstage.html'>cm_accessstage</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_ad.html'>cm_ad</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_ad_cat.html'>cm_ad_cat</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_broadcastserver.html'>cm_broadcastserver</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_chat.html'>cm_chat</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_chatentry.html'>cm_chatentry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_chattype.html'>cm_chattype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_chattypeupdate.html'>cm_chattypeupdate</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_chatupdate.html'>cm_chatupdate</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_container.html'>cm_container</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_container_element.html'>cm_container_element</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_container_element_trl.html'>cm_container_element_trl</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_container_trl.html'>cm_container_trl</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_container_url.html'>cm_container_url</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_containerttable.html'>cm_containerttable</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_cstage.html'>cm_cstage</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_cstage_element.html'>cm_cstage_element</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_cstage_element_trl.html'>cm_cstage_element_trl</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_cstage_trl.html'>cm_cstage_trl</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_cstagettable.html'>cm_cstagettable</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_media.html'>cm_media</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_media_server.html'>cm_media_server</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_mediadeploy.html'>cm_mediadeploy</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_newschannel.html'>cm_newschannel</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_newsitem.html'>cm_newsitem</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_template.html'>cm_template</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_template_ad_cat.html'>cm_template_ad_cat</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_templatetable.html'>cm_templatetable</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_webaccesslog.html'>cm_webaccesslog</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_webproject.html'>cm_webproject</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_webproject_domain.html'>cm_webproject_domain</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cm_wikitoken.html'>cm_wikitoken</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cust_hs_client_registration.html'>cust_hs_client_registration</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/dd_networkdistribution.html'>dd_networkdistribution</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/dd_networkdistributionline.html'>dd_networkdistributionline</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/dd_order.html'>dd_order</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/dd_orderline.html'>dd_orderline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/dual.html'>dual</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/exp_format.html'>exp_format</a></td>
+					 <td>10</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/exp_formatline.html'>exp_formatline</a></td>
+					 <td>43</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/exp_processor.html'>exp_processor</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/exp_processor_type.html'>exp_processor_type</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/exp_processorparameter.html'>exp_processorparameter</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/fact_acct.html'>fact_acct</a></td>
+					 <td>137</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/fact_acct_summary.html'>fact_acct_summary</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/fact_reconciliation.html'>fact_reconciliation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_budget.html'>gl_budget</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_budgetcontrol.html'>gl_budgetcontrol</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_category.html'>gl_category</a></td>
+					 <td>34</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_category_trl.html'>gl_category_trl</a></td>
+					 <td>34</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_distribution.html'>gl_distribution</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_distributionline.html'>gl_distributionline</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_fund.html'>gl_fund</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_fundrestriction.html'>gl_fundrestriction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journal.html'>gl_journal</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journalbatch.html'>gl_journalbatch</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journalgenerator.html'>gl_journalgenerator</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journalgeneratorline.html'>gl_journalgeneratorline</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journalgeneratorsource.html'>gl_journalgeneratorsource</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_journalline.html'>gl_journalline</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_attribute.html'>hr_attribute</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_concept.html'>hr_concept</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_concept_acct.html'>hr_concept_acct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_concept_category.html'>hr_concept_category</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_contract.html'>hr_contract</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_department.html'>hr_department</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_employee.html'>hr_employee</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_job.html'>hr_job</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_list.html'>hr_list</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_listline.html'>hr_listline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_listtype.html'>hr_listtype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_listversion.html'>hr_listversion</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_movement.html'>hr_movement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_payroll.html'>hr_payroll</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_payrollconcept.html'>hr_payrollconcept</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_period.html'>hr_period</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_process.html'>hr_process</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_year.html'>hr_year</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_asset.html'>i_asset</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_bankstatement.html'>i_bankstatement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_bpartner.html'>i_bpartner</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_conversion_rate.html'>i_conversion_rate</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_elementvalue.html'>i_elementvalue</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_fajournal.html'>i_fajournal</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_fixedasset.html'>i_fixedasset</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_gljournal.html'>i_gljournal</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_hr_movement.html'>i_hr_movement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_inoutlineconfirm.html'>i_inoutlineconfirm</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_inventory.html'>i_inventory</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_invoice.html'>i_invoice</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_movement.html'>i_movement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_order.html'>i_order</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_payment.html'>i_payment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_pricelist.html'>i_pricelist</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_product.html'>i_product</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_productplanning.html'>i_productplanning</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_reportline.html'>i_reportline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/imp_processor.html'>imp_processor</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/imp_processor_type.html'>imp_processor_type</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/imp_processorlog.html'>imp_processorlog</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/imp_processorparameter.html'>imp_processorparameter</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_category.html'>k_category</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_categoryvalue.html'>k_categoryvalue</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_comment.html'>k_comment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_entry.html'>k_entry</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_entrycategory.html'>k_entrycategory</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_entryrelated.html'>k_entryrelated</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_index.html'>k_index</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_indexlog.html'>k_indexlog</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_indexstop.html'>k_indexstop</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_source.html'>k_source</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_synonym.html'>k_synonym</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_topic.html'>k_topic</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/k_type.html'>k_type</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attribute.html'>m_attribute</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributeinstance.html'>m_attributeinstance</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributesearch.html'>m_attributesearch</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributeset.html'>m_attributeset</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributesetexclude.html'>m_attributesetexclude</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributesetinstance.html'>m_attributesetinstance</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributeuse.html'>m_attributeuse</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_attributevalue.html'>m_attributevalue</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_bom.html'>m_bom</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_bomalternative.html'>m_bomalternative</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_bomproduct.html'>m_bomproduct</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_bp_price.html'>m_bp_price</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_changenotice.html'>m_changenotice</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_changerequest.html'>m_changerequest</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_commodityshipment.html'>m_commodityshipment</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_cost.html'>m_cost</a></td>
+					 <td>305</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_costdetail.html'>m_costdetail</a></td>
+					 <td>36</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_costelement.html'>m_costelement</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_costhistory.html'>m_costhistory</a></td>
+					 <td>54</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_costqueue.html'>m_costqueue</a></td>
+					 <td>16</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_costtype.html'>m_costtype</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_demand.html'>m_demand</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_demanddetail.html'>m_demanddetail</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_demandline.html'>m_demandline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_discountschema.html'>m_discountschema</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_discountschemabreak.html'>m_discountschemabreak</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_discountschemaline.html'>m_discountschemaline</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_distributionlist.html'>m_distributionlist</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_distributionlistline.html'>m_distributionlistline</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_distributionrun.html'>m_distributionrun</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_distributionrunline.html'>m_distributionrunline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_edi.html'>m_edi</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_edi_info.html'>m_edi_info</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_forecast.html'>m_forecast</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_forecastline.html'>m_forecastline</a></td>
+					 <td>50</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_freight.html'>m_freight</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_freightcategory.html'>m_freightcategory</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inout.html'>m_inout</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inoutconfirm.html'>m_inoutconfirm</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inoutline.html'>m_inoutline</a></td>
+					 <td>27</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inoutlineconfirm.html'>m_inoutlineconfirm</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inoutlinema.html'>m_inoutlinema</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inventory.html'>m_inventory</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inventoryline.html'>m_inventoryline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_inventorylinema.html'>m_inventorylinema</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_locator.html'>m_locator</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_locatortype.html'>m_locatortype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_lot.html'>m_lot</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_lotctl.html'>m_lotctl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_lotctlexclude.html'>m_lotctlexclude</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_matchinv.html'>m_matchinv</a></td>
+					 <td>18</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_matchpo.html'>m_matchpo</a></td>
+					 <td>35</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_movement.html'>m_movement</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_movementconfirm.html'>m_movementconfirm</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_movementline.html'>m_movementline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_movementlineconfirm.html'>m_movementlineconfirm</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_movementlinema.html'>m_movementlinema</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_operationresource.html'>m_operationresource</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_package.html'>m_package</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_packageline.html'>m_packageline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_packagemps.html'>m_packagemps</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_parttype.html'>m_parttype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_perpetualinv.html'>m_perpetualinv</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_pricelist.html'>m_pricelist</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_pricelist_trl.html'>m_pricelist_trl</a></td>
+					 <td>5</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_pricelist_version.html'>m_pricelist_version</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_pricelist_version_trl.html'>m_pricelist_version_trl</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product.html'>m_product</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_acct.html'>m_product_acct</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_bom.html'>m_product_bom</a></td>
+					 <td>20</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_category.html'>m_product_category</a></td>
+					 <td>14</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_category_acct.html'>m_product_category_acct</a></td>
+					 <td>14</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_category_trl.html'>m_product_category_trl</a></td>
+					 <td>14</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_po.html'>m_product_po</a></td>
+					 <td>29</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_qualitytest.html'>m_product_qualitytest</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product_trl.html'>m_product_trl</a></td>
+					 <td>55</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productdownload.html'>m_productdownload</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_production.html'>m_production</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productionline.html'>m_productionline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productionlinema.html'>m_productionlinema</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productionplan.html'>m_productionplan</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productoperation.html'>m_productoperation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productprice.html'>m_productprice</a></td>
+					 <td>88</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_productpricevendorbreak.html'>m_productpricevendorbreak</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotion.html'>m_promotion</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotiondistribution.html'>m_promotiondistribution</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotiongroup.html'>m_promotiongroup</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotiongroupline.html'>m_promotiongroupline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotionline.html'>m_promotionline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotionprecondition.html'>m_promotionprecondition</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_promotionreward.html'>m_promotionreward</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_qualitytest.html'>m_qualitytest</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_qualitytestresult.html'>m_qualitytestresult</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_relatedproduct.html'>m_relatedproduct</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_replenish.html'>m_replenish</a></td>
+					 <td>19</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_requisition.html'>m_requisition</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_requisitionline.html'>m_requisitionline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_rma.html'>m_rma</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_rmaline.html'>m_rmaline</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_rmatax.html'>m_rmatax</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_rmatype.html'>m_rmatype</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_sernoctl.html'>m_sernoctl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_sernoctlexclude.html'>m_sernoctlexclude</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipper.html'>m_shipper</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shippercfg.html'>m_shippercfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperlabels.html'>m_shipperlabels</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperlabelscfg.html'>m_shipperlabelscfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperpackaging.html'>m_shipperpackaging</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperpackagingcfg.html'>m_shipperpackagingcfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperpickuptypes.html'>m_shipperpickuptypes</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shipperpickuptypescfg.html'>m_shipperpickuptypescfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shippingprocessor.html'>m_shippingprocessor</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shippingprocessorcfg.html'>m_shippingprocessorcfg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shippingtransaction.html'>m_shippingtransaction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_shippingtransactionline.html'>m_shippingtransactionline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_storageonhand.html'>m_storageonhand</a></td>
+					 <td>20</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_storagereservation.html'>m_storagereservation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_substitute.html'>m_substitute</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_transaction.html'>m_transaction</a></td>
+					 <td>28</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_transactionallocation.html'>m_transactionallocation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_warehouse.html'>m_warehouse</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_warehouse_acct.html'>m_warehouse_acct</a></td>
+					 <td>13</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_achievement.html'>pa_achievement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_benchmark.html'>pa_benchmark</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_benchmarkdata.html'>pa_benchmarkdata</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_colorschema.html'>pa_colorschema</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_dashboardcontent.html'>pa_dashboardcontent</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_dashboardcontent_access.html'>pa_dashboardcontent_access</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_dashboardcontent_trl.html'>pa_dashboardcontent_trl</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_dashboardpreference.html'>pa_dashboardpreference</a></td>
+					 <td>32</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_documentstatus.html'>pa_documentstatus</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_documentstatus_trl.html'>pa_documentstatus_trl</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_goal.html'>pa_goal</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_goalrestriction.html'>pa_goalrestriction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_hierarchy.html'>pa_hierarchy</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_measure.html'>pa_measure</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_measurecalc.html'>pa_measurecalc</a></td>
+					 <td>6</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_ratio.html'>pa_ratio</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_ratioelement.html'>pa_ratioelement</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_report.html'>pa_report</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportcolumn.html'>pa_reportcolumn</a></td>
+					 <td>17</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportcolumnset.html'>pa_reportcolumnset</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportcube.html'>pa_reportcube</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportline.html'>pa_reportline</a></td>
+					 <td>113</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportlineset.html'>pa_reportlineset</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportsource.html'>pa_reportsource</a></td>
+					 <td>93</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_sla_criteria.html'>pa_sla_criteria</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_sla_goal.html'>pa_sla_goal</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_sla_measure.html'>pa_sla_measure</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_cost_collector.html'>pp_cost_collector</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_cost_collectorma.html'>pp_cost_collectorma</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_mrp.html'>pp_mrp</a></td>
+					 <td>56</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order.html'>pp_order</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_bom.html'>pp_order_bom</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_bom_trl.html'>pp_order_bom_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_bomline.html'>pp_order_bomline</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_bomline_trl.html'>pp_order_bomline_trl</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_cost.html'>pp_order_cost</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_node.html'>pp_order_node</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_node_asset.html'>pp_order_node_asset</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_node_product.html'>pp_order_node_product</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_node_trl.html'>pp_order_node_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_nodenext.html'>pp_order_nodenext</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_workflow.html'>pp_order_workflow</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_order_workflow_trl.html'>pp_order_workflow_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_product_bom.html'>pp_product_bom</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_product_bom_trl.html'>pp_product_bom_trl</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_product_bomline.html'>pp_product_bomline</a></td>
+					 <td>21</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_product_bomline_trl.html'>pp_product_bomline_trl</a></td>
+					 <td>21</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_product_planning.html'>pp_product_planning</a></td>
+					 <td>219</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_wf_node_asset.html'>pp_wf_node_asset</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pp_wf_node_product.html'>pp_wf_node_product</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/qm_specification.html'>qm_specification</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/qm_specificationline.html'>qm_specificationline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_category.html'>r_category</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_categoryupdates.html'>r_categoryupdates</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_contactinterest.html'>r_contactinterest</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_group.html'>r_group</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_groupupdates.html'>r_groupupdates</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_interestarea.html'>r_interestarea</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issueknown.html'>r_issueknown</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issueproject.html'>r_issueproject</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issuerecommendation.html'>r_issuerecommendation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issuesource.html'>r_issuesource</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issuestatus.html'>r_issuestatus</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issuesystem.html'>r_issuesystem</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_issueuser.html'>r_issueuser</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_mailtext.html'>r_mailtext</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_mailtext_trl.html'>r_mailtext_trl</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_request.html'>r_request</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestaction.html'>r_requestaction</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestprocessor.html'>r_requestprocessor</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestprocessor_route.html'>r_requestprocessor_route</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestprocessorlog.html'>r_requestprocessorlog</a></td>
+					 <td>188</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requesttype.html'>r_requesttype</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requesttypeupdates.html'>r_requesttypeupdates</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestupdate.html'>r_requestupdate</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_requestupdates.html'>r_requestupdates</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_resolution.html'>r_resolution</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_standardresponse.html'>r_standardresponse</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_status.html'>r_status</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_statuscategory.html'>r_statuscategory</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_expensetype.html'>s_expensetype</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_resource.html'>s_resource</a></td>
+					 <td>11</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_resourceassignment.html'>s_resourceassignment</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_resourcetype.html'>s_resourcetype</a></td>
+					 <td>3</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_resourceunavailable.html'>s_resourceunavailable</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_timeexpense.html'>s_timeexpense</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_timeexpenseline.html'>s_timeexpenseline</a></td>
+					 <td>4</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_timetype.html'>s_timetype</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_training.html'>s_training</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/s_training_class.html'>s_training_class</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_1099extract.html'>t_1099extract</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_aging.html'>t_aging</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_alter_column.html'>t_alter_column</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bankregister.html'>t_bankregister</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bom_indented.html'>t_bom_indented</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_bomline.html'>t_bomline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_cashflow.html'>t_cashflow</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_distributionrundetail.html'>t_distributionrundetail</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_inventoryvalue.html'>t_inventoryvalue</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_invoicegl.html'>t_invoicegl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_mrp_crp.html'>t_mrp_crp</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_reconciliation.html'>t_reconciliation</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_replenish.html'>t_replenish</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_report.html'>t_report</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_reportstatement.html'>t_reportstatement</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_selection.html'>t_selection</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_selection2.html'>t_selection2</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_spool.html'>t_spool</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_transaction.html'>t_transaction</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_trialbalance.html'>t_trialbalance</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/test.html'>test</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/u_blacklistcheque.html'>u_blacklistcheque</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/u_posterminal.html'>u_posterminal</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/u_rolemenu.html'>u_rolemenu</a></td>
+					 <td>74</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/u_web_properties.html'>u_web_properties</a></td>
+					 <td>143</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/u_webmenu.html'>u_webmenu</a></td>
+					 <td>143</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_advertisement.html'>w_advertisement</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_basket.html'>w_basket</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_basketline.html'>w_basketline</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_click.html'>w_click</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_clickcount.html'>w_clickcount</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_counter.html'>w_counter</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_countercount.html'>w_countercount</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_mailmsg.html'>w_mailmsg</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_mailmsg_trl.html'>w_mailmsg_trl</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_store.html'>w_store</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_store_trl.html'>w_store_trl</a></td>
+					 <td>1</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservice.html'>ws_webservice</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservice_para.html'>ws_webservice_para</a></td>
+					 <td>7</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservicefieldinput.html'>ws_webservicefieldinput</a></td>
+					 <td>8</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservicefieldoutput.html'>ws_webservicefieldoutput</a></td>
+					 <td>0</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservicemethod.html'>ws_webservicemethod</a></td>
+					 <td>9</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservicetype.html'>ws_webservicetype</a></td>
+					 <td>2</td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ws_webservicetypeaccess.html'>ws_webservicetypeaccess</a></td>
+					 <td>2</td>
+					</tr>				
+													</tbody>
+					</table>				
+				</div>
+			</div>			
+		</div>
+		<div class="col-md-6"> <!-- Tables that contain a single column -->
+			<div class="box box-info">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Tables that contain a single column</h3>
+				  <div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				  </div>
+				</div>	
+				<div class="box-body">
+					<table id="un_indexed_tables" class="table table-bordered table-striped dataTable" role="grid">
+					<thead align='left'>
+					<tr>
+					  <th>Table</th>					  
+					  <th>Column</th>					  
+					</tr>
+					</thead>
+					<tbody>
+									<tr>
+					 <td><a href='tables/dual.html'>dual</a></td>
+					 <td></td>					 
+					</tr>				
+													</tbody>
+					</table>				
+				</div>
+			</div>			
+		</div>
+		<div class="col-md-6"> <!-- Tables with incrementing column names, potentially indicating denormalization -->
+			<div class="box box-danger">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Tables with incrementing column names, potentially indicating denormalization</h3>
+				  <div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				  </div>
+				</div>	
+				<div class="box-body">
+					<table id="un_indexed_tables" class="table table-bordered table-striped dataTable" role="grid">
+					<thead align='left'>
+					<tr>
+					  <th>Table</th>				  
+					</tr>
+					</thead>
+					<tbody>
+									<tr>
+					 <td><a href='tables/a_asset_info_oth.html'>a_asset_info_oth</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/a_asset_spread.html'>a_asset_spread</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_find.html'>ad_find</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_orginfo.html'>ad_orginfo</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_package_exp_common.html'>ad_package_exp_common</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_process_para.html'>ad_process_para</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_user.html'>ad_user</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/ad_wf_nextcondition.html'>ad_wf_nextcondition</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_addresstransaction.html'>c_addresstransaction</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bpartner.html'>c_bpartner</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_bpartner_location.html'>c_bpartner_location</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_location.html'>c_location</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/c_paymentterm.html'>c_paymentterm</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/cust_hs_client_registration.html'>cust_hs_client_registration</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_distribution.html'>gl_distribution</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/gl_distributionline.html'>gl_distributionline</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_employee.html'>hr_employee</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/hr_listline.html'>hr_listline</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_bpartner.html'>i_bpartner</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_invoice.html'>i_invoice</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/i_order.html'>i_order</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_discountschemaline.html'>m_discountschemaline</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/m_product.html'>m_product</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportcolumn.html'>pa_reportcolumn</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/pa_reportsource.html'>pa_reportsource</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_mailtext.html'>r_mailtext</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/r_mailtext_trl.html'>r_mailtext_trl</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_1099extract.html'>t_1099extract</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/t_report.html'>t_report</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_advertisement.html'>w_advertisement</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_mailmsg.html'>w_mailmsg</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_mailmsg_trl.html'>w_mailmsg_trl</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_store.html'>w_store</a></td>
+					</tr>				
+									<tr>
+					 <td><a href='tables/w_store_trl.html'>w_store_trl</a></td>
+					</tr>				
+													</tbody>
+					</table>				
+				</div>
+			</div>			
+		</div>	
+		<div class="col-md-6"> <!-- Columns whose default value is the word 'NULL' or 'null', but the SQL NULL value may have been intended -->
+			<div class="box box-primary">
+				<div class="box-header with-border">
+				  <h3 class="box-title" title="Columns whose default value is the word 'NULL' or 'null', but the SQL NULL value may have been intende">Columns whose default value is the word 'NULL' or 'null'</h3>
+				  <div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				  </div>
+				</div>	
+				<div class="box-body">
+					<table id="un_indexed_tables" class="table table-bordered table-striped dataTable" role="grid">
+					<thead align='left'>
+					<tr>
+					  <th>Table</th>				  
+					</tr>
+					</thead>
+					<tbody>
+									<tr><td colspan="3">Anomaly not detected</td></tr>
+									</tbody>
+					</table>				
+				</div>
+			</div>			
+		</div>			
+	 </div>
+	 </section>    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="bower/codemirror/codemirror.js"></script>
+<script src="bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="bower/admin-lte/dist/js/app.min.js"></script>
+<script src="anomalies.js"></script>
+<script src="schemaSpy.js"></script>
+</body>
+</html>
