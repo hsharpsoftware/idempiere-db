@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ad_window_vt - idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="../schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../bower/html5shiv/html5shiv.min.js"></script>
+  <script src="../bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="../components.html" title="List of system components">Components</a></li>-->
+			<li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>ad_window_vt</h1></br>
+		      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 id="Columns" class="box-title">Columns</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+            <div class="box-body">
+				<table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Column</th>
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Columns in tables that reference this column'>Children</th>
+				  <th title='Columns in tables that are referenced by this column'>Parents</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_language">ad_language</span></td>
+				 <td>varchar</td>
+				 <td>6</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_window_vt.ad_language&#39;s name implies that it&#39;s a child of ad_language.ad_language, but it doesn&#39;t reference that column.">
+						<a href='ad_language.html'>ad_language</a><span class='relatedKey'>.ad_language</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_window_id">ad_window_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_window_vt.ad_window_id&#39;s name implies that it&#39;s a child of ad_window.ad_window_id, but it doesn&#39;t reference that column.">
+						<a href='ad_window.html'>ad_window</a><span class='relatedKey'>.ad_window_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="name">name</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="description">description</span></td>
+				 <td>varchar</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="help">help</span></td>
+				 <td>varchar</td>
+				 <td>2000</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="windowtype">windowtype</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_color_id">ad_color_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_window_vt.ad_color_id&#39;s name implies that it&#39;s a child of ad_color.ad_color_id, but it doesn&#39;t reference that column.">
+						<a href='ad_color.html'>ad_color</a><span class='relatedKey'>.ad_color_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_image_id">ad_image_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_window_vt.ad_image_id&#39;s name implies that it&#39;s a child of ad_image.ad_image_id, but it doesn&#39;t reference that column.">
+						<a href='ad_image.html'>ad_image</a><span class='relatedKey'>.ad_image_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isactive">isactive</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="winwidth">winwidth</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="winheight">winheight</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="issotrx">issotrx</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_window_uu">ad_window_uu</span></td>
+				 <td>varchar</td>
+				 <td>36</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>
+				<p title='13 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
+			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
+			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="ad_window_vt.html" title="ad_window_vt" alt="" coords="5,5,287,432">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/ad_window_vt.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="ad_window_vt.html" title="ad_window_vt" alt="" coords="268,264,549,691">
+<area shape="rect" id="node2" href="ad_color.html" title="ad_color" alt="" coords="22,509,207,656">
+<area shape="rect" id="node3" href="ad_image.html" title="ad_image" alt="" coords="32,673,197,820">
+<area shape="rect" id="node4" href="ad_language.html" title="ad_language" alt="" coords="9,5,221,211">
+<area shape="rect" id="node5" href="ad_window.html" title="ad_window" alt="" coords="5,228,224,492">
+</map>
+
+					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/ad_window_vt.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="ad_field_v.html" title="ad_field_v" alt="" coords="639,87,788,151">
+<area shape="rect" id="node2" href="ad_window.html" title="ad_window" alt="" coords="305,256,524,520">
+<area shape="rect" id="node6" title="adempiere.ad_entitytype" alt="" coords="7,172,259,260">
+<area shape="rect" id="node7" title="adempiere.ad_client" alt="" coords="23,281,244,369">
+<area shape="rect" id="node8" title="adempiere.ad_org" alt="" coords="30,387,237,475">
+<area shape="rect" id="node12" title="adempiere.ad_color" alt="" coords="24,597,243,685">
+<area shape="rect" id="node13" title="adempiere.ad_image" alt="" coords="21,492,246,580">
+<area shape="rect" id="node3" href="ad_field_vt.html" title="ad_field_vt" alt="" coords="636,693,791,757">
+<area shape="rect" id="node4" href="ad_language.html" title="ad_language" alt="" coords="309,2236,521,2441">
+<area shape="rect" id="node9" title="adempiere.ad_printpaper" alt="" coords="5,2327,261,2415">
+<area shape="rect" id="node10" href="ad_tab_v.html" title="ad_tab_v" alt="" coords="643,5,784,69">
+<area shape="rect" id="node11" href="ad_tab_vt.html" title="ad_tab_vt" alt="" coords="640,168,787,232">
+<area shape="rect" id="node14" href="ad_window_vt.html" title="ad_window_vt" alt="" coords="573,249,854,676">
+<area shape="rect" id="node16" href="c_dunning_header_v.html" title="c_dunning_header_v" alt="" coords="601,1995,825,2059">
+<area shape="rect" id="node17" href="c_dunning_header_vt.html" title="c_dunning_header_vt" alt="" coords="599,2076,828,2140">
+<area shape="rect" id="node18" href="c_dunning_line_vt.html" title="c_dunning_line_vt" alt="" coords="610,2157,817,2221">
+<area shape="rect" id="node19" href="c_invoice_header_v.html" title="c_invoice_header_v" alt="" coords="605,2239,821,2303">
+<area shape="rect" id="node20" href="c_invoice_header_vt.html" title="c_invoice_header_vt" alt="" coords="603,2320,824,2384">
+<area shape="rect" id="node21" href="c_invoice_linetax_vt.html" title="c_invoice_linetax_vt" alt="" coords="604,2401,823,2465">
+<area shape="rect" id="node22" href="c_order_header_v.html" title="c_order_header_v" alt="" coords="611,2483,815,2547">
+<area shape="rect" id="node23" href="c_order_header_vt.html" title="c_order_header_vt" alt="" coords="609,2564,818,2628">
+<area shape="rect" id="node24" href="c_order_linetax_vt.html" title="c_order_linetax_vt" alt="" coords="610,2645,817,2709">
+<area shape="rect" id="node25" href="c_payselection_check_v.html" title="c_payselection_check_v" alt="" coords="590,2727,837,2791">
+<area shape="rect" id="node26" href="c_payselection_check_vt.html" title="c_payselection_check_vt" alt="" coords="587,2808,839,2872">
+<area shape="rect" id="node27" href="c_payselection_remittance_vt.html" title="c_payselection_remittance_vt" alt="" coords="571,2889,856,2953">
+<area shape="rect" id="node28" href="c_project_details_vt.html" title="c_project_details_vt" alt="" coords="604,2971,823,3035">
+<area shape="rect" id="node29" href="c_project_header_v.html" title="c_project_header_v" alt="" coords="606,3052,821,3116">
+<area shape="rect" id="node30" href="c_project_header_vt.html" title="c_project_header_vt" alt="" coords="603,3133,823,3197">
+<area shape="rect" id="node31" href="c_rfqresponse_vt.html" title="c_rfqresponse_vt" alt="" coords="613,3215,813,3279">
+<area shape="rect" id="node32" href="c_rfqresponseline_vt.html" title="c_rfqresponseline_vt" alt="" coords="601,3296,826,3360">
+<area shape="rect" id="node33" href="c_rfqresponselineqty_vt.html" title="c_rfqresponselineqty_vt" alt="" coords="590,3377,837,3441">
+<area shape="rect" id="node34" href="dd_order_header_vt.html" title="dd_order_header_vt" alt="" coords="604,3459,823,3523">
+<area shape="rect" id="node35" href="m_inout_header_v.html" title="m_inout_header_v" alt="" coords="610,3540,817,3604">
+<area shape="rect" id="node36" href="m_inout_header_vt.html" title="m_inout_header_vt" alt="" coords="607,775,819,839">
+<area shape="rect" id="node37" href="m_inout_line_vt.html" title="m_inout_line_vt" alt="" coords="619,856,808,920">
+<area shape="rect" id="node38" href="m_inout_lineconfirm_vt.html" title="m_inout_lineconfirm_vt" alt="" coords="592,937,835,1001">
+<area shape="rect" id="node39" href="m_inoutconfirm_vt.html" title="m_inoutconfirm_vt" alt="" coords="608,1019,819,1083">
+<area shape="rect" id="node40" href="pp_order_bom_header_vt.html" title="pp_order_bom_header_vt" alt="" coords="584,1100,843,1164">
+<area shape="rect" id="node41" href="pp_order_bomline_vt.html" title="pp_order_bomline_vt" alt="" coords="600,1181,827,1245">
+<area shape="rect" id="node42" href="pp_order_header_vt.html" title="pp_order_header_vt" alt="" coords="604,1263,823,1327">
+<area shape="rect" id="node43" href="pp_order_node_vt.html" title="pp_order_node_vt" alt="" coords="610,1344,817,1408">
+<area shape="rect" id="node44" href="pp_order_workflow_header_vt.html" title="pp_order_workflow_header_vt" alt="" coords="568,1425,859,1489">
+<area shape="rect" id="node45" href="pp_product_bomline_vt.html" title="pp_product_bomline_vt" alt="" coords="591,1507,835,1571">
+<area shape="rect" id="node46" href="rv_bpartner.html" title="rv_bpartner" alt="" coords="633,1588,793,1652">
+<area shape="rect" id="node47" href="rv_c_invoice.html" title="rv_c_invoice" alt="" coords="630,1669,797,1733">
+<area shape="rect" id="node48" href="rv_c_invoicetax.html" title="rv_c_invoicetax" alt="" coords="620,1751,807,1815">
+<area shape="rect" id="node49" href="rv_fact_acct.html" title="rv_fact_acct" alt="" coords="632,1832,795,1896">
+<area shape="rect" id="node50" href="t_rv_reconciliation.html" title="t_rv_reconciliation" alt="" coords="609,1913,817,1977">
+</map>
+
+					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/ad_window_vt.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
+		</div>
+		<div class="box box-primary">		
+			<div class="box-header with-border">
+			  <i class="fa fa-file-code-o"></i>
+
+			  <h3 id="ViewDefinition" class="box-title">View Definition</h3>
+
+			  <div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				</button>
+				<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+			  </div>
+			</div>	
+			<div class="box-body">
+				<textarea id="code" name="code" rows="" style="display: none;">SELECT trl.ad_language,&#10;    bt.ad_window_id,&#10;    trl.name,&#10;    trl.description,&#10;    trl.help,&#10;    bt.windowtype,&#10;    bt.ad_color_id,&#10;    bt.ad_image_id,&#10;    bt.isactive,&#10;    bt.winwidth,&#10;    bt.winheight,&#10;    bt.issotrx,&#10;    bt.ad_window_uu&#10;   FROM (ad_window bt&#10;     JOIN ad_window_trl trl ON ((bt.ad_window_id = trl.ad_window_id)))&#10;  WHERE (bt.isactive = &#39;Y&#39;::bpchar);</textarea>
+				<div style="padding-top: 5px;"><hr></div>
+				<div class="box box-solid">
+					<div class="box-header with-border">
+					  <i class="fa fa-puzzle-piece"></i>
+					  <h3 class="box-title">Possibly Referenced Tables/Views</h3>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+					  <ul class="list-unstyled">
+						<li><a href="ad_window_trl.html">ad_window_trl</a></li>
+						<li><a href="ad_window.html">ad_window</a></li>
+					  </ul>
+					</div>
+					<!-- /.box-body -->
+				 </div>					
+			</div><!-- /.box-body -->			
+		</div>		
+	      </section>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="../bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="../bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="../bower/codemirror/codemirror.js"></script>
+<script src="../bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="../bower/admin-lte/dist/js/app.min.js"></script>
+<script src="table.js"></script>
+<script src="../schemaSpy.js"></script>
+</body>
+</html>

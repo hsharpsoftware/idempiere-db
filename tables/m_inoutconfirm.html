@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>m_inoutconfirm - idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="../schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../bower/html5shiv/html5shiv.min.js"></script>
+  <script src="../bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="../components.html" title="List of system components">Components</a></li>-->
+			<li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>m_inoutconfirm</h1></br>
+		      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 id="Columns" class="box-title">Columns</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+            <div class="box-body">
+				<table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Column</th>
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Columns in tables that reference this column'>Children</th>
+				  <th title='Columns in tables that are referenced by this column'>Parents</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_inoutconfirm_id">m_inoutconfirm_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="m_inout_lineconfirm_v.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='m_inout_lineconfirm_v.html'>m_inout_lineconfirm_v</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="m_inout_lineconfirm_vt.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='m_inout_lineconfirm_vt.html'>m_inout_lineconfirm_vt</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="m_inoutconfirm_v.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='m_inoutconfirm_v.html'>m_inoutconfirm_v</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="m_inoutconfirm_vt.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='m_inoutconfirm_vt.html'>m_inoutconfirm_vt</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="rv_inoutconfirm.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='rv_inoutconfirm.html'>rv_inoutconfirm</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="rv_inoutlineconfirm.m_inoutconfirm_id&#39;s name implies that it&#39;s a child of m_inoutconfirm.m_inoutconfirm_id, but it doesn&#39;t reference that column.">
+						<a href='rv_inoutlineconfirm.html'>rv_inoutlineconfirm</a><span class='relatedKey'>.m_inoutconfirm_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_client_id">ad_client_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_org_id">ad_org_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isactive">isactive</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;Y&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="created">created</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>now()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="createdby">createdby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updated">updated</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>now()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updatedby">updatedby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="documentno">documentno</span></td>
+				 <td>varchar</td>
+				 <td>30</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_inout_id">m_inout_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="m_inoutconfirm.m_inout_id references adempiere.m_inout.m_inout_id via minout_minoutconfirm">
+						<a href='../../adempiere/tables/m_inout.html'>m_inout</a><span class='relatedKey'>.m_inout_id</span>
+					</td>
+					<td class="constraint detail">
+						minout_minoutconfirm <span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="confirmtype">confirmtype</span></td>
+				 <td>bpchar</td>
+				 <td>2</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isapproved">isapproved</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;N&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="description">description</span></td>
+				 <td>varchar</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="processing">processing</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="processed">processed</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;N&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="createpackage">createpackage</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="iscancelled">iscancelled</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;N&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="docstatus">docstatus</span></td>
+				 <td>bpchar</td>
+				 <td>2</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="docaction">docaction</span></td>
+				 <td>bpchar</td>
+				 <td>2</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isindispute">isindispute</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;N&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_inventory_id">m_inventory_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="m_inoutconfirm.m_inventory_id references adempiere.m_inventory.m_inventory_id via minventory_minoutconfirm">
+						<a href='../../adempiere/tables/m_inventory.html'>m_inventory</a><span class='relatedKey'>.m_inventory_id</span>
+					</td>
+					<td class="constraint detail">
+						minventory_minoutconfirm <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_invoice_id">c_invoice_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="m_inoutconfirm.c_invoice_id references adempiere.c_invoice.c_invoice_id via cinvoice_minoutconfirm">
+						<a href='../../adempiere/tables/c_invoice.html'>c_invoice</a><span class='relatedKey'>.c_invoice_id</span>
+					</td>
+					<td class="constraint detail">
+						cinvoice_minoutconfirm <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="approvalamt">approvalamt</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="confirmationno">confirmationno</span></td>
+				 <td>varchar</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="m_inoutconfirm_uu">m_inoutconfirm_uu</span></td>
+				 <td>varchar</td>
+				 <td>36</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>
+				<p title='25 columns'>Table contained <span id="recordNumber">1</span> rows<p/>
+			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
+			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
+			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="m_inoutconfirm.html" title="m_inoutconfirm" alt="" coords="295,5,636,808">
+<area shape="rect" id="node2" title="adempiere.c_invoice" alt="" coords="16,667,240,755">
+<area shape="rect" id="node3" title="adempiere.m_inout" alt="" coords="21,277,235,365">
+<area shape="rect" id="node4" title="adempiere.m_inventory" alt="" coords="5,561,251,649">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/m_inoutconfirm.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="a_asset_addition.html" title="a_asset_addition" alt="" coords="293,1269,491,1357">
+<area shape="rect" id="node3" href="a_asset_disposed.html" title="a_asset_disposed" alt="" coords="289,1375,495,1463">
+<area shape="rect" id="node4" href="c_allocationline.html" title="c_allocationline" alt="" coords="297,1480,487,1568">
+<area shape="rect" id="node5" href="c_bankstatementline.html" title="c_bankstatementline" alt="" coords="279,1585,505,1673">
+<area shape="rect" id="node6" href="c_cashline.html" title="c_cashline" alt="" coords="315,1691,469,1779">
+<area shape="rect" id="node7" href="c_dunningrunline.html" title="c_dunningrunline" alt="" coords="290,1796,494,1884">
+<area shape="rect" id="node8" href="c_invoice.html" title="c_invoice" alt="" coords="319,1901,465,1989">
+<area shape="rect" id="node9" href="c_invoicebatchline.html" title="c_invoicebatchline" alt="" coords="287,2007,497,2095">
+<area shape="rect" id="node10" href="c_invoiceline.html" title="c_invoiceline" alt="" coords="306,2112,478,2200">
+<area shape="rect" id="node11" href="c_invoicepayschedule.html" title="c_invoicepayschedule" alt="" coords="275,2217,509,2305">
+<area shape="rect" id="node12" href="c_invoicetax.html" title="c_invoicetax" alt="" coords="308,2323,476,2411">
+<area shape="rect" id="node13" href="c_landedcost.html" title="c_landedcost" alt="" coords="305,3165,479,3253">
+<area shape="rect" id="node15" href="c_payment.html" title="c_payment" alt="" coords="313,2428,471,2516">
+<area shape="rect" id="node16" href="c_paymentallocate.html" title="c_paymentallocate" alt="" coords="287,5,497,93">
+<area shape="rect" id="node17" href="c_paymenttransaction.html" title="c_paymenttransaction" alt="" coords="274,111,510,199">
+<area shape="rect" id="node18" href="c_payselectionline.html" title="c_payselectionline" alt="" coords="287,216,497,304">
+<area shape="rect" id="node19" href="c_recurring.html" title="c_recurring" alt="" coords="311,321,473,409">
+<area shape="rect" id="node20" href="c_recurring_run.html" title="c_recurring_run" alt="" coords="295,427,489,515">
+<area shape="rect" id="node21" href="c_taxdeclarationline.html" title="c_taxdeclarationline" alt="" coords="281,532,503,620">
+<area shape="rect" id="node22" href="dd_order.html" title="dd_order" alt="" coords="319,637,465,725">
+<area shape="rect" id="node23" href="i_bankstatement.html" title="i_bankstatement" alt="" coords="294,743,490,831">
+<area shape="rect" id="node24" href="i_inventory.html" title="i_inventory" alt="" coords="313,4091,471,4179">
+<area shape="rect" id="node26" href="i_invoice.html" title="i_invoice" alt="" coords="321,848,463,936">
+<area shape="rect" id="node27" href="i_payment.html" title="i_payment" alt="" coords="315,953,469,1041">
+<area shape="rect" id="node28" href="m_inout.html" title="m_inout" alt="" coords="323,1059,461,1147">
+<area shape="rect" id="node29" href="m_inoutconfirm.html" title="m_inoutconfirm" alt="" coords="221,3271,563,4073">
+<area shape="rect" id="node30" href="m_inoutline.html" title="m_inoutline" alt="" coords="311,2849,473,2937">
+<area shape="rect" id="node31" href="m_inventory.html" title="m_inventory" alt="" coords="308,4196,476,4284">
+<area shape="rect" id="node32" href="m_inventoryline.html" title="m_inventoryline" alt="" coords="295,4301,489,4389">
+<area shape="rect" id="node33" href="m_movementconfirm.html" title="m_movementconfirm" alt="" coords="277,4407,507,4495">
+<area shape="rect" id="node34" href="m_package.html" title="m_package" alt="" coords="312,2955,472,3043">
+<area shape="rect" id="node35" href="m_rma.html" title="m_rma" alt="" coords="327,3060,457,3148">
+<area shape="rect" id="node36" href="m_shippingtransaction.html" title="m_shippingtransaction" alt="" coords="271,2639,513,2727">
+<area shape="rect" id="node37" href="r_request.html" title="r_request" alt="" coords="318,2533,466,2621">
+<area shape="rect" id="node38" href="r_requestaction.html" title="r_requestaction" alt="" coords="297,2744,487,2832">
+<area shape="rect" id="node39" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="313,1164,471,1252">
+</map>
+
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/m_inoutconfirm.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="m_inout_lineconfirm_v.html" title="m_inout_lineconfirm_v" alt="" coords="680,5,964,363">
+<area shape="rect" id="node2" href="m_inoutconfirm.html" title="m_inoutconfirm" alt="" coords="295,955,636,1757">
+<area shape="rect" id="node4" title="adempiere.c_invoice" alt="" coords="16,1616,240,1704">
+<area shape="rect" id="node5" title="adempiere.m_inout" alt="" coords="21,1227,235,1315">
+<area shape="rect" id="node6" title="adempiere.m_inventory" alt="" coords="5,1511,251,1599">
+<area shape="rect" id="node3" href="m_inout_lineconfirm_vt.html" title="m_inout_lineconfirm_vt" alt="" coords="680,380,964,767">
+<area shape="rect" id="node7" href="m_inoutconfirm_v.html" title="m_inoutconfirm_v" alt="" coords="697,784,947,1083">
+<area shape="rect" id="node8" href="m_inoutconfirm_vt.html" title="m_inoutconfirm_vt" alt="" coords="697,1100,947,1428">
+<area shape="rect" id="node9" href="rv_inoutconfirm.html" title="rv_inoutconfirm" alt="" coords="697,1445,947,1685">
+<area shape="rect" id="node10" href="rv_inoutlineconfirm.html" title="rv_inoutlineconfirm" alt="" coords="680,1703,964,2089">
+</map>
+
+					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/m_inoutconfirm.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="a_asset_addition.html" title="a_asset_addition" alt="" coords="293,1901,491,1989">
+<area shape="rect" id="node3" href="a_asset_disposed.html" title="a_asset_disposed" alt="" coords="289,2007,495,2095">
+<area shape="rect" id="node4" href="c_allocationline.html" title="c_allocationline" alt="" coords="297,2148,487,2236">
+<area shape="rect" id="node5" href="c_bankstatementline.html" title="c_bankstatementline" alt="" coords="279,2885,505,2973">
+<area shape="rect" id="node6" href="c_cashline.html" title="c_cashline" alt="" coords="315,5,469,93">
+<area shape="rect" id="node7" href="c_dunningrunline.html" title="c_dunningrunline" alt="" coords="290,111,494,199">
+<area shape="rect" id="node8" href="c_invoice.html" title="c_invoice" alt="" coords="319,216,465,304">
+<area shape="rect" id="node9" href="c_invoicebatchline.html" title="c_invoicebatchline" alt="" coords="287,321,497,409">
+<area shape="rect" id="node10" href="c_invoiceline.html" title="c_invoiceline" alt="" coords="306,427,478,515">
+<area shape="rect" id="node11" href="c_invoicepayschedule.html" title="c_invoicepayschedule" alt="" coords="275,532,509,620">
+<area shape="rect" id="node12" href="c_invoicetax.html" title="c_invoicetax" alt="" coords="308,637,476,725">
+<area shape="rect" id="node13" href="c_landedcost.html" title="c_landedcost" alt="" coords="305,4969,479,5057">
+<area shape="rect" id="node15" href="c_payment.html" title="c_payment" alt="" coords="313,743,471,831">
+<area shape="rect" id="node16" href="c_paymentallocate.html" title="c_paymentallocate" alt="" coords="287,848,497,936">
+<area shape="rect" id="node17" href="c_paymenttransaction.html" title="c_paymenttransaction" alt="" coords="631,2164,867,2252">
+<area shape="rect" id="node18" href="c_doctype.html" title="c_doctype" alt="" coords="314,2253,470,2341">
+<area shape="rect" id="node19" href="c_payselectionline.html" title="c_payselectionline" alt="" coords="287,953,497,1041">
+<area shape="rect" id="node20" href="c_recurring.html" title="c_recurring" alt="" coords="311,1059,473,1147">
+<area shape="rect" id="node21" href="c_recurring_run.html" title="c_recurring_run" alt="" coords="295,1164,489,1252">
+<area shape="rect" id="node22" href="c_taxdeclarationline.html" title="c_taxdeclarationline" alt="" coords="281,1269,503,1357">
+<area shape="rect" id="node23" href="dd_order.html" title="dd_order" alt="" coords="319,1375,465,1463">
+<area shape="rect" id="node24" href="i_bankstatement.html" title="i_bankstatement" alt="" coords="294,1480,490,1568">
+<area shape="rect" id="node25" href="i_inventory.html" title="i_inventory" alt="" coords="313,5601,471,5689">
+<area shape="rect" id="node27" href="i_invoice.html" title="i_invoice" alt="" coords="321,1585,463,1673">
+<area shape="rect" id="node28" href="i_payment.html" title="i_payment" alt="" coords="315,1691,469,1779">
+<area shape="rect" id="node29" href="m_inout_lineconfirm_v.html" title="m_inout_lineconfirm_v" alt="" coords="607,4849,891,5207">
+<area shape="rect" id="node30" href="m_attributeset.html" title="m_attributeset" alt="" coords="301,5180,483,5268">
+<area shape="rect" id="node31" href="m_attributesetinstance.html" title="m_attributesetinstance" alt="" coords="271,5075,513,5163">
+<area shape="rect" id="node32" href="m_inoutconfirm.html" title="m_inoutconfirm" alt="" coords="221,3412,563,4215">
+<area shape="rect" id="node33" href="m_inoutline.html" title="m_inoutline" alt="" coords="311,4548,473,4636">
+<area shape="rect" id="node34" href="m_inoutlineconfirm.html" title="m_inoutlineconfirm" alt="" coords="283,4443,501,4531">
+<area shape="rect" id="node35" href="m_locator.html" title="m_locator" alt="" coords="317,4864,467,4952">
+<area shape="rect" id="node36" href="m_lot.html" title="m_lot" alt="" coords="322,5285,462,5373">
+<area shape="rect" id="node37" href="m_product.html" title="m_product" alt="" coords="313,4759,471,4847">
+<area shape="rect" id="node38" href="m_warehouse.html" title="m_warehouse" alt="" coords="303,4337,481,4425">
+<area shape="rect" id="node39" href="m_inout_lineconfirm_vt.html" title="m_inout_lineconfirm_vt" alt="" coords="607,4445,891,4832">
+<area shape="rect" id="node40" href="ad_language.html" title="ad_language" alt="" coords="307,2780,477,2868">
+<area shape="rect" id="node41" href="m_inoutconfirm_v.html" title="m_inoutconfirm_v" alt="" coords="623,2336,874,2635">
+<area shape="rect" id="node42" href="c_bpartner.html" title="c_bpartner" alt="" coords="310,2464,474,2552">
+<area shape="rect" id="node43" href="c_bpartner_location.html" title="c_bpartner_location" alt="" coords="281,2569,503,2657">
+<area shape="rect" id="node44" href="c_order.html" title="c_order" alt="" coords="318,2675,466,2763">
+<area shape="rect" id="node45" href="m_shipper.html" title="m_shipper" alt="" coords="315,2359,469,2447">
+<area shape="rect" id="node46" href="m_inoutconfirm_vt.html" title="m_inoutconfirm_vt" alt="" coords="623,2652,874,2980">
+<area shape="rect" id="node47" href="m_inventory.html" title="m_inventory" alt="" coords="308,5707,476,5795">
+<area shape="rect" id="node48" href="m_inventoryline.html" title="m_inventoryline" alt="" coords="295,5391,489,5479">
+<area shape="rect" id="node49" href="m_movementconfirm.html" title="m_movementconfirm" alt="" coords="277,5496,507,5584">
+<area shape="rect" id="node50" href="m_package.html" title="m_package" alt="" coords="312,3307,472,3395">
+<area shape="rect" id="node51" href="m_rma.html" title="m_rma" alt="" coords="327,4653,457,4741">
+<area shape="rect" id="node52" href="m_shippingtransaction.html" title="m_shippingtransaction" alt="" coords="271,3096,513,3184">
+<area shape="rect" id="node53" href="r_request.html" title="r_request" alt="" coords="318,2991,466,3079">
+<area shape="rect" id="node54" href="r_requestaction.html" title="r_requestaction" alt="" coords="297,3201,487,3289">
+<area shape="rect" id="node55" href="rv_inoutconfirm.html" title="rv_inoutconfirm" alt="" coords="623,2997,874,3237">
+<area shape="rect" id="node56" href="rv_inoutlineconfirm.html" title="rv_inoutlineconfirm" alt="" coords="607,4041,891,4428">
+<area shape="rect" id="node57" href="m_inout.html" title="m_inout" alt="" coords="318,4232,466,4320">
+<area shape="rect" id="node58" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="313,1796,471,1884">
+</map>
+
+					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/m_inoutconfirm.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
+		</div>
+	      </section>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="../bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="../bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="../bower/codemirror/codemirror.js"></script>
+<script src="../bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="../bower/admin-lte/dist/js/app.min.js"></script>
+<script src="table.js"></script>
+<script src="../schemaSpy.js"></script>
+</body>
+</html>

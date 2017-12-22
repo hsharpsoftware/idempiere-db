@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>i_fajournal - idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="../schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../bower/html5shiv/html5shiv.min.js"></script>
+  <script src="../bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="../components.html" title="List of system components">Components</a></li>-->
+			<li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>i_fajournal</h1></br>
+		      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 id="Columns" class="box-title">Columns</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+            <div class="box-body">
+				<table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Column</th>
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Columns in tables that reference this column'>Children</th>
+				  <th title='Columns in tables that are referenced by this column'>Parents</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_subacct_id">c_subacct_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_subacct_id&#39;s name implies that it&#39;s a child of c_subacct.c_subacct_id, but it doesn&#39;t reference that column.">
+						<a href='c_subacct.html'>c_subacct</a><span class='relatedKey'>.c_subacct_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="userelement1_id">userelement1_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="userelement2_id">userelement2_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="i_fajournal_id">i_fajournal_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_client_id">ad_client_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_orgdoc_id">ad_orgdoc_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.ad_orgdoc_id references adempiere.ad_org.ad_org_id via adorgdoc_ifajournal">
+						<a href='../../adempiere/tables/ad_org.html'>ad_org</a><span class='relatedKey'>.ad_org_id</span>
+					</td>
+					<td class="constraint detail">
+						adorgdoc_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_orgtrx_id">ad_orgtrx_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.ad_orgtrx_id references adempiere.ad_org.ad_org_id via adorgtrx_ifajournal">
+						<a href='../../adempiere/tables/ad_org.html'>ad_org</a><span class='relatedKey'>.ad_org_id</span>
+					</td>
+					<td class="constraint detail">
+						adorgtrx_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_org_id">ad_org_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="a_asset_id">a_asset_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.a_asset_id&#39;s name implies that it&#39;s a child of a_asset.a_asset_id, but it doesn&#39;t reference that column.">
+						<a href='a_asset.html'>a_asset</a><span class='relatedKey'>.a_asset_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="a_entry_type">a_entry_type</span></td>
+				 <td>varchar</td>
+				 <td>3</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="accountvalue">accountvalue</span></td>
+				 <td>varchar</td>
+				 <td>80</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="account_id">account_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.account_id references adempiere.c_elementvalue.c_elementvalue_id via account_ifajournal">
+						<a href='../../adempiere/tables/c_elementvalue.html'>c_elementvalue</a><span class='relatedKey'>.c_elementvalue_id</span>
+					</td>
+					<td class="constraint detail">
+						account_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="acctschemaname">acctschemaname</span></td>
+				 <td>varchar</td>
+				 <td>120</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtacctcr">amtacctcr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtacctdr">amtacctdr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtsourcecr">amtsourcecr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtsourcedr">amtsourcedr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="bpartnervalue">bpartnervalue</span></td>
+				 <td>varchar</td>
+				 <td>80</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="batchdescription">batchdescription</span></td>
+				 <td>varchar</td>
+				 <td>510</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="batchdocumentno">batchdocumentno</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_acctschema_id">c_acctschema_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_acctschema_id references adempiere.c_acctschema.c_acctschema_id via cacctschema_ifajournal">
+						<a href='../../adempiere/tables/c_acctschema.html'>c_acctschema</a><span class='relatedKey'>.c_acctschema_id</span>
+					</td>
+					<td class="constraint detail">
+						cacctschema_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_budget_id">gl_budget_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.gl_budget_id references adempiere.gl_budget.gl_budget_id via glbudget_ifajournal">
+						<a href='../../adempiere/tables/gl_budget.html'>gl_budget</a><span class='relatedKey'>.gl_budget_id</span>
+					</td>
+					<td class="constraint detail">
+						glbudget_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="doctypename">doctypename</span></td>
+				 <td>varchar</td>
+				 <td>120</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="description">description</span></td>
+				 <td>varchar</td>
+				 <td>510</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="dateacct">dateacct</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="currencyratetype">currencyratetype</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="currencyrate">currencyrate</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="createdby">createdby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="created">created</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="conversiontypevalue">conversiontypevalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="processing">processing</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="processed">processed</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="postingtype">postingtype</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="orgvalue">orgvalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="orgtrxvalue">orgtrxvalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_product_id">m_product_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.m_product_id references adempiere.m_product.m_product_id via mproduct_ifajournal">
+						<a href='../../adempiere/tables/m_product.html'>m_product</a><span class='relatedKey'>.m_product_id</span>
+					</td>
+					<td class="constraint detail">
+						mproduct_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="line">line</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="journaldocumentno">journaldocumentno</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isdepreciated">isdepreciated</span></td>
+				 <td>varchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="user2_id">user2_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.user2_id references adempiere.c_elementvalue.c_elementvalue_id via user2_ifajournal">
+						<a href='../../adempiere/tables/c_elementvalue.html'>c_elementvalue</a><span class='relatedKey'>.c_elementvalue_id</span>
+					</td>
+					<td class="constraint detail">
+						user2_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="user1_id">user1_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.user1_id references adempiere.c_elementvalue.c_elementvalue_id via user1_ifajournal">
+						<a href='../../adempiere/tables/c_elementvalue.html'>c_elementvalue</a><span class='relatedKey'>.c_elementvalue_id</span>
+					</td>
+					<td class="constraint detail">
+						user1_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updatedby">updatedby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updated">updated</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="upc">upc</span></td>
+				 <td>varchar</td>
+				 <td>30</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="sku">sku</span></td>
+				 <td>varchar</td>
+				 <td>30</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="qty">qty</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="projectvalue">projectvalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="productvalue">productvalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isactive">isactive</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="i_isimported">i_isimported</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="i_errormsg">i_errormsg</span></td>
+				 <td>varchar</td>
+				 <td>2000</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="iso_code">iso_code</span></td>
+				 <td>varchar</td>
+				 <td>3</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_journal_id">gl_journal_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.gl_journal_id references adempiere.gl_journal.gl_journal_id via gljournal_ifajournal">
+						<a href='../../adempiere/tables/gl_journal.html'>gl_journal</a><span class='relatedKey'>.gl_journal_id</span>
+					</td>
+					<td class="constraint detail">
+						gljournal_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_journalline_id">gl_journalline_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.gl_journalline_id references adempiere.gl_journalline.gl_journalline_id via gljournalline_ifajournal">
+						<a href='../../adempiere/tables/gl_journalline.html'>gl_journalline</a><span class='relatedKey'>.gl_journalline_id</span>
+					</td>
+					<td class="constraint detail">
+						gljournalline_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_journalbatch_id">gl_journalbatch_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.gl_journalbatch_id references adempiere.gl_journalbatch.gl_journalbatch_id via gljournalbatch_ifajournal">
+						<a href='../../adempiere/tables/gl_journalbatch.html'>gl_journalbatch</a><span class='relatedKey'>.gl_journalbatch_id</span>
+					</td>
+					<td class="constraint detail">
+						gljournalbatch_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_category_id">gl_category_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.gl_category_id references adempiere.gl_category.gl_category_id via glcategory_ifajournal">
+						<a href='../../adempiere/tables/gl_category.html'>gl_category</a><span class='relatedKey'>.gl_category_id</span>
+					</td>
+					<td class="constraint detail">
+						glcategory_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="clientvalue">clientvalue</span></td>
+				 <td>varchar</td>
+				 <td>80</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="categoryname">categoryname</span></td>
+				 <td>varchar</td>
+				 <td>120</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_validcombination_id">c_validcombination_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_validcombination_id references adempiere.c_validcombination.c_validcombination_id via cvalidcombination_ifajournal">
+						<a href='../../adempiere/tables/c_validcombination.html'>c_validcombination</a><span class='relatedKey'>.c_validcombination_id</span>
+					</td>
+					<td class="constraint detail">
+						cvalidcombination_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_uom_id">c_uom_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_uom_id references adempiere.c_uom.c_uom_id via cuom_ifajournal">
+						<a href='../../adempiere/tables/c_uom.html'>c_uom</a><span class='relatedKey'>.c_uom_id</span>
+					</td>
+					<td class="constraint detail">
+						cuom_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_activity_id">c_activity_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_activity_id references adempiere.c_activity.c_activity_id via cactivity_ifajournal">
+						<a href='../../adempiere/tables/c_activity.html'>c_activity</a><span class='relatedKey'>.c_activity_id</span>
+					</td>
+					<td class="constraint detail">
+						cactivity_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_bpartner_id">c_bpartner_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_bpartner_id references adempiere.c_bpartner.c_bpartner_id via cbpartner_ifajournal">
+						<a href='../../adempiere/tables/c_bpartner.html'>c_bpartner</a><span class='relatedKey'>.c_bpartner_id</span>
+					</td>
+					<td class="constraint detail">
+						cbpartner_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_campaign_id">c_campaign_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_campaign_id references adempiere.c_campaign.c_campaign_id via ccampaign_ifajournal">
+						<a href='../../adempiere/tables/c_campaign.html'>c_campaign</a><span class='relatedKey'>.c_campaign_id</span>
+					</td>
+					<td class="constraint detail">
+						ccampaign_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_conversiontype_id">c_conversiontype_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_conversiontype_id&#39;s name implies that it&#39;s a child of c_conversiontype.c_conversiontype_id, but it doesn&#39;t reference that column.">
+						<a href='c_conversiontype.html'>c_conversiontype</a><span class='relatedKey'>.c_conversiontype_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_currency_id">c_currency_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_currency_id references adempiere.c_currency.c_currency_id via ccurrency_ifajournal">
+						<a href='../../adempiere/tables/c_currency.html'>c_currency</a><span class='relatedKey'>.c_currency_id</span>
+					</td>
+					<td class="constraint detail">
+						ccurrency_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_doctype_id">c_doctype_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_doctype_id references adempiere.c_doctype.c_doctype_id via cdoctype_ifajournal">
+						<a href='../../adempiere/tables/c_doctype.html'>c_doctype</a><span class='relatedKey'>.c_doctype_id</span>
+					</td>
+					<td class="constraint detail">
+						cdoctype_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_locfrom_id">c_locfrom_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_locfrom_id references adempiere.c_location.c_location_id via clocfrom_ifajournal">
+						<a href='../../adempiere/tables/c_location.html'>c_location</a><span class='relatedKey'>.c_location_id</span>
+					</td>
+					<td class="constraint detail">
+						clocfrom_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_locto_id">c_locto_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_locto_id references adempiere.c_location.c_location_id via clocto_ifajournal">
+						<a href='../../adempiere/tables/c_location.html'>c_location</a><span class='relatedKey'>.c_location_id</span>
+					</td>
+					<td class="constraint detail">
+						clocto_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_period_id">c_period_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_period_id references adempiere.c_period.c_period_id via cperiod_ifajournal">
+						<a href='../../adempiere/tables/c_period.html'>c_period</a><span class='relatedKey'>.c_period_id</span>
+					</td>
+					<td class="constraint detail">
+						cperiod_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_project_id">c_project_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_project_id references adempiere.c_project.c_project_id via cproject_ifajournal">
+						<a href='../../adempiere/tables/c_project.html'>c_project</a><span class='relatedKey'>.c_project_id</span>
+					</td>
+					<td class="constraint detail">
+						cproject_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_salesregion_id">c_salesregion_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="i_fajournal.c_salesregion_id references adempiere.c_salesregion.c_salesregion_id via csalesregion_ifajournal">
+						<a href='../../adempiere/tables/c_salesregion.html'>c_salesregion</a><span class='relatedKey'>.c_salesregion_id</span>
+					</td>
+					<td class="constraint detail">
+						csalesregion_ifajournal <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="i_fajournal_uu">i_fajournal_uu</span></td>
+				 <td>varchar</td>
+				 <td>36</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>
+				<p title='72 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
+			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
+			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
+			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="i_fajournal.html" title="i_fajournal" alt="" coords="343,5,711,2187">
+<area shape="rect" id="node2" title="adempiere.c_elementvalue" alt="" coords="19,997,285,1085">
+<area shape="rect" id="node3" title="adempiere.ad_org" alt="" coords="49,175,255,263">
+<area shape="rect" id="node4" title="adempiere.c_acctschema" alt="" coords="23,561,281,649">
+<area shape="rect" id="node5" title="adempiere.c_activity" alt="" coords="40,1735,264,1823">
+<area shape="rect" id="node6" title="adempiere.c_bpartner" alt="" coords="35,1840,269,1928">
+<area shape="rect" id="node7" title="adempiere.c_campaign" alt="" coords="31,1945,273,2033">
+<area shape="rect" id="node8" title="adempiere.c_currency" alt="" coords="34,2051,270,2139">
+<area shape="rect" id="node9" title="adempiere.c_doctype" alt="" coords="37,2156,267,2244">
+<area shape="rect" id="node10" title="adempiere.c_location" alt="" coords="37,2261,267,2349">
+<area shape="rect" id="node11" title="adempiere.c_period" alt="" coords="43,2367,261,2455">
+<area shape="rect" id="node12" title="adempiere.c_project" alt="" coords="41,2472,263,2560">
+<area shape="rect" id="node13" title="adempiere.c_salesregion" alt="" coords="25,2577,279,2665">
+<area shape="rect" id="node14" title="adempiere.c_uom" alt="" coords="49,1629,255,1717">
+<area shape="rect" id="node15" title="adempiere.c_validcombination" alt="" coords="5,1524,299,1612">
+<area shape="rect" id="node16" title="adempiere.gl_budget" alt="" coords="38,667,266,755">
+<area shape="rect" id="node17" title="adempiere.gl_category" alt="" coords="32,1419,272,1507">
+<area shape="rect" id="node18" title="adempiere.gl_journal" alt="" coords="38,1103,266,1191">
+<area shape="rect" id="node19" title="adempiere.gl_journalbatch" alt="" coords="19,1313,285,1401">
+<area shape="rect" id="node20" title="adempiere.gl_journalline" alt="" coords="25,1208,279,1296">
+<area shape="rect" id="node21" title="adempiere.m_product" alt="" coords="35,892,269,980">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/i_fajournal.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="a_asset.html" title="a_asset" alt="" coords="421,4429,555,4517">
+<area shape="rect" id="node2" title="adempiere.c_activity" alt="" coords="21,3221,245,3309">
+<area shape="rect" id="node7" href="a_asset_acct.html" title="a_asset_acct" alt="" coords="403,38439,573,38527">
+<area shape="rect" id="node10" href="a_asset_addition.html" title="a_asset_addition" alt="" coords="389,23060,587,23148">
+<area shape="rect" id="node14" href="a_asset_change.html" title="a_asset_change" alt="" coords="391,37491,585,37579">
+<area shape="rect" id="node15" href="a_asset_change_amt.html" title="a_asset_change_amt" alt="" coords="375,35911,601,35999">
+<area shape="rect" id="node16" href="a_asset_disposed.html" title="a_asset_disposed" alt="" coords="385,27800,591,27888">
+<area shape="rect" id="node18" href="a_asset_group_acct.html" title="a_asset_group_acct" alt="" coords="377,38333,599,38421">
+<area shape="rect" id="node19" href="a_asset_group_trl.html" title="a_asset_group_trl" alt="" coords="385,18320,591,18408">
+<area shape="rect" id="node20" title="adempiere.ad_org" alt="" coords="29,13425,236,13513">
+<area shape="rect" id="node21" href="a_asset_info_fin.html" title="a_asset_info_fin" alt="" coords="391,8327,585,8415">
+<area shape="rect" id="node22" href="a_asset_product.html" title="a_asset_product" alt="" coords="389,34436,587,34524">
+<area shape="rect" id="node23" href="a_asset_reval_entry.html" title="a_asset_reval_entry" alt="" coords="378,28011,598,28099">
+<area shape="rect" id="node24" title="adempiere.gl_category" alt="" coords="13,24212,253,24300">
+<area shape="rect" id="node25" href="a_asset_split.html" title="a_asset_split" alt="" coords="402,35384,574,35472">
+<area shape="rect" id="node26" href="a_asset_transfer.html" title="a_asset_transfer" alt="" coords="389,37912,587,38000">
+<area shape="rect" id="node27" href="a_depreciation_build.html" title="a_depreciation_build" alt="" coords="375,35489,601,35577">
+<area shape="rect" id="node28" href="a_depreciation_entry.html" title="a_depreciation_entry" alt="" coords="374,27905,602,27993">
+<area shape="rect" id="node29" href="a_depreciation_exp.html" title="a_depreciation_exp" alt="" coords="379,39071,597,39159">
+<area shape="rect" id="node30" href="a_fundingmode_acct.html" title="a_fundingmode_acct" alt="" coords="375,36016,601,36104">
+<area shape="rect" id="node31" href="a_registration.html" title="a_registration" alt="" coords="399,27063,577,27151">
+<area shape="rect" id="node32" href="a_registrationproduct.html" title="a_registrationproduct" alt="" coords="371,34541,605,34629">
+<area shape="rect" id="node33" href="ad_archive.html" title="ad_archive" alt="" coords="409,5588,567,5676">
+<area shape="rect" id="node34" href="ad_broadcastmessage_trl.html" title="ad_broadcastmessage_trl" alt="" coords="357,18425,619,18513">
+<area shape="rect" id="node35" href="ad_chart_trl.html" title="ad_chart_trl" alt="" coords="405,18531,571,18619">
+<area shape="rect" id="node36" href="ad_clientinfo.html" title="ad_clientinfo" alt="" coords="403,28853,573,28941">
+<area shape="rect" id="node38" href="ad_clientshare.html" title="ad_clientshare" alt="" coords="397,18636,579,18724">
+<area shape="rect" id="node39" href="ad_color_trl.html" title="ad_color_trl" alt="" coords="405,18741,571,18829">
+<area shape="rect" id="node40" href="ad_column.html" title="ad_column" alt="" coords="406,18847,570,18935">
+<area shape="rect" id="node41" href="ad_document_action_access.html" title="ad_document_action_access" alt="" coords="347,22744,629,22832">
+<area shape="rect" id="node42" href="ad_field.html" title="ad_field" alt="" coords="406,18952,570,19040">
+<area shape="rect" id="node43" href="ad_importtemplate.html" title="ad_importtemplate" alt="" coords="382,19057,594,19145">
+<area shape="rect" id="node44" href="ad_importtemplateaccess.html" title="ad_importtemplateaccess" alt="" coords="358,19163,618,19251">
+<area shape="rect" id="node45" href="ad_inforelated.html" title="ad_inforelated" alt="" coords="397,19268,579,19356">
+<area shape="rect" id="node46" href="ad_language.html" title="ad_language" alt="" coords="403,19373,573,19461">
+<area shape="rect" id="node47" href="ad_menu.html" title="ad_menu" alt="" coords="415,19479,561,19567">
+<area shape="rect" id="node48" href="ad_message.html" title="ad_message" alt="" coords="404,19584,572,19672">
+<area shape="rect" id="node49" href="ad_orginfo.html" title="ad_orginfo" alt="" coords="409,11684,567,11772">
+<area shape="rect" id="node50" href="ad_password_history.html" title="ad_password_history" alt="" coords="373,19689,603,19777">
+<area shape="rect" id="node51" href="ad_preference.html" title="ad_preference" alt="" coords="397,19795,579,19883">
+<area shape="rect" id="node52" href="ad_printcolor_trl.html" title="ad_printcolor_trl" alt="" coords="389,19900,587,19988">
+<area shape="rect" id="node53" href="ad_process_access.html" title="ad_process_access" alt="" coords="379,20005,597,20093">
+<area shape="rect" id="node54" href="ad_ref_list.html" title="ad_ref_list" alt="" coords="411,20111,565,20199">
+<area shape="rect" id="node55" href="ad_ref_table.html" title="ad_ref_table" alt="" coords="405,12211,571,12299">
+<area shape="rect" id="node56" href="ad_reference.html" title="ad_reference" alt="" coords="402,12316,574,12404">
+<area shape="rect" id="node57" href="ad_registration.html" title="ad_registration" alt="" coords="395,20427,581,20515">
+<area shape="rect" id="node58" href="ad_replication.html" title="ad_replication" alt="" coords="398,12421,578,12509">
+<area shape="rect" id="node59" href="ad_replicationdocument.html" title="ad_replicationdocument" alt="" coords="363,22849,613,22937">
+<area shape="rect" id="node60" href="ad_reportview_column.html" title="ad_reportview_column" alt="" coords="368,12527,608,12615">
+<area shape="rect" id="node61" href="ad_role.html" title="ad_role" alt="" coords="421,23271,555,23359">
+<area shape="rect" id="node62" href="ad_role_orgaccess.html" title="ad_role_orgaccess" alt="" coords="381,12632,595,12720">
+<area shape="rect" id="node63" href="ad_sequence.html" title="ad_sequence" alt="" coords="401,12737,575,12825">
+<area shape="rect" id="node64" href="ad_sequence_audit.html" title="ad_sequence_audit" alt="" coords="380,12843,596,12931">
+<area shape="rect" id="node65" href="ad_sequence_no.html" title="ad_sequence_no" alt="" coords="389,12948,587,13036">
+<area shape="rect" id="node66" href="ad_statusline.html" title="ad_statusline" alt="" coords="401,13053,575,13141">
+<area shape="rect" id="node67" href="ad_statuslineusedin.html" title="ad_statuslineusedin" alt="" coords="377,13159,599,13247">
+<area shape="rect" id="node68" href="ad_tab.html" title="ad_tab" alt="" coords="410,13264,566,13352">
+<area shape="rect" id="node69" href="ad_table.html" title="ad_table" alt="" coords="418,13369,558,13457">
+<area shape="rect" id="node70" href="ad_table_access.html" title="ad_table_access" alt="" coords="390,13475,586,13563">
+<area shape="rect" id="node71" href="ad_task.html" title="ad_task" alt="" coords="421,13580,555,13668">
+<area shape="rect" id="node72" href="ad_task_access.html" title="ad_task_access" alt="" coords="393,13685,583,13773">
+<area shape="rect" id="node73" href="ad_taskinstance.html" title="ad_taskinstance" alt="" coords="391,13791,585,13879">
+<area shape="rect" id="node74" href="ad_user.html" title="ad_user" alt="" coords="419,5061,557,5149">
+<area shape="rect" id="node75" title="adempiere.c_campaign" alt="" coords="12,3484,253,3572">
+<area shape="rect" id="node76" href="ad_user_orgaccess.html" title="ad_user_orgaccess" alt="" coords="379,13896,597,13984">
+<area shape="rect" id="node77" href="ad_user_roles.html" title="ad_user_roles" alt="" coords="398,14001,578,14089">
+<area shape="rect" id="node78" href="ad_userpreference.html" title="ad_userpreference" alt="" coords="382,14107,594,14195">
+<area shape="rect" id="node79" href="ad_val_rule.html" title="ad_val_rule" alt="" coords="407,14212,569,14300">
+<area shape="rect" id="node80" href="ad_wf_node.html" title="ad_wf_node" alt="" coords="405,9380,571,9468">
+<area shape="rect" id="node81" href="ad_wf_nodenext.html" title="ad_wf_nodenext" alt="" coords="391,14317,585,14405">
+<area shape="rect" id="node82" href="ad_wf_process.html" title="ad_wf_process" alt="" coords="395,14423,581,14511">
+<area shape="rect" id="node83" href="ad_wf_responsible.html" title="ad_wf_responsible" alt="" coords="382,14528,594,14616">
+<area shape="rect" id="node84" href="ad_window.html" title="ad_window" alt="" coords="409,14633,567,14721">
+<area shape="rect" id="node85" href="ad_window_access.html" title="ad_window_access" alt="" coords="381,14739,595,14827">
+<area shape="rect" id="node86" href="ad_workflow.html" title="ad_workflow" alt="" coords="403,14844,573,14932">
+<area shape="rect" id="node87" href="ad_workflow_access.html" title="ad_workflow_access" alt="" coords="375,14949,601,15037">
+<area shape="rect" id="node88" href="b_topictype.html" title="b_topictype" alt="" coords="407,34647,569,34735">
+<area shape="rect" id="node89" href="c_acctprocessor.html" title="c_acctprocessor" alt="" coords="389,36227,587,36315">
+<area shape="rect" id="node90" href="c_acctschema.html" title="c_acctschema" alt="" coords="398,15055,578,15143">
+<area shape="rect" id="node91" href="c_acctschema_default.html" title="c_acctschema_default" alt="" coords="370,38965,606,39053">
+<area shape="rect" id="node92" href="c_acctschema_element.html" title="c_acctschema_element" alt="" coords="367,4324,609,4412">
+<area shape="rect" id="node94" title="adempiere.c_salesregion" alt="" coords="5,4853,260,4941">
+<area shape="rect" id="node95" href="c_acctschema_gl.html" title="c_acctschema_gl" alt="" coords="387,38228,589,38316">
+<area shape="rect" id="node96" href="c_activity_trl.html" title="c_activity_trl" alt="" coords="403,2744,573,2832">
+<area shape="rect" id="node97" href="c_addresstransaction.html" title="c_addresstransaction" alt="" coords="372,8432,604,8520">
+<area shape="rect" id="node98" href="c_addressvalidation.html" title="c_addressvalidation" alt="" coords="377,15160,599,15248">
+<area shape="rect" id="node99" href="c_addressvalidationcfg.html" title="c_addressvalidationcfg" alt="" coords="367,15265,609,15353">
+<area shape="rect" id="node100" href="c_allocationhdr.html" title="c_allocationhdr" alt="" coords="393,23692,583,23780">
+<area shape="rect" id="node101" href="c_allocationline.html" title="c_allocationline" alt="" coords="393,5799,583,5887">
+<area shape="rect" id="node102" href="c_bank.html" title="c_bank" alt="" coords="423,3797,553,3885">
+<area shape="rect" id="node103" href="c_bankaccount.html" title="c_bankaccount" alt="" coords="395,25904,581,25992">
+<area shape="rect" id="node104" href="c_bankaccount_acct.html" title="c_bankaccount_acct" alt="" coords="376,38649,600,38737">
+<area shape="rect" id="node105" href="c_bankaccount_processor.html" title="c_bankaccount_processor" alt="" coords="355,24429,621,24517">
+<area shape="rect" id="node106" href="c_bankstatementline.html" title="c_bankstatementline" alt="" coords="375,20743,601,20831">
+<area shape="rect" id="node107" href="c_bp_bankaccount.html" title="c_bp_bankaccount" alt="" coords="381,5904,595,5992">
+<area shape="rect" id="node108" href="c_bp_customer_acct.html" title="c_bp_customer_acct" alt="" coords="375,37280,601,37368">
+<area shape="rect" id="node109" href="c_bp_edi.html" title="c_bp_edi" alt="" coords="416,6115,560,6203">
+<area shape="rect" id="node110" href="c_bp_employee_acct.html" title="c_bp_employee_acct" alt="" coords="375,36859,601,36947">
+<area shape="rect" id="node111" href="c_bp_group_acct.html" title="c_bp_group_acct" alt="" coords="387,38755,589,38843">
+<area shape="rect" id="node112" href="c_bp_relation.html" title="c_bp_relation" alt="" coords="400,6220,576,6308">
+<area shape="rect" id="node113" href="c_bp_shippingacct.html" title="c_bp_shippingacct" alt="" coords="381,6325,595,6413">
+<area shape="rect" id="node114" href="c_bp_vendor_acct.html" title="c_bp_vendor_acct" alt="" coords="383,37385,593,37473">
+<area shape="rect" id="node115" href="c_bp_withholding.html" title="c_bp_withholding" alt="" coords="385,6431,591,6519">
+<area shape="rect" id="node116" href="c_bpartner.html" title="c_bpartner" alt="" coords="409,6536,567,6624">
+<area shape="rect" id="node117" href="c_bpartner_location.html" title="c_bpartner_location" alt="" coords="377,4956,599,5044">
+<area shape="rect" id="node118" href="c_bpartner_product.html" title="c_bpartner_product" alt="" coords="378,23903,598,23991">
+<area shape="rect" id="node119" href="c_calendar.html" title="c_calendar" alt="" coords="409,15371,567,15459">
+<area shape="rect" id="node120" href="c_campaign_trl.html" title="c_campaign_trl" alt="" coords="394,3587,582,3675">
+<area shape="rect" id="node121" href="c_cash.html" title="c_cash" alt="" coords="423,1164,553,1252">
+<area shape="rect" id="node122" href="c_cashbook.html" title="c_cashbook" alt="" coords="405,24535,571,24623">
+<area shape="rect" id="node123" href="c_cashbook_acct.html" title="c_cashbook_acct" alt="" coords="387,38123,589,38211">
+<area shape="rect" id="node124" href="c_cashline.html" title="c_cashline" alt="" coords="411,24324,565,24412">
+<area shape="rect" id="node125" href="c_cashplan.html" title="c_cashplan" alt="" coords="408,1059,568,1147">
+<area shape="rect" id="node126" href="c_cashplanline.html" title="c_cashplanline" alt="" coords="395,1480,581,1568">
+<area shape="rect" id="node127" href="c_charge.html" title="c_charge" alt="" coords="415,6641,561,6729">
+<area shape="rect" id="node128" href="c_charge_acct.html" title="c_charge_acct" alt="" coords="397,37701,579,37789">
+<area shape="rect" id="node129" href="c_chargetype_doctype.html" title="c_chargetype_doctype" alt="" coords="369,23165,607,23253">
+<area shape="rect" id="node130" href="c_city.html" title="c_city" alt="" coords="427,15476,549,15564">
+<area shape="rect" id="node131" href="c_commission.html" title="c_commission" alt="" coords="397,20953,579,21041">
+<area shape="rect" id="node132" href="c_commissiondetail.html" title="c_commissiondetail" alt="" coords="378,24640,598,24728">
+<area shape="rect" id="node133" href="c_commissionline.html" title="c_commissionline" alt="" coords="385,12000,591,12088">
+<area shape="rect" id="node134" href="c_conversion_rate.html" title="c_conversion_rate" alt="" coords="383,23587,593,23675">
+<area shape="rect" id="node135" href="c_country.html" title="c_country" alt="" coords="413,23481,563,23569">
+<area shape="rect" id="node136" href="c_countrygroup.html" title="c_countrygroup" alt="" coords="391,15581,585,15669">
+<area shape="rect" id="node137" href="c_countrygroup_trl.html" title="c_countrygroup_trl" alt="" coords="380,15687,596,15775">
+<area shape="rect" id="node138" href="c_countrygroupcountry.html" title="c_countrygroupcountry" alt="" coords="365,15792,611,15880">
+<area shape="rect" id="node139" href="c_currency.html" title="c_currency" alt="" coords="409,15897,567,15985">
+<area shape="rect" id="node140" href="c_currency_acct.html" title="c_currency_acct" alt="" coords="390,37596,586,37684">
+<area shape="rect" id="node141" href="c_currency_trl.html" title="c_currency_trl" alt="" coords="397,25061,579,25149">
+<area shape="rect" id="node142" href="c_cycle.html" title="c_cycle" alt="" coords="421,25167,555,25255">
+<area shape="rect" id="node143" href="c_depositbatch.html" title="c_depositbatch" alt="" coords="394,23376,582,23464">
+<area shape="rect" id="node144" href="c_doctype.html" title="c_doctype" alt="" coords="411,26115,565,26203">
+<area shape="rect" id="node145" href="c_doctype_trl.html" title="c_doctype_trl" alt="" coords="400,22007,576,22095">
+<area shape="rect" id="node146" href="c_doctypecounter.html" title="c_doctypecounter" alt="" coords="385,22112,591,22200">
+<area shape="rect" id="node147" href="c_dunningrunentry.html" title="c_dunningrunentry" alt="" coords="381,21059,595,21147">
+<area shape="rect" id="node148" href="c_element.html" title="c_element" alt="" coords="412,16003,564,16091">
+<area shape="rect" id="node149" href="c_elementvalue.html" title="c_elementvalue" alt="" coords="393,16108,583,16196">
+<area shape="rect" id="node150" href="c_elementvalue_trl.html" title="c_elementvalue_trl" alt="" coords="382,5,594,93">
+<area shape="rect" id="node151" href="c_interorg_acct.html" title="c_interorg_acct" alt="" coords="393,36543,583,36631">
+<area shape="rect" id="node152" href="c_invoice.html" title="c_invoice" alt="" coords="415,3903,561,3991">
+<area shape="rect" id="node153" href="c_invoicebatch.html" title="c_invoicebatch" alt="" coords="395,25272,581,25360">
+<area shape="rect" id="node154" href="c_invoicebatchline.html" title="c_invoicebatchline" alt="" coords="383,2533,593,2621">
+<area shape="rect" id="node155" href="c_invoiceline.html" title="c_invoiceline" alt="" coords="402,3060,574,3148">
+<area shape="rect" id="node156" href="c_landedcost.html" title="c_landedcost" alt="" coords="401,34752,575,34840">
+<area shape="rect" id="node157" href="c_landedcostallocation.html" title="c_landedcostallocation" alt="" coords="367,34857,609,34945">
+<area shape="rect" id="node158" href="c_location.html" title="c_location" alt="" coords="411,16213,565,16301">
+<area shape="rect" id="node159" href="c_nonbusinessday.html" title="c_nonbusinessday" alt="" coords="382,16319,594,16407">
+<area shape="rect" id="node160" href="c_opportunity.html" title="c_opportunity" alt="" coords="399,5483,577,5571">
+<area shape="rect" id="node161" href="c_order.html" title="c_order" alt="" coords="421,4008,555,4096">
+<area shape="rect" id="node162" href="c_orderline.html" title="c_orderline" alt="" coords="408,4851,568,4939">
+<area shape="rect" id="node163" href="c_ordersource.html" title="c_ordersource" alt="" coords="397,16424,579,16512">
+<area shape="rect" id="node164" href="c_orgassignment.html" title="c_orgassignment" alt="" coords="387,16529,589,16617">
+<area shape="rect" id="node165" href="c_payment.html" title="c_payment" alt="" coords="409,2955,567,3043">
+<area shape="rect" id="node166" href="c_paymentprocessor.html" title="c_paymentprocessor" alt="" coords="374,25377,602,25465">
+<area shape="rect" id="node167" href="c_paymenttransaction.html" title="c_paymenttransaction" alt="" coords="370,1375,606,1463">
+<area shape="rect" id="node168" href="c_payselectioncheck.html" title="c_payselectioncheck" alt="" coords="375,6747,601,6835">
+<area shape="rect" id="node169" href="c_period.html" title="c_period" alt="" coords="417,16635,559,16723">
+<area shape="rect" id="node170" href="c_periodcontrol.html" title="c_periodcontrol" alt="" coords="392,35595,584,35683">
+<area shape="rect" id="node171" href="c_phase.html" title="c_phase" alt="" coords="419,34963,557,35051">
+<area shape="rect" id="node172" href="c_pos.html" title="c_pos" alt="" coords="427,12105,549,12193">
+<area shape="rect" id="node173" href="c_poskey.html" title="c_poskey" alt="" coords="415,29696,561,29784">
+<area shape="rect" id="node174" href="c_project.html" title="c_project" alt="" coords="415,6957,561,7045">
+<area shape="rect" id="node175" href="c_project_acct.html" title="c_project_acct" alt="" coords="397,36753,579,36841">
+<area shape="rect" id="node176" href="c_projectissue.html" title="c_projectissue" alt="" coords="397,20848,579,20936">
+<area shape="rect" id="node177" href="c_projectline.html" title="c_projectline" alt="" coords="403,21375,573,21463">
+<area shape="rect" id="node178" href="c_projectphase.html" title="c_projectphase" alt="" coords="394,21480,582,21568">
+<area shape="rect" id="node179" href="c_projecttask.html" title="c_projecttask" alt="" coords="401,29801,575,29889">
+<area shape="rect" id="node180" href="c_recurring.html" title="c_recurring" alt="" coords="407,4640,569,4728">
+<area shape="rect" id="node181" href="c_recurring_run.html" title="c_recurring_run" alt="" coords="391,4535,585,4623">
+<area shape="rect" id="node182" href="c_recurringgroup.html" title="c_recurringgroup" alt="" coords="386,16740,590,16828">
+<area shape="rect" id="node183" href="c_region.html" title="c_region" alt="" coords="417,16845,559,16933">
+<area shape="rect" id="node184" href="c_region_trl.html" title="c_region_trl" alt="" coords="405,16951,571,17039">
+<area shape="rect" id="node185" href="c_revenuerecognition_plan.html" title="c_revenuerecognition_plan" alt="" coords="353,36964,623,37052">
+<area shape="rect" id="node186" href="c_revenuerecognition_run.html" title="c_revenuerecognition_run" alt="" coords="355,21796,621,21884">
+<area shape="rect" id="node188" href="c_rfq.html" title="c_rfq" alt="" coords="429,21164,547,21252">
+<area shape="rect" id="node189" href="c_rfq_topicsubscriber.html" title="c_rfq_topicsubscriber" alt="" coords="371,7063,605,7151">
+<area shape="rect" id="node190" href="c_rfq_topicsubscriberonly.html" title="c_rfq_topicsubscriberonly" alt="" coords="355,29907,621,29995">
+<area shape="rect" id="node191" href="c_rfqline.html" title="c_rfqline" alt="" coords="417,30012,559,30100">
+<area shape="rect" id="node192" href="c_rfqlineqty.html" title="c_rfqlineqty" alt="" coords="406,28221,570,28309">
+<area shape="rect" id="node193" href="c_rfqresponse.html" title="c_rfqresponse" alt="" coords="397,21269,579,21357">
+<area shape="rect" id="node194" href="c_salesregion_trl.html" title="c_salesregion_trl" alt="" coords="387,5693,589,5781">
+<area shape="rect" id="node195" href="c_salesstage_trl.html" title="c_salesstage_trl" alt="" coords="391,17056,585,17144">
+<area shape="rect" id="node196" href="c_servicelevel.html" title="c_servicelevel" alt="" coords="399,30117,577,30205">
+<area shape="rect" id="node197" href="c_subacct.html" title="c_subacct" alt="" coords="412,111,564,199">
+<area shape="rect" id="node198" href="c_subscription.html" title="c_subscription" alt="" coords="395,24008,581,24096">
+<area shape="rect" id="node199" href="c_task.html" title="c_task" alt="" coords="425,30223,551,30311">
+<area shape="rect" id="node200" href="c_tax_acct.html" title="c_tax_acct" alt="" coords="411,38017,565,38105">
+<area shape="rect" id="node201" href="c_taxdeclarationacct.html" title="c_taxdeclarationacct" alt="" coords="375,36332,601,36420">
+<area shape="rect" id="node202" href="c_taxdeclarationline.html" title="c_taxdeclarationline" alt="" coords="377,20532,599,20620">
+<area shape="rect" id="node203" href="c_taxdefinition.html" title="c_taxdefinition" alt="" coords="396,24113,580,24201">
+<area shape="rect" id="node204" href="c_taxprovider.html" title="c_taxprovider" alt="" coords="399,17161,577,17249">
+<area shape="rect" id="node205" href="c_taxprovidercfg.html" title="c_taxprovidercfg" alt="" coords="389,17267,587,17355">
+<area shape="rect" id="node206" href="c_uom.html" title="c_uom" alt="" coords="424,17372,552,17460">
+<area shape="rect" id="node207" href="c_uom_conversion.html" title="c_uom_conversion" alt="" coords="381,27168,595,27256">
+<area shape="rect" id="node208" href="c_uom_trl.html" title="c_uom_trl" alt="" coords="413,28327,563,28415">
+<area shape="rect" id="node209" href="c_validcombination.html" title="c_validcombination" alt="" coords="379,7168,597,7256">
+<area shape="rect" id="node210" href="c_withholding.html" title="c_withholding" alt="" coords="399,7273,577,7361">
+<area shape="rect" id="node211" href="c_withholding_acct.html" title="c_withholding_acct" alt="" coords="380,37175,596,37263">
+<area shape="rect" id="node212" href="c_year.html" title="c_year" alt="" coords="424,17477,552,17565">
+<area shape="rect" id="node213" href="dd_order.html" title="dd_order" alt="" coords="415,1269,561,1357">
+<area shape="rect" id="node214" href="dd_orderline.html" title="dd_orderline" alt="" coords="403,2007,573,2095">
+<area shape="rect" id="node215" href="fact_acct.html" title="fact_acct" alt="" coords="416,6009,560,6097">
+<area shape="rect" id="node216" title="adempiere.gl_budget" alt="" coords="19,9172,247,9260">
+<area shape="rect" id="node217" href="fact_acct_summary.html" title="fact_acct_summary" alt="" coords="379,3481,597,3569">
+<area shape="rect" id="node218" href="gl_budgetcontrol.html" title="gl_budgetcontrol" alt="" coords="387,27273,589,27361">
+<area shape="rect" id="node219" href="gl_category_trl.html" title="gl_category_trl" alt="" coords="395,24851,581,24939">
+<area shape="rect" id="node220" href="gl_distribution.html" title="gl_distribution" alt="" coords="397,3692,579,3780">
+<area shape="rect" id="node221" href="gl_distributionline.html" title="gl_distributionline" alt="" coords="384,2428,592,2516">
+<area shape="rect" id="node222" href="gl_fund.html" title="gl_fund" alt="" coords="421,36437,555,36525">
+<area shape="rect" id="node223" href="gl_fundrestriction.html" title="gl_fundrestriction" alt="" coords="385,216,591,304">
+<area shape="rect" id="node224" href="gl_journal.html" title="gl_journal" alt="" coords="413,21691,563,21779">
+<area shape="rect" id="node225" href="gl_journalbatch.html" title="gl_journalbatch" alt="" coords="393,26431,583,26519">
+<area shape="rect" id="node226" href="gl_journalgenerator.html" title="gl_journalgenerator" alt="" coords="379,22955,597,23043">
+<area shape="rect" id="node227" href="gl_journalgeneratorline.html" title="gl_journalgeneratorline" alt="" coords="366,637,610,725">
+<area shape="rect" id="node228" href="gl_journalgeneratorsource.html" title="gl_journalgeneratorsource" alt="" coords="355,4113,621,4201">
+<area shape="rect" id="node229" href="gl_journalline.html" title="gl_journalline" alt="" coords="400,7379,576,7467">
+<area shape="rect" id="node230" href="hr_attribute.html" title="hr_attribute" alt="" coords="407,32961,569,33049">
+<area shape="rect" id="node231" href="hr_concept_acct.html" title="hr_concept_acct" alt="" coords="389,37069,587,37157">
+<area shape="rect" id="node232" href="hr_concept_category.html" title="hr_concept_category" alt="" coords="373,39176,603,39264">
+<area shape="rect" id="node233" href="hr_contract.html" title="hr_contract" alt="" coords="407,2323,569,2411">
+<area shape="rect" id="node234" href="hr_department.html" title="hr_department" alt="" coords="396,743,580,831">
+<area shape="rect" id="node235" href="hr_employee.html" title="hr_employee" alt="" coords="403,1691,573,1779">
+<area shape="rect" id="node236" href="hr_movement.html" title="hr_movement" alt="" coords="399,953,577,1041">
+<area shape="rect" id="node237" href="hr_period.html" title="hr_period" alt="" coords="413,35805,563,35893">
+<area shape="rect" id="node238" href="hr_process.html" title="hr_process" alt="" coords="408,20321,568,20409">
+<area shape="rect" id="node239" href="i_asset.html" title="i_asset" alt="" coords="423,36121,553,36209">
+<area shape="rect" id="node240" href="i_bankstatement.html" title="i_bankstatement" alt="" coords="390,20637,586,20725">
+<area shape="rect" id="node241" href="i_bpartner.html" title="i_bpartner" alt="" coords="411,7484,565,7572">
+<area shape="rect" id="node242" href="i_conversion_rate.html" title="i_conversion_rate" alt="" coords="385,25483,591,25571">
+<area shape="rect" id="node243" href="i_elementvalue.html" title="i_elementvalue" alt="" coords="395,321,581,409">
+<area shape="rect" id="node244" href="i_fajournal.html" title="i_fajournal" alt="" coords="304,9485,672,11667">
+<area shape="rect" id="node246" href="i_fixedasset.html" title="i_fixedasset" alt="" coords="406,26852,570,26940">
+<area shape="rect" id="node247" href="i_gljournal.html" title="i_gljournal" alt="" coords="411,11789,565,11877">
+<area shape="rect" id="node248" href="i_hr_movement.html" title="i_hr_movement" alt="" coords="393,7589,583,7677">
+<area shape="rect" id="node249" href="i_inventory.html" title="i_inventory" alt="" coords="409,27589,567,27677">
+<area shape="rect" id="node250" href="i_invoice.html" title="i_invoice" alt="" coords="417,8853,559,8941">
+<area shape="rect" id="node251" href="i_movement.html" title="i_movement" alt="" coords="405,9275,571,9363">
+<area shape="rect" id="node252" href="i_order.html" title="i_order" alt="" coords="423,11895,553,11983">
+<area shape="rect" id="node253" href="i_payment.html" title="i_payment" alt="" coords="411,21901,565,21989">
+<area shape="rect" id="node254" href="i_pricelist.html" title="i_pricelist" alt="" coords="413,26325,563,26413">
+<area shape="rect" id="node255" href="i_product.html" title="i_product" alt="" coords="414,26220,562,26308">
+<area shape="rect" id="node256" href="i_productplanning.html" title="i_productplanning" alt="" coords="383,24219,593,24307">
+<area shape="rect" id="node257" href="i_reportline.html" title="i_reportline" alt="" coords="407,427,569,515">
+<area shape="rect" id="node258" href="k_index.html" title="k_index" alt="" coords="421,22217,555,22305">
+<area shape="rect" id="node259" href="k_indexstop.html" title="k_indexstop" alt="" coords="405,22323,571,22411">
+<area shape="rect" id="node260" href="m_bom.html" title="m_bom" alt="" coords="421,30328,555,30416">
+<area shape="rect" id="node261" href="m_bomalternative.html" title="m_bomalternative" alt="" coords="385,30433,591,30521">
+<area shape="rect" id="node262" href="m_bomproduct.html" title="m_bomproduct" alt="" coords="394,30539,582,30627">
+<area shape="rect" id="node263" href="m_bp_price.html" title="m_bp_price" alt="" coords="407,24956,569,25044">
+<area shape="rect" id="node264" href="m_commodityshipment.html" title="m_commodityshipment" alt="" coords="365,30644,611,30732">
+<area shape="rect" id="node265" href="m_cost.html" title="m_cost" alt="" coords="420,29380,556,29468">
+<area shape="rect" id="node266" href="m_costdetail.html" title="m_costdetail" alt="" coords="403,29591,573,29679">
+<area shape="rect" id="node267" href="m_costqueue.html" title="m_costqueue" alt="" coords="401,35700,575,35788">
+<area shape="rect" id="node268" href="m_demandline.html" title="m_demandline" alt="" coords="397,35173,579,35261">
+<area shape="rect" id="node269" href="m_discountschemabreak.html" title="m_discountschemabreak" alt="" coords="360,30749,616,30837">
+<area shape="rect" id="node270" href="m_discountschemaline.html" title="m_discountschemaline" alt="" coords="367,25799,609,25887">
+<area shape="rect" id="node271" href="m_distributionlistline.html" title="m_distributionlistline" alt="" coords="373,7695,603,7783">
+<area shape="rect" id="node272" href="m_distributionrun.html" title="m_distributionrun" alt="" coords="385,7800,591,7888">
+<area shape="rect" id="node273" href="m_distributionrunline.html" title="m_distributionrunline" alt="" coords="372,30855,604,30943">
+<area shape="rect" id="node274" href="m_edi.html" title="m_edi" alt="" coords="427,30960,549,31048">
+<area shape="rect" id="node275" href="m_forecastline.html" title="m_forecastline" alt="" coords="396,35068,580,35156">
+<area shape="rect" id="node276" href="m_freight.html" title="m_freight" alt="" coords="414,25588,562,25676">
+<area shape="rect" id="node277" href="m_inout.html" title="m_inout" alt="" coords="419,2639,557,2727">
+<area shape="rect" id="node278" href="m_inoutline.html" title="m_inoutline" alt="" coords="407,3165,569,3253">
+<area shape="rect" id="node279" href="m_inventory.html" title="m_inventory" alt="" coords="404,2849,572,2937">
+<area shape="rect" id="node280" href="m_inventoryline.html" title="m_inventoryline" alt="" coords="391,31065,585,31153">
+<area shape="rect" id="node281" href="m_locator.html" title="m_locator" alt="" coords="413,17583,563,17671">
+<area shape="rect" id="node282" href="m_locatortype.html" title="m_locatortype" alt="" coords="397,17688,579,17776">
+<area shape="rect" id="node283" href="m_lot.html" title="m_lot" alt="" coords="428,31171,548,31259">
+<area shape="rect" id="node284" href="m_matchinv.html" title="m_matchinv" alt="" coords="405,31276,571,31364">
+<area shape="rect" id="node285" href="m_matchpo.html" title="m_matchpo" alt="" coords="407,31381,569,31469">
+<area shape="rect" id="node286" href="m_movement.html" title="m_movement" alt="" coords="401,1796,575,1884">
+<area shape="rect" id="node287" href="m_movementline.html" title="m_movementline" alt="" coords="388,31487,588,31575">
+<area shape="rect" id="node288" href="m_package.html" title="m_package" alt="" coords="408,26536,568,26624">
+<area shape="rect" id="node289" href="m_packageline.html" title="m_packageline" alt="" coords="395,31592,581,31680">
+<area shape="rect" id="node290" href="m_packagemps.html" title="m_packagemps" alt="" coords="393,28432,583,28520">
+<area shape="rect" id="node291" href="m_pricelist.html" title="m_pricelist" alt="" coords="409,25693,567,25781">
+<area shape="rect" id="node292" href="m_pricelist_trl.html" title="m_pricelist_trl" alt="" coords="397,17793,579,17881">
+<area shape="rect" id="node293" href="m_pricelist_version_trl.html" title="m_pricelist_version_trl" alt="" coords="367,17899,609,17987">
+<area shape="rect" id="node294" href="m_product.html" title="m_product" alt="" coords="409,18004,567,18092">
+<area shape="rect" id="node295" href="m_product_acct.html" title="m_product_acct" alt="" coords="391,38544,585,38632">
+<area shape="rect" id="node296" href="m_product_bom.html" title="m_product_bom" alt="" coords="390,31697,586,31785">
+<area shape="rect" id="node297" href="m_product_category_acct.html" title="m_product_category_acct" alt="" coords="357,38860,619,38948">
+<area shape="rect" id="node298" href="m_product_category_trl.html" title="m_product_category_trl" alt="" coords="363,18109,613,18197">
+<area shape="rect" id="node299" href="m_product_po.html" title="m_product_po" alt="" coords="397,26009,579,26097">
+<area shape="rect" id="node300" href="m_product_qualitytest.html" title="m_product_qualitytest" alt="" coords="369,31803,607,31891">
+<area shape="rect" id="node301" href="m_product_trl.html" title="m_product_trl" alt="" coords="398,31908,578,31996">
+<area shape="rect" id="node302" href="m_productdownload.html" title="m_productdownload" alt="" coords="375,32013,601,32101">
+<area shape="rect" id="node303" href="m_production.html" title="m_production" alt="" coords="399,1901,577,1989">
+<area shape="rect" id="node304" href="m_productionline.html" title="m_productionline" alt="" coords="386,32119,590,32207">
+<area shape="rect" id="node305" href="m_productionplan.html" title="m_productionplan" alt="" coords="383,32224,593,32312">
+<area shape="rect" id="node306" href="m_productoperation.html" title="m_productoperation" alt="" coords="376,32329,600,32417">
+<area shape="rect" id="node307" href="m_productprice.html" title="m_productprice" alt="" coords="392,32435,584,32523">
+<area shape="rect" id="node308" href="m_productpricevendorbreak.html" title="m_productpricevendorbreak" alt="" coords="348,26641,628,26729">
+<area shape="rect" id="node309" href="m_promotion.html" title="m_promotion" alt="" coords="401,848,575,936">
+<area shape="rect" id="node310" href="m_promotiongroupline.html" title="m_promotiongroupline" alt="" coords="367,32540,609,32628">
+<area shape="rect" id="node311" href="m_promotionprecondition.html" title="m_promotionprecondition" alt="" coords="356,1585,620,1673">
+<area shape="rect" id="node312" href="m_relatedproduct.html" title="m_relatedproduct" alt="" coords="385,32645,591,32733">
+<area shape="rect" id="node313" href="m_replenish.html" title="m_replenish" alt="" coords="405,32751,571,32839">
+<area shape="rect" id="node314" href="m_requisition.html" title="m_requisition" alt="" coords="399,22428,577,22516">
+<area shape="rect" id="node315" href="m_requisitionline.html" title="m_requisitionline" alt="" coords="387,26747,589,26835">
+<area shape="rect" id="node316" href="m_rma.html" title="m_rma" alt="" coords="423,22639,553,22727">
+<area shape="rect" id="node317" href="m_rmaline.html" title="m_rmaline" alt="" coords="411,32856,565,32944">
+<area shape="rect" id="node318" href="m_shipper.html" title="m_shipper" alt="" coords="411,7905,565,7993">
+<area shape="rect" id="node319" href="m_shippingtransaction.html" title="m_shippingtransaction" alt="" coords="367,23797,609,23885">
+<area shape="rect" id="node320" href="m_shippingtransactionline.html" title="m_shippingtransactionline" alt="" coords="355,28537,621,28625">
+<area shape="rect" id="node321" href="m_storageonhand.html" title="m_storageonhand" alt="" coords="384,33067,592,33155">
+<area shape="rect" id="node322" href="m_storagereservation.html" title="m_storagereservation" alt="" coords="371,33172,605,33260">
+<area shape="rect" id="node323" href="m_substitute.html" title="m_substitute" alt="" coords="402,27484,574,27572">
+<area shape="rect" id="node324" href="m_transaction.html" title="m_transaction" alt="" coords="397,33277,579,33365">
+<area shape="rect" id="node325" href="m_transactionallocation.html" title="m_transactionallocation" alt="" coords="363,33383,613,33471">
+<area shape="rect" id="node326" href="m_warehouse.html" title="m_warehouse" alt="" coords="399,6852,577,6940">
+<area shape="rect" id="node327" href="m_warehouse_acct.html" title="m_warehouse_acct" alt="" coords="381,37807,595,37895">
+<area shape="rect" id="node328" href="pa_dashboardcontent_access.html" title="pa_dashboardcontent_access" alt="" coords="343,18215,633,18303">
+<area shape="rect" id="node329" href="pa_documentstatus.html" title="pa_documentstatus" alt="" coords="379,2112,597,2200">
+<area shape="rect" id="node330" href="pa_goalrestriction.html" title="pa_goalrestriction" alt="" coords="384,21585,592,21673">
+<area shape="rect" id="node331" href="pa_ratio.html" title="pa_ratio" alt="" coords="419,36648,557,36736">
+<area shape="rect" id="node332" href="pa_ratioelement.html" title="pa_ratioelement" alt="" coords="391,532,585,620">
+<area shape="rect" id="node333" href="pa_report.html" title="pa_report" alt="" coords="413,29485,563,29573">
+<area shape="rect" id="node334" href="pa_reportcolumn.html" title="pa_reportcolumn" alt="" coords="387,4745,589,4833">
+<area shape="rect" id="node335" href="pa_reportline.html" title="pa_reportline" alt="" coords="401,9169,575,9257">
+<area shape="rect" id="node336" href="pa_reportsource.html" title="pa_reportsource" alt="" coords="389,3376,587,3464">
+<area shape="rect" id="node337" href="pa_sla_goal.html" title="pa_sla_goal" alt="" coords="406,8011,570,8099">
+<area shape="rect" id="node338" href="pp_cost_collector.html" title="pp_cost_collector" alt="" coords="385,20216,591,20304">
+<area shape="rect" id="node339" href="pp_mrp.html" title="pp_mrp" alt="" coords="420,26957,556,27045">
+<area shape="rect" id="node340" href="pp_order.html" title="pp_order" alt="" coords="415,5377,561,5465">
+<area shape="rect" id="node341" href="pp_order_bom.html" title="pp_order_bom" alt="" coords="396,28959,580,29047">
+<area shape="rect" id="node342" href="pp_order_bomline.html" title="pp_order_bomline" alt="" coords="383,29064,593,29152">
+<area shape="rect" id="node343" href="pp_order_cost.html" title="pp_order_cost" alt="" coords="397,35279,579,35367">
+<area shape="rect" id="node344" href="pp_order_node.html" title="pp_order_node" alt="" coords="394,8116,582,8204">
+<area shape="rect" id="node345" href="pp_order_node_product.html" title="pp_order_node_product" alt="" coords="363,33488,613,33576">
+<area shape="rect" id="node346" href="pp_product_bom.html" title="pp_product_bom" alt="" coords="387,29169,589,29257">
+<area shape="rect" id="node347" href="pp_product_bomline.html" title="pp_product_bomline" alt="" coords="375,29275,601,29363">
+<area shape="rect" id="node348" href="pp_product_planning.html" title="pp_product_planning" alt="" coords="373,33593,603,33681">
+<area shape="rect" id="node349" href="pp_wf_node_product.html" title="pp_wf_node_product" alt="" coords="373,33699,603,33787">
+<area shape="rect" id="node350" href="qm_specification.html" title="qm_specification" alt="" coords="388,33804,588,33892">
+<area shape="rect" id="node351" href="r_category.html" title="r_category" alt="" coords="410,33909,566,33997">
+<area shape="rect" id="node352" href="r_issueproject.html" title="r_issueproject" alt="" coords="397,2217,579,2305">
+<area shape="rect" id="node353" href="r_request.html" title="r_request" alt="" coords="414,4219,562,4307">
+<area shape="rect" id="node354" href="r_requestaction.html" title="r_requestaction" alt="" coords="393,9064,583,9152">
+<area shape="rect" id="node355" href="r_requestupdate.html" title="r_requestupdate" alt="" coords="390,34015,586,34103">
+<area shape="rect" id="node356" href="s_expensetype.html" title="s_expensetype" alt="" coords="395,28643,581,28731">
+<area shape="rect" id="node357" href="s_resourcetype.html" title="s_resourcetype" alt="" coords="393,28748,583,28836">
+<area shape="rect" id="node358" href="s_timeexpense.html" title="s_timeexpense" alt="" coords="395,8221,581,8309">
+<area shape="rect" id="node359" href="s_timeexpenseline.html" title="s_timeexpenseline" alt="" coords="383,8959,593,9047">
+<area shape="rect" id="node360" href="s_training.html" title="s_training" alt="" coords="413,28116,563,28204">
+<area shape="rect" id="node361" href="s_training_class.html" title="s_training_class" alt="" coords="391,34120,585,34208">
+<area shape="rect" id="node362" href="t_aging.html" title="t_aging" alt="" coords="421,3271,555,3359">
+<area shape="rect" id="node363" href="t_distributionrundetail.html" title="t_distributionrundetail" alt="" coords="369,24745,607,24833">
+<area shape="rect" id="node364" href="t_inventoryvalue.html" title="t_inventoryvalue" alt="" coords="389,27695,587,27783">
+<area shape="rect" id="node365" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="409,22533,567,22621">
+<area shape="rect" id="node366" href="t_replenish.html" title="t_replenish" alt="" coords="409,27379,567,27467">
+<area shape="rect" id="node367" href="t_transaction.html" title="t_transaction" alt="" coords="401,34225,575,34313">
+<area shape="rect" id="node368" href="test.html" title="test" alt="" coords="431,39281,545,39369">
+<area shape="rect" id="node369" href="u_posterminal.html" title="u_posterminal" alt="" coords="397,8537,579,8625">
+<area shape="rect" id="node370" href="w_advertisement.html" title="w_advertisement" alt="" coords="389,8643,587,8731">
+<area shape="rect" id="node371" href="w_basket.html" title="w_basket" alt="" coords="415,8748,561,8836">
+<area shape="rect" id="node372" href="w_basketline.html" title="w_basketline" alt="" coords="403,34331,573,34419">
+<area shape="rect" id="node373" href="w_clickcount.html" title="w_clickcount" alt="" coords="402,5167,574,5255">
+<area shape="rect" id="node374" href="w_countercount.html" title="w_countercount" alt="" coords="391,5272,585,5360">
+</map>
+
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/i_fajournal.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="a_asset.html" title="a_asset" alt="" coords="319,275,603,861">
+<area shape="rect" id="node2" title="adempiere.c_activity" alt="" coords="26,1461,250,1549">
+<area shape="rect" id="node3" title="adempiere.c_bpartner" alt="" coords="21,603,255,691">
+<area shape="rect" id="node4" title="adempiere.c_location" alt="" coords="23,2353,253,2441">
+<area shape="rect" id="node5" title="adempiere.c_project" alt="" coords="27,2495,249,2583">
+<area shape="rect" id="node6" title="adempiere.m_product" alt="" coords="21,404,255,492">
+<area shape="rect" id="node7" href="c_subacct.html" title="c_subacct" alt="" coords="355,5,568,152">
+<area shape="rect" id="node8" title="adempiere.c_elementvalue" alt="" coords="5,985,271,1073">
+<area shape="rect" id="node9" href="i_fajournal.html" title="i_fajournal" alt="" coords="652,63,1020,2244">
+<area shape="rect" id="node10" title="adempiere.ad_org" alt="" coords="358,169,565,257">
+<area shape="rect" id="node11" title="adempiere.c_acctschema" alt="" coords="333,915,590,1003">
+<area shape="rect" id="node12" title="adempiere.c_campaign" alt="" coords="341,1937,582,2025">
+<area shape="rect" id="node13" href="c_conversiontype.html" title="c_conversiontype" alt="" coords="343,2043,579,2160">
+<area shape="rect" id="node14" title="adempiere.c_currency" alt="" coords="343,2177,579,2265">
+<area shape="rect" id="node15" title="adempiere.c_doctype" alt="" coords="347,2283,576,2371">
+<area shape="rect" id="node16" title="adempiere.c_period" alt="" coords="352,2460,571,2548">
+<area shape="rect" id="node17" title="adempiere.c_salesregion" alt="" coords="334,2601,589,2689">
+<area shape="rect" id="node18" title="adempiere.c_uom" alt="" coords="359,1760,564,1848">
+<area shape="rect" id="node19" title="adempiere.c_validcombination" alt="" coords="315,1655,608,1743">
+<area shape="rect" id="node20" title="adempiere.gl_budget" alt="" coords="347,1020,575,1108">
+<area shape="rect" id="node21" title="adempiere.gl_category" alt="" coords="341,1549,581,1637">
+<area shape="rect" id="node22" title="adempiere.gl_journal" alt="" coords="347,1233,575,1321">
+<area shape="rect" id="node23" title="adempiere.gl_journalbatch" alt="" coords="328,1444,595,1532">
+<area shape="rect" id="node24" title="adempiere.gl_journalline" alt="" coords="335,1339,588,1427">
+</map>
+
+					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/i_fajournal.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node2" title="adempiere.a_asset_class" alt="" coords="37,32184,291,32272">
+<area shape="rect" id="node3" title="adempiere.a_asset_group" alt="" coords="33,32860,295,32948">
+<area shape="rect" id="node4" title="adempiere.a_asset_type" alt="" coords="39,32079,289,32167">
+<area shape="rect" id="node5" title="adempiere.a_asset" alt="" coords="59,31868,269,31956">
+<area shape="rect" id="node6" title="adempiere.ad_user" alt="" coords="57,31973,271,32061">
+<area shape="rect" id="node7" title="adempiere.c_activity" alt="" coords="52,6205,276,6293">
+<area shape="rect" id="node9" title="adempiere.c_bpartner_location" alt="" coords="15,31657,313,31745">
+<area shape="rect" id="node12" title="adempiere.m_attributesetinstance" alt="" coords="5,32649,323,32737">
+<area shape="rect" id="node13" title="adempiere.m_inoutline" alt="" coords="44,31763,284,31851">
+<area shape="rect" id="node16" href="a_asset_acct.html" title="a_asset_acct" alt="" coords="426,37151,597,37239">
+<area shape="rect" id="node19" href="a_asset_addition.html" title="a_asset_addition" alt="" coords="412,11197,611,11285">
+<area shape="rect" id="node23" href="a_asset_change.html" title="a_asset_change" alt="" coords="787,38316,981,38404">
+<area shape="rect" id="node24" href="a_asset_change_amt.html" title="a_asset_change_amt" alt="" coords="398,35324,625,35412">
+<area shape="rect" id="node25" href="a_asset_disposed.html" title="a_asset_disposed" alt="" coords="409,1701,614,1789">
+<area shape="rect" id="node27" href="a_asset_group_acct.html" title="a_asset_group_acct" alt="" coords="401,36940,622,37028">
+<area shape="rect" id="node28" href="a_asset_group_trl.html" title="a_asset_group_trl" alt="" coords="408,32965,615,33053">
+<area shape="rect" id="node29" title="adempiere.ad_org" alt="" coords="61,17647,267,17735">
+<area shape="rect" id="node30" href="a_asset_info_fin.html" title="a_asset_info_fin" alt="" coords="414,13340,609,13428">
+<area shape="rect" id="node31" href="a_asset_info_ins.html" title="a_asset_info_ins" alt="" coords="785,31929,983,32017">
+<area shape="rect" id="node32" href="a_asset_info_oth.html" title="a_asset_info_oth" alt="" coords="784,32035,984,32123">
+<area shape="rect" id="node33" href="a_asset_info_tax.html" title="a_asset_info_tax" alt="" coords="785,32245,983,32333">
+<area shape="rect" id="node34" href="a_asset_product.html" title="a_asset_product" alt="" coords="413,33071,610,33159">
+<area shape="rect" id="node35" href="a_asset_reval_entry.html" title="a_asset_reval_entry" alt="" coords="401,5728,621,5816">
+<area shape="rect" id="node36" title="adempiere.gl_category" alt="" coords="44,2092,284,2180">
+<area shape="rect" id="node37" href="a_asset_split.html" title="a_asset_split" alt="" coords="798,31743,970,31831">
+<area shape="rect" id="node38" href="a_asset_transfer.html" title="a_asset_transfer" alt="" coords="785,38063,983,38151">
+<area shape="rect" id="node39" href="a_depreciation_build.html" title="a_depreciation_build" alt="" coords="398,571,625,659">
+<area shape="rect" id="node40" href="a_depreciation_entry.html" title="a_depreciation_entry" alt="" coords="397,5833,625,5921">
+<area shape="rect" id="node41" href="a_depreciation_exp.html" title="a_depreciation_exp" alt="" coords="403,37923,620,38011">
+<area shape="rect" id="node42" href="a_fundingmode_acct.html" title="a_fundingmode_acct" alt="" coords="398,35429,625,35517">
+<area shape="rect" id="node43" href="a_registration.html" title="a_registration" alt="" coords="423,26647,600,26735">
+<area shape="rect" id="node44" href="a_registrationproduct.html" title="a_registrationproduct" alt="" coords="395,31109,628,31197">
+<area shape="rect" id="node45" href="ad_archive.html" title="ad_archive" alt="" coords="433,13129,590,13217">
+<area shape="rect" id="node46" href="ad_broadcastmessage_trl.html" title="ad_broadcastmessage_trl" alt="" coords="381,22924,642,23012">
+<area shape="rect" id="node47" href="ad_chart_trl.html" title="ad_chart_trl" alt="" coords="429,23029,594,23117">
+<area shape="rect" id="node48" href="ad_clientinfo.html" title="ad_clientinfo" alt="" coords="426,27489,597,27577">
+<area shape="rect" id="node50" href="ad_clientshare.html" title="ad_clientshare" alt="" coords="420,23135,603,23223">
+<area shape="rect" id="node51" href="ad_color_trl.html" title="ad_color_trl" alt="" coords="429,23240,594,23328">
+<area shape="rect" id="node52" href="ad_column.html" title="ad_column" alt="" coords="429,23345,593,23433">
+<area shape="rect" id="node53" href="ad_document_action_access.html" title="ad_document_action_access" alt="" coords="370,8001,653,8089">
+<area shape="rect" id="node54" href="ad_field.html" title="ad_field" alt="" coords="429,23451,593,23539">
+<area shape="rect" id="node55" href="ad_importtemplate.html" title="ad_importtemplate" alt="" coords="405,23556,617,23644">
+<area shape="rect" id="node56" href="ad_importtemplateaccess.html" title="ad_importtemplateaccess" alt="" coords="381,23661,641,23749">
+<area shape="rect" id="node57" href="ad_inforelated.html" title="ad_inforelated" alt="" coords="421,23767,602,23855">
+<area shape="rect" id="node58" href="ad_language.html" title="ad_language" alt="" coords="427,16644,596,16732">
+<area shape="rect" id="node59" href="ad_menu.html" title="ad_menu" alt="" coords="439,19488,584,19576">
+<area shape="rect" id="node60" href="ad_message.html" title="ad_message" alt="" coords="427,19593,595,19681">
+<area shape="rect" id="node61" href="ad_orginfo.html" title="ad_orginfo" alt="" coords="433,7264,590,7352">
+<area shape="rect" id="node62" href="ad_password_history.html" title="ad_password_history" alt="" coords="396,19699,627,19787">
+<area shape="rect" id="node63" href="ad_preference.html" title="ad_preference" alt="" coords="421,19804,602,19892">
+<area shape="rect" id="node64" href="ad_printcolor_trl.html" title="ad_printcolor_trl" alt="" coords="413,19909,610,19997">
+<area shape="rect" id="node65" href="ad_process_access.html" title="ad_process_access" alt="" coords="403,20015,620,20103">
+<area shape="rect" id="node66" href="ad_ref_list.html" title="ad_ref_list" alt="" coords="435,20120,588,20208">
+<area shape="rect" id="node67" href="ad_ref_table.html" title="ad_ref_table" alt="" coords="428,20225,595,20313">
+<area shape="rect" id="node68" href="ad_reference.html" title="ad_reference" alt="" coords="425,20331,597,20419">
+<area shape="rect" id="node69" href="ad_registration.html" title="ad_registration" alt="" coords="418,2747,605,2835">
+<area shape="rect" id="node70" href="ad_replication.html" title="ad_replication" alt="" coords="421,20436,601,20524">
+<area shape="rect" id="node71" href="ad_replicationdocument.html" title="ad_replicationdocument" alt="" coords="387,8107,636,8195">
+<area shape="rect" id="node72" href="ad_reportview_column.html" title="ad_reportview_column" alt="" coords="391,20541,631,20629">
+<area shape="rect" id="node73" href="ad_role.html" title="ad_role" alt="" coords="445,12392,578,12480">
+<area shape="rect" id="node74" href="ad_role_orgaccess.html" title="ad_role_orgaccess" alt="" coords="405,20647,618,20735">
+<area shape="rect" id="node75" href="ad_sequence.html" title="ad_sequence" alt="" coords="425,20752,598,20840">
+<area shape="rect" id="node76" href="ad_sequence_audit.html" title="ad_sequence_audit" alt="" coords="403,20857,619,20945">
+<area shape="rect" id="node77" href="ad_sequence_no.html" title="ad_sequence_no" alt="" coords="412,20963,611,21051">
+<area shape="rect" id="node78" href="ad_statusline.html" title="ad_statusline" alt="" coords="425,21068,598,21156">
+<area shape="rect" id="node79" href="ad_statuslineusedin.html" title="ad_statuslineusedin" alt="" coords="401,21173,622,21261">
+<area shape="rect" id="node80" href="ad_tab.html" title="ad_tab" alt="" coords="433,21279,589,21367">
+<area shape="rect" id="node81" href="ad_table.html" title="ad_table" alt="" coords="433,25488,589,25576">
+<area shape="rect" id="node82" href="ad_table_access.html" title="ad_table_access" alt="" coords="413,21384,609,21472">
+<area shape="rect" id="node83" href="ad_task.html" title="ad_task" alt="" coords="444,21871,579,21959">
+<area shape="rect" id="node84" href="ad_task_access.html" title="ad_task_access" alt="" coords="416,21976,607,22064">
+<area shape="rect" id="node85" href="ad_taskinstance.html" title="ad_taskinstance" alt="" coords="415,22187,608,22275">
+<area shape="rect" id="node87" title="adempiere.c_campaign" alt="" coords="43,6363,285,6451">
+<area shape="rect" id="node88" href="ad_user_orgaccess.html" title="ad_user_orgaccess" alt="" coords="403,22292,620,22380">
+<area shape="rect" id="node89" href="ad_user_roles.html" title="ad_user_roles" alt="" coords="421,23872,601,23960">
+<area shape="rect" id="node90" href="ad_userpreference.html" title="ad_userpreference" alt="" coords="405,23977,617,24065">
+<area shape="rect" id="node91" href="ad_val_rule.html" title="ad_val_rule" alt="" coords="431,24083,592,24171">
+<area shape="rect" id="node92" href="ad_wf_node.html" title="ad_wf_node" alt="" coords="429,16256,594,16344">
+<area shape="rect" id="node93" href="ad_wf_nodenext.html" title="ad_wf_nodenext" alt="" coords="414,24188,609,24276">
+<area shape="rect" id="node94" href="ad_wf_process.html" title="ad_wf_process" alt="" coords="419,24293,604,24381">
+<area shape="rect" id="node95" href="ad_wf_responsible.html" title="ad_wf_responsible" alt="" coords="405,24399,617,24487">
+<area shape="rect" id="node96" href="ad_window.html" title="ad_window" alt="" coords="432,24504,591,24592">
+<area shape="rect" id="node97" href="ad_window_access.html" title="ad_window_access" alt="" coords="404,24715,619,24803">
+<area shape="rect" id="node98" href="ad_workflow.html" title="ad_workflow" alt="" coords="427,24820,596,24908">
+<area shape="rect" id="node99" href="ad_workflow_access.html" title="ad_workflow_access" alt="" coords="399,24925,624,25013">
+<area shape="rect" id="node100" href="b_topictype.html" title="b_topictype" alt="" coords="430,31215,593,31303">
+<area shape="rect" id="node101" href="c_acctprocessor.html" title="c_acctprocessor" alt="" coords="413,35535,610,35623">
+<area shape="rect" id="node102" href="c_acctschema.html" title="c_acctschema" alt="" coords="421,25136,601,25224">
+<area shape="rect" id="node103" href="c_acctschema_default.html" title="c_acctschema_default" alt="" coords="393,37677,629,37765">
+<area shape="rect" id="node104" href="c_acctschema_element.html" title="c_acctschema_element" alt="" coords="390,5383,633,5471">
+<area shape="rect" id="node106" title="adempiere.c_salesregion" alt="" coords="37,3779,291,3867">
+<area shape="rect" id="node107" href="c_acctschema_gl.html" title="c_acctschema_gl" alt="" coords="411,37045,612,37133">
+<area shape="rect" id="node108" href="c_activity_trl.html" title="c_activity_trl" alt="" coords="427,7159,596,7247">
+<area shape="rect" id="node109" href="c_addresstransaction.html" title="c_addresstransaction" alt="" coords="395,5939,627,6027">
+<area shape="rect" id="node110" href="c_addressvalidation.html" title="c_addressvalidation" alt="" coords="401,25241,622,25329">
+<area shape="rect" id="node111" href="c_addressvalidationcfg.html" title="c_addressvalidationcfg" alt="" coords="390,25347,633,25435">
+<area shape="rect" id="node112" href="c_allocationhdr.html" title="c_allocationhdr" alt="" coords="417,8528,606,8616">
+<area shape="rect" id="node113" href="c_allocationline.html" title="c_allocationline" alt="" coords="417,13235,606,13323">
+<area shape="rect" id="node114" href="c_bank.html" title="c_bank" alt="" coords="446,1488,577,1576">
+<area shape="rect" id="node115" href="c_bankaccount.html" title="c_bankaccount" alt="" coords="418,10881,605,10969">
+<area shape="rect" id="node116" href="c_bankaccount_acct.html" title="c_bankaccount_acct" alt="" coords="399,37361,623,37449">
+<area shape="rect" id="node117" href="c_bankaccount_processor.html" title="c_bankaccount_processor" alt="" coords="379,10460,644,10548">
+<area shape="rect" id="node118" href="c_bankstatementline.html" title="c_bankstatementline" alt="" coords="399,11619,624,11707">
+<area shape="rect" id="node119" href="c_bp_bankaccount.html" title="c_bp_bankaccount" alt="" coords="405,12287,618,12375">
+<area shape="rect" id="node120" href="c_bp_customer_acct.html" title="c_bp_customer_acct" alt="" coords="399,36203,624,36291">
+<area shape="rect" id="node121" href="c_bp_edi.html" title="c_bp_edi" alt="" coords="439,13445,583,13533">
+<area shape="rect" id="node122" href="c_bp_employee_acct.html" title="c_bp_employee_acct" alt="" coords="398,35887,625,35975">
+<area shape="rect" id="node123" href="c_bp_group_acct.html" title="c_bp_group_acct" alt="" coords="411,37467,612,37555">
+<area shape="rect" id="node124" href="c_bp_relation.html" title="c_bp_relation" alt="" coords="423,13551,599,13639">
+<area shape="rect" id="node125" href="c_bp_shippingacct.html" title="c_bp_shippingacct" alt="" coords="405,13656,618,13744">
+<area shape="rect" id="node126" href="c_bp_vendor_acct.html" title="c_bp_vendor_acct" alt="" coords="407,36308,616,36396">
+<area shape="rect" id="node127" href="c_bp_withholding.html" title="c_bp_withholding" alt="" coords="409,13761,614,13849">
+<area shape="rect" id="node128" href="c_bpartner.html" title="c_bpartner" alt="" coords="433,14920,590,15008">
+<area shape="rect" id="node130" href="c_bpartner_product.html" title="c_bpartner_product" alt="" coords="401,27173,621,27261">
+<area shape="rect" id="node131" href="c_calendar.html" title="c_calendar" alt="" coords="433,16539,590,16627">
+<area shape="rect" id="node132" href="c_campaign_trl.html" title="c_campaign_trl" alt="" coords="417,8949,605,9037">
+<area shape="rect" id="node133" href="c_cash.html" title="c_cash" alt="" coords="447,4188,576,4276">
+<area shape="rect" id="node134" href="c_cashbook.html" title="c_cashbook" alt="" coords="429,10565,594,10653">
+<area shape="rect" id="node135" href="c_cashbook_acct.html" title="c_cashbook_acct" alt="" coords="411,36729,612,36817">
+<area shape="rect" id="node136" href="c_cashline.html" title="c_cashline" alt="" coords="434,11092,589,11180">
+<area shape="rect" id="node137" href="c_cashplan.html" title="c_cashplan" alt="" coords="431,4083,591,4171">
+<area shape="rect" id="node138" href="c_cashplanline.html" title="c_cashplanline" alt="" coords="419,6465,604,6553">
+<area shape="rect" id="node139" href="c_charge.html" title="c_charge" alt="" coords="439,12076,584,12164">
+<area shape="rect" id="node140" href="c_charge_acct.html" title="c_charge_acct" alt="" coords="421,36519,602,36607">
+<area shape="rect" id="node141" href="c_chargetype_doctype.html" title="c_chargetype_doctype" alt="" coords="392,8212,631,8300">
+<area shape="rect" id="node142" href="c_city.html" title="c_city" alt="" coords="445,21595,578,21683">
+<area shape="rect" id="node143" href="c_commission.html" title="c_commission" alt="" coords="421,12181,602,12269">
+<area shape="rect" id="node144" href="c_commissiondetail.html" title="c_commissiondetail" alt="" coords="401,10671,621,10759">
+<area shape="rect" id="node145" href="c_commissionline.html" title="c_commissionline" alt="" coords="408,15341,615,15429">
+<area shape="rect" id="node146" href="c_conversion_rate.html" title="c_conversion_rate" alt="" coords="407,11303,616,11391">
+<area shape="rect" id="node147" href="c_country.html" title="c_country" alt="" coords="433,15657,589,15745">
+<area shape="rect" id="node148" href="c_countrygroup.html" title="c_countrygroup" alt="" coords="415,16749,608,16837">
+<area shape="rect" id="node149" href="c_countrygroup_trl.html" title="c_countrygroup_trl" alt="" coords="403,16855,619,16943">
+<area shape="rect" id="node150" href="c_countrygroupcountry.html" title="c_countrygroupcountry" alt="" coords="388,16960,635,17048">
+<area shape="rect" id="node151" href="c_currency.html" title="c_currency" alt="" coords="432,17065,591,17153">
+<area shape="rect" id="node152" href="c_currency_acct.html" title="c_currency_acct" alt="" coords="413,36413,609,36501">
+<area shape="rect" id="node153" href="c_currency_trl.html" title="c_currency_trl" alt="" coords="421,9828,602,9916">
+<area shape="rect" id="node154" href="c_cycle.html" title="c_cycle" alt="" coords="445,9933,578,10021">
+<area shape="rect" id="node155" href="c_depositbatch.html" title="c_depositbatch" alt="" coords="417,8317,605,8405">
+<area shape="rect" id="node156" href="c_doctype.html" title="c_doctype" alt="" coords="435,288,588,376">
+<area shape="rect" id="node157" href="c_doctype_trl.html" title="c_doctype_trl" alt="" coords="423,8423,599,8511">
+<area shape="rect" id="node158" href="c_doctypecounter.html" title="c_doctypecounter" alt="" coords="408,7475,615,7563">
+<area shape="rect" id="node159" href="c_dunning_line_v.html" title="c_dunning_line_v" alt="" coords="783,7085,985,7149">
+<area shape="rect" id="node160" href="c_conversiontype.html" title="c_conversiontype" alt="" coords="393,5593,629,5711">
+<area shape="rect" id="node161" href="c_dunningrunentry.html" title="c_dunningrunentry" alt="" coords="404,11971,619,12059">
+<area shape="rect" id="node162" href="c_order.html" title="c_order" alt="" coords="437,6817,585,6905">
+<area shape="rect" id="node163" href="c_payment.html" title="c_payment" alt="" coords="433,6923,590,7011">
+<area shape="rect" id="node164" href="c_invoice.html" title="c_invoice" alt="" coords="437,6712,585,6800">
+<area shape="rect" id="node165" href="m_pricelist.html" title="m_pricelist" alt="" coords="433,9723,590,9811">
+<area shape="rect" id="node166" href="m_rma.html" title="m_rma" alt="" coords="445,9512,578,9600">
+<area shape="rect" id="node167" href="c_dunning_line_vt.html" title="c_dunning_line_vt" alt="" coords="781,7329,987,7393">
+<area shape="rect" id="node168" href="c_element.html" title="c_element" alt="" coords="435,25593,587,25681">
+<area shape="rect" id="node169" href="c_elementvalue.html" title="c_elementvalue" alt="" coords="417,17171,606,17259">
+<area shape="rect" id="node170" href="c_elementvalue_trl.html" title="c_elementvalue_trl" alt="" coords="405,2195,617,2283">
+<area shape="rect" id="node171" href="c_interorg_acct.html" title="c_interorg_acct" alt="" coords="417,34831,606,34919">
+<area shape="rect" id="node172" href="c_invoice_header_v.html" title="c_invoice_header_v" alt="" coords="776,11143,992,11207">
+<area shape="rect" id="node173" href="c_region.html" title="c_region" alt="" coords="433,21489,589,21577">
+<area shape="rect" id="node174" href="m_warehouse.html" title="m_warehouse" alt="" coords="423,16433,600,16521">
+<area shape="rect" id="node175" href="c_invoice_header_vt.html" title="c_invoice_header_vt" alt="" coords="773,11224,995,11288">
+<area shape="rect" id="node176" href="c_invoice_v.html" title="c_invoice_v" alt="" coords="804,6923,964,6987">
+<area shape="rect" id="node177" href="c_invoice_v1.html" title="c_invoice_v1" alt="" coords="800,6841,968,6905">
+<area shape="rect" id="node178" href="c_invoicebatch.html" title="c_invoicebatch" alt="" coords="419,10039,604,10127">
+<area shape="rect" id="node179" href="c_invoicebatchline.html" title="c_invoicebatchline" alt="" coords="406,6571,617,6659">
+<area shape="rect" id="node180" href="c_invoiceline.html" title="c_invoiceline" alt="" coords="425,15447,597,15535">
+<area shape="rect" id="node181" href="c_landedcost.html" title="c_landedcost" alt="" coords="425,31320,598,31408">
+<area shape="rect" id="node182" href="c_landedcostallocation.html" title="c_landedcostallocation" alt="" coords="391,34160,632,34248">
+<area shape="rect" id="node183" href="c_location.html" title="c_location" alt="" coords="435,17276,588,17364">
+<area shape="rect" id="node184" href="c_nonbusinessday.html" title="c_nonbusinessday" alt="" coords="405,17381,617,17469">
+<area shape="rect" id="node185" href="c_opportunity.html" title="c_opportunity" alt="" coords="422,8633,601,8721">
+<area shape="rect" id="node186" href="c_order_header_v.html" title="c_order_header_v" alt="" coords="782,11305,986,11369">
+<area shape="rect" id="node187" href="c_pos.html" title="c_pos" alt="" coords="445,10987,578,11075">
+<area shape="rect" id="node188" href="m_shipper.html" title="m_shipper" alt="" coords="434,15552,589,15640">
+<area shape="rect" id="node189" href="c_order_header_vt.html" title="c_order_header_vt" alt="" coords="779,11740,989,11804">
+<area shape="rect" id="node190" href="c_orderline.html" title="c_orderline" alt="" coords="431,10776,591,10864">
+<area shape="rect" id="node191" href="c_ordersource.html" title="c_ordersource" alt="" coords="420,17487,603,17575">
+<area shape="rect" id="node192" href="c_orgassignment.html" title="c_orgassignment" alt="" coords="411,17592,612,17680">
+<area shape="rect" id="node193" href="c_payment_v.html" title="c_payment_v" alt="" coords="799,7248,969,7312">
+<area shape="rect" id="node194" href="c_paymentprocessor.html" title="c_paymentprocessor" alt="" coords="397,10144,625,10232">
+<area shape="rect" id="node195" href="c_paymenttransaction.html" title="c_paymenttransaction" alt="" coords="393,4609,629,4697">
+<area shape="rect" id="node196" href="c_payselection_check_v.html" title="c_payselection_check_v" alt="" coords="761,10887,1007,10951">
+<area shape="rect" id="node197" href="c_payselectioncheck.html" title="c_payselectioncheck" alt="" coords="399,12708,624,12796">
+<area shape="rect" id="node198" href="c_payselection_check_vt.html" title="c_payselection_check_vt" alt="" coords="758,11061,1010,11125">
+<area shape="rect" id="node199" href="c_payselection_remittance_v.html" title="c_payselection_remittance_v" alt="" coords="744,8744,1024,8808">
+<area shape="rect" id="node200" href="c_payselection_remittance_vt.html" title="c_payselection_remittance_vt" alt="" coords="741,9337,1027,9401">
+<area shape="rect" id="node201" href="c_period.html" title="c_period" alt="" coords="441,17697,582,17785">
+<area shape="rect" id="node202" href="c_periodcontrol.html" title="c_periodcontrol" alt="" coords="415,781,607,869">
+<area shape="rect" id="node203" href="c_phase.html" title="c_phase" alt="" coords="442,31531,581,31619">
+<area shape="rect" id="node204" href="c_poskey.html" title="c_poskey" alt="" coords="438,31636,585,31724">
+<area shape="rect" id="node205" href="c_project.html" title="c_project" alt="" coords="439,15131,584,15219">
+<area shape="rect" id="node206" href="c_project_acct.html" title="c_project_acct" alt="" coords="420,35676,603,35764">
+<area shape="rect" id="node207" href="c_projectissue.html" title="c_projectissue" alt="" coords="420,27772,603,27860">
+<area shape="rect" id="node208" href="c_projectline.html" title="c_projectline" alt="" coords="426,21765,597,21853">
+<area shape="rect" id="node209" href="c_projectphase.html" title="c_projectphase" alt="" coords="417,22081,605,22169">
+<area shape="rect" id="node210" href="c_projecttask.html" title="c_projecttask" alt="" coords="424,28581,599,28669">
+<area shape="rect" id="node211" href="c_recurring.html" title="c_recurring" alt="" coords="431,1205,592,1293">
+<area shape="rect" id="node212" href="c_recurring_run.html" title="c_recurring_run" alt="" coords="415,1028,608,1116">
+<area shape="rect" id="node213" href="c_recurringgroup.html" title="c_recurringgroup" alt="" coords="409,17803,613,17891">
+<area shape="rect" id="node214" href="c_region_trl.html" title="c_region_trl" alt="" coords="429,17908,594,17996">
+<area shape="rect" id="node215" href="c_revenuerecognition_plan.html" title="c_revenuerecognition_plan" alt="" coords="376,35781,647,35869">
+<area shape="rect" id="node216" href="c_revenuerecognition_run.html" title="c_revenuerecognition_run" alt="" coords="379,111,644,199">
+<area shape="rect" id="node218" href="c_rfq.html" title="c_rfq" alt="" coords="453,11724,570,11812">
+<area shape="rect" id="node219" href="c_rfq_topicsubscriber.html" title="c_rfq_topicsubscriber" alt="" coords="394,15236,629,15324">
+<area shape="rect" id="node220" href="c_rfq_topicsubscriberonly.html" title="c_rfq_topicsubscriberonly" alt="" coords="379,31741,644,31829">
+<area shape="rect" id="node221" href="c_rfqline.html" title="c_rfqline" alt="" coords="441,34265,582,34353">
+<area shape="rect" id="node222" href="c_rfqlineqty.html" title="c_rfqlineqty" alt="" coords="429,25699,593,25787">
+<area shape="rect" id="node223" href="c_rfqresponse.html" title="c_rfqresponse" alt="" coords="421,11408,602,11496">
+<area shape="rect" id="node224" href="c_salesregion_trl.html" title="c_salesregion_trl" alt="" coords="411,3309,612,3397">
+<area shape="rect" id="node225" href="c_salesstage_trl.html" title="c_salesstage_trl" alt="" coords="415,18013,608,18101">
+<area shape="rect" id="node226" href="c_servicelevel.html" title="c_servicelevel" alt="" coords="422,31847,601,31935">
+<area shape="rect" id="node227" href="c_subacct.html" title="c_subacct" alt="" coords="405,2511,618,2657">
+<area shape="rect" id="node228" href="c_subscription.html" title="c_subscription" alt="" coords="419,26752,604,26840">
+<area shape="rect" id="node229" href="c_task.html" title="c_task" alt="" coords="449,28792,574,28880">
+<area shape="rect" id="node230" href="c_tax_acct.html" title="c_tax_acct" alt="" coords="434,36835,589,36923">
+<area shape="rect" id="node231" href="c_taxdeclarationacct.html" title="c_taxdeclarationacct" alt="" coords="399,34972,624,35060">
+<area shape="rect" id="node232" href="c_taxdeclarationline.html" title="c_taxdeclarationline" alt="" coords="401,11513,622,11601">
+<area shape="rect" id="node233" href="c_taxdefinition.html" title="c_taxdefinition" alt="" coords="419,26963,603,27051">
+<area shape="rect" id="node234" href="c_taxprovider.html" title="c_taxprovider" alt="" coords="423,18119,600,18207">
+<area shape="rect" id="node235" href="c_taxprovidercfg.html" title="c_taxprovidercfg" alt="" coords="412,18224,611,18312">
+<area shape="rect" id="node236" href="c_uom.html" title="c_uom" alt="" coords="447,18329,575,18417">
+<area shape="rect" id="node237" href="c_uom_conversion.html" title="c_uom_conversion" alt="" coords="405,25909,618,25997">
+<area shape="rect" id="node238" href="c_uom_trl.html" title="c_uom_trl" alt="" coords="436,25804,587,25892">
+<area shape="rect" id="node239" href="c_validcombination.html" title="c_validcombination" alt="" coords="403,12497,620,12585">
+<area shape="rect" id="node240" href="c_withholding.html" title="c_withholding" alt="" coords="422,12603,601,12691">
+<area shape="rect" id="node241" href="c_withholding_acct.html" title="c_withholding_acct" alt="" coords="403,36097,619,36185">
+<area shape="rect" id="node242" href="c_year.html" title="c_year" alt="" coords="447,18645,575,18733">
+<area shape="rect" id="node243" href="dd_order.html" title="dd_order" alt="" coords="439,4293,584,4381">
+<area shape="rect" id="node244" href="dd_orderline.html" title="dd_orderline" alt="" coords="427,18435,596,18523">
+<area shape="rect" id="node245" href="fact_acct.html" title="fact_acct" alt="" coords="433,3767,589,3855">
+<area shape="rect" id="node246" title="adempiere.gl_budget" alt="" coords="50,2960,278,3048">
+<area shape="rect" id="node247" href="fact_acct_summary.html" title="fact_acct_summary" alt="" coords="403,2852,620,2940">
+<area shape="rect" id="node248" href="gl_budgetcontrol.html" title="gl_budgetcontrol" alt="" coords="411,15763,612,15851">
+<area shape="rect" id="node249" href="gl_category_trl.html" title="gl_category_trl" alt="" coords="419,2089,604,2177">
+<area shape="rect" id="node250" href="gl_distribution.html" title="gl_distribution" alt="" coords="420,4504,603,4592">
+<area shape="rect" id="node251" href="gl_distributionline.html" title="gl_distributionline" alt="" coords="407,3520,615,3608">
+<area shape="rect" id="node252" href="gl_fund.html" title="gl_fund" alt="" coords="445,35077,578,35165">
+<area shape="rect" id="node253" href="gl_fundrestriction.html" title="gl_fundrestriction" alt="" coords="409,2300,614,2388">
+<area shape="rect" id="node254" href="gl_journal.html" title="gl_journal" alt="" coords="436,5,587,93">
+<area shape="rect" id="node255" href="gl_journalbatch.html" title="gl_journalbatch" alt="" coords="417,393,606,481">
+<area shape="rect" id="node256" href="gl_journalgenerator.html" title="gl_journalgenerator" alt="" coords="402,3063,621,3151">
+<area shape="rect" id="node257" href="gl_journalgeneratorline.html" title="gl_journalgeneratorline" alt="" coords="389,3168,633,3256">
+<area shape="rect" id="node258" href="gl_journalgeneratorsource.html" title="gl_journalgeneratorsource" alt="" coords="378,923,645,1011">
+<area shape="rect" id="node259" href="gl_journalline.html" title="gl_journalline" alt="" coords="423,12813,599,12901">
+<area shape="rect" id="node260" href="gl_journalline_acct_v.html" title="gl_journalline_acct_v" alt="" coords="771,5596,997,5660">
+<area shape="rect" id="node261" href="hr_attribute.html" title="hr_attribute" alt="" coords="430,32755,593,32843">
+<area shape="rect" id="node262" href="hr_concept_acct.html" title="hr_concept_acct" alt="" coords="413,35992,610,36080">
+<area shape="rect" id="node263" href="hr_concept_category.html" title="hr_concept_category" alt="" coords="397,38208,626,38296">
+<area shape="rect" id="node264" href="hr_contract.html" title="hr_contract" alt="" coords="431,5488,592,5576">
+<area shape="rect" id="node265" href="hr_department.html" title="hr_department" alt="" coords="419,3415,603,3503">
+<area shape="rect" id="node266" href="hr_employee.html" title="hr_employee" alt="" coords="426,5067,597,5155">
+<area shape="rect" id="node267" href="hr_movement.html" title="hr_movement" alt="" coords="423,3977,600,4065">
+<area shape="rect" id="node268" href="hr_period.html" title="hr_period" alt="" coords="437,676,586,764">
+<area shape="rect" id="node269" href="hr_process.html" title="hr_process" alt="" coords="431,9160,591,9248">
+<area shape="rect" id="node270" href="i_asset.html" title="i_asset" alt="" coords="819,34580,949,34668">
+<area shape="rect" id="node271" href="i_bankstatement.html" title="i_bankstatement" alt="" coords="413,11829,609,11917">
+<area shape="rect" id="node272" href="i_bpartner.html" title="i_bpartner" alt="" coords="435,12919,588,13007">
+<area shape="rect" id="node273" href="i_conversion_rate.html" title="i_conversion_rate" alt="" coords="409,10249,614,10337">
+<area shape="rect" id="node274" href="i_elementvalue.html" title="i_elementvalue" alt="" coords="419,2405,604,2493">
+<area shape="rect" id="node275" href="i_fajournal.html" title="i_fajournal" alt="" coords="700,1764,1068,3945">
+<area shape="rect" id="node277" href="i_fixedasset.html" title="i_fixedasset" alt="" coords="429,32123,593,32211">
+<area shape="rect" id="node278" href="i_gljournal.html" title="i_gljournal" alt="" coords="434,2957,589,3045">
+<area shape="rect" id="node279" href="i_hr_movement.html" title="i_hr_movement" alt="" coords="417,13024,606,13112">
+<area shape="rect" id="node280" href="i_inventory.html" title="i_inventory" alt="" coords="432,26541,591,26629">
+<area shape="rect" id="node281" href="i_invoice.html" title="i_invoice" alt="" coords="440,8739,583,8827">
+<area shape="rect" id="node282" href="i_movement.html" title="i_movement" alt="" coords="429,15940,594,16028">
+<area shape="rect" id="node283" href="i_order.html" title="i_order" alt="" coords="446,9265,577,9353">
+<area shape="rect" id="node284" href="i_payment.html" title="i_payment" alt="" coords="435,9617,588,9705">
+<area shape="rect" id="node285" href="i_pricelist.html" title="i_pricelist" alt="" coords="437,22819,586,22907">
+<area shape="rect" id="node286" href="i_product.html" title="i_product" alt="" coords="437,22713,585,22801">
+<area shape="rect" id="node287" href="i_productplanning.html" title="i_productplanning" alt="" coords="407,27068,616,27156">
+<area shape="rect" id="node288" href="i_reportline.html" title="i_reportline" alt="" coords="431,1879,592,1967">
+<area shape="rect" id="node289" href="k_index.html" title="k_index" alt="" coords="444,7580,579,7668">
+<area shape="rect" id="node290" href="k_indexstop.html" title="k_indexstop" alt="" coords="429,7685,594,7773">
+<area shape="rect" id="node291" href="m_bom.html" title="m_bom" alt="" coords="445,28897,578,28985">
+<area shape="rect" id="node292" href="m_bomalternative.html" title="m_bomalternative" alt="" coords="409,29003,614,29091">
+<area shape="rect" id="node293" href="m_bomproduct.html" title="m_bomproduct" alt="" coords="417,33528,605,33616">
+<area shape="rect" id="node294" href="m_bp_price.html" title="m_bp_price" alt="" coords="430,16151,593,16239">
+<area shape="rect" id="node295" href="m_commodityshipment.html" title="m_commodityshipment" alt="" coords="389,29108,634,29196">
+<area shape="rect" id="node296" href="m_cost.html" title="m_cost" alt="" coords="443,34371,579,34459">
+<area shape="rect" id="node297" href="m_costdetail.html" title="m_costdetail" alt="" coords="427,33423,596,33511">
+<area shape="rect" id="node298" href="m_costqueue.html" title="m_costqueue" alt="" coords="424,34653,599,34741">
+<area shape="rect" id="node299" href="m_demandline.html" title="m_demandline" alt="" coords="420,6044,603,6132">
+<area shape="rect" id="node300" href="m_discountschemabreak.html" title="m_discountschemabreak" alt="" coords="383,29213,639,29301">
+<area shape="rect" id="node301" href="m_discountschemaline.html" title="m_discountschemaline" alt="" coords="391,27384,632,27472">
+<area shape="rect" id="node302" href="m_distributionlistline.html" title="m_distributionlistline" alt="" coords="397,13867,626,13955">
+<area shape="rect" id="node303" href="m_distributionrun.html" title="m_distributionrun" alt="" coords="408,13972,615,14060">
+<area shape="rect" id="node304" href="m_distributionrunline.html" title="m_distributionrunline" alt="" coords="395,29319,627,29407">
+<area shape="rect" id="node305" href="m_edi.html" title="m_edi" alt="" coords="450,29424,573,29512">
+<area shape="rect" id="node306" href="m_forecastline.html" title="m_forecastline" alt="" coords="419,6255,603,6343">
+<area shape="rect" id="node307" href="m_freight.html" title="m_freight" alt="" coords="437,10355,585,10443">
+<area shape="rect" id="node308" href="m_inout.html" title="m_inout" alt="" coords="437,6360,585,6448">
+<area shape="rect" id="node310" href="m_inventory.html" title="m_inventory" alt="" coords="427,4751,595,4839">
+<area shape="rect" id="node311" href="m_inventoryline.html" title="m_inventoryline" alt="" coords="415,32860,608,32948">
+<area shape="rect" id="node312" href="m_locator.html" title="m_locator" alt="" coords="436,18751,587,18839">
+<area shape="rect" id="node313" href="m_locatortype.html" title="m_locatortype" alt="" coords="421,18856,602,18944">
+<area shape="rect" id="node314" href="m_lot.html" title="m_lot" alt="" coords="441,28687,581,28775">
+<area shape="rect" id="node315" href="m_matchinv.html" title="m_matchinv" alt="" coords="429,33633,594,33721">
+<area shape="rect" id="node316" href="m_matchpo.html" title="m_matchpo" alt="" coords="430,33844,593,33932">
+<area shape="rect" id="node317" href="m_movement.html" title="m_movement" alt="" coords="424,6149,599,6237">
+<area shape="rect" id="node318" href="m_movementline.html" title="m_movementline" alt="" coords="411,32649,611,32737">
+<area shape="rect" id="node319" href="m_package.html" title="m_package" alt="" coords="431,22503,591,22591">
+<area shape="rect" id="node320" href="m_packageline.html" title="m_packageline" alt="" coords="419,29529,604,29617">
+<area shape="rect" id="node321" href="m_packagemps.html" title="m_packagemps" alt="" coords="417,26015,606,26103">
+<area shape="rect" id="node322" href="m_pricelist_trl.html" title="m_pricelist_trl" alt="" coords="421,18961,602,19049">
+<area shape="rect" id="node323" href="m_pricelist_version_trl.html" title="m_pricelist_version_trl" alt="" coords="391,19067,632,19155">
+<area shape="rect" id="node324" href="m_product.html" title="m_product" alt="" coords="433,19172,590,19260">
+<area shape="rect" id="node325" href="m_product_acct.html" title="m_product_acct" alt="" coords="415,37256,608,37344">
+<area shape="rect" id="node326" href="m_product_bom.html" title="m_product_bom" alt="" coords="413,29635,609,29723">
+<area shape="rect" id="node327" href="m_product_category_acct.html" title="m_product_category_acct" alt="" coords="380,37572,643,37660">
+<area shape="rect" id="node328" href="m_product_category_trl.html" title="m_product_category_trl" alt="" coords="387,19277,636,19365">
+<area shape="rect" id="node329" href="m_product_po.html" title="m_product_po" alt="" coords="420,22608,603,22696">
+<area shape="rect" id="node330" href="m_product_qualitytest.html" title="m_product_qualitytest" alt="" coords="393,29740,630,29828">
+<area shape="rect" id="node331" href="m_product_trl.html" title="m_product_trl" alt="" coords="421,30056,601,30144">
+<area shape="rect" id="node332" href="m_productdownload.html" title="m_productdownload" alt="" coords="399,30161,624,30249">
+<area shape="rect" id="node333" href="m_production.html" title="m_production" alt="" coords="422,8844,601,8932">
+<area shape="rect" id="node334" href="m_productionline.html" title="m_productionline" alt="" coords="409,33317,613,33405">
+<area shape="rect" id="node335" href="m_productionplan.html" title="m_productionplan" alt="" coords="407,27877,616,27965">
+<area shape="rect" id="node336" href="m_productoperation.html" title="m_productoperation" alt="" coords="399,30267,623,30355">
+<area shape="rect" id="node337" href="m_productprice.html" title="m_productprice" alt="" coords="415,30372,607,30460">
+<area shape="rect" id="node338" href="m_productpricevendorbreak.html" title="m_productpricevendorbreak" alt="" coords="371,26857,651,26945">
+<area shape="rect" id="node339" href="m_promotion.html" title="m_promotion" alt="" coords="424,3661,599,3749">
+<area shape="rect" id="node340" href="m_promotiongroupline.html" title="m_promotiongroupline" alt="" coords="391,30477,632,30565">
+<area shape="rect" id="node341" href="m_promotionprecondition.html" title="m_promotionprecondition" alt="" coords="379,5172,643,5260">
+<area shape="rect" id="node342" href="m_relatedproduct.html" title="m_relatedproduct" alt="" coords="409,30583,614,30671">
+<area shape="rect" id="node343" href="m_replenish.html" title="m_replenish" alt="" coords="428,28193,595,28281">
+<area shape="rect" id="node344" href="m_requisition.html" title="m_requisition" alt="" coords="423,7791,600,7879">
+<area shape="rect" id="node345" href="m_requisitionline.html" title="m_requisitionline" alt="" coords="411,27631,612,27719">
+<area shape="rect" id="node346" href="m_rmaline.html" title="m_rmaline" alt="" coords="435,28476,588,28564">
+<area shape="rect" id="node347" href="m_shippingtransaction.html" title="m_shippingtransaction" alt="" coords="391,16045,632,16133">
+<area shape="rect" id="node348" href="m_shippingtransactionline.html" title="m_shippingtransactionline" alt="" coords="378,26120,645,26208">
+<area shape="rect" id="node349" href="m_storageonhand.html" title="m_storageonhand" alt="" coords="407,33176,615,33264">
+<area shape="rect" id="node350" href="m_storagereservation.html" title="m_storagereservation" alt="" coords="395,33949,628,34037">
+<area shape="rect" id="node351" href="m_substitute.html" title="m_substitute" alt="" coords="425,27983,597,28071">
+<area shape="rect" id="node352" href="m_transaction.html" title="m_transaction" alt="" coords="421,32544,602,32632">
+<area shape="rect" id="node353" href="m_transactionallocation.html" title="m_transactionallocation" alt="" coords="387,34055,636,34143">
+<area shape="rect" id="node354" href="m_warehouse_acct.html" title="m_warehouse_acct" alt="" coords="404,36624,619,36712">
+<area shape="rect" id="node355" href="pa_dashboardcontent_access.html" title="pa_dashboardcontent_access" alt="" coords="367,19383,656,19471">
+<area shape="rect" id="node356" href="pa_documentstatus.html" title="pa_documentstatus" alt="" coords="402,4961,621,5049">
+<area shape="rect" id="node357" href="pa_goalrestriction.html" title="pa_goalrestriction" alt="" coords="407,24609,615,24697">
+<area shape="rect" id="node358" href="pa_ratio.html" title="pa_ratio" alt="" coords="443,35183,580,35271">
+<area shape="rect" id="node359" href="pa_ratioelement.html" title="pa_ratioelement" alt="" coords="415,1984,608,2072">
+<area shape="rect" id="node360" href="pa_report.html" title="pa_report" alt="" coords="437,33739,586,33827">
+<area shape="rect" id="node361" href="pa_reportcolumn.html" title="pa_reportcolumn" alt="" coords="411,3872,612,3960">
+<area shape="rect" id="node362" href="pa_reportline.html" title="pa_reportline" alt="" coords="425,1347,598,1435">
+<area shape="rect" id="node363" href="pa_reportsource.html" title="pa_reportsource" alt="" coords="413,4399,610,4487">
+<area shape="rect" id="node364" href="pa_sla_goal.html" title="pa_sla_goal" alt="" coords="429,14183,593,14271">
+<area shape="rect" id="node365" href="pp_cost_collector.html" title="pp_cost_collector" alt="" coords="409,18540,614,18628">
+<area shape="rect" id="node366" href="pp_mrp.html" title="pp_mrp" alt="" coords="443,27279,579,27367">
+<area shape="rect" id="node367" href="pp_order.html" title="pp_order" alt="" coords="439,7369,584,7457">
+<area shape="rect" id="node368" href="pp_order_bom.html" title="pp_order_bom" alt="" coords="419,32439,603,32527">
+<area shape="rect" id="node369" href="pp_order_bomline.html" title="pp_order_bomline" alt="" coords="407,28088,616,28176">
+<area shape="rect" id="node370" href="pp_order_cost.html" title="pp_order_cost" alt="" coords="420,34476,603,34564">
+<area shape="rect" id="node371" href="pp_order_node.html" title="pp_order_node" alt="" coords="417,14288,605,14376">
+<area shape="rect" id="node372" href="pp_order_node_product.html" title="pp_order_node_product" alt="" coords="386,30688,637,30776">
+<area shape="rect" id="node373" href="pp_product_bom.html" title="pp_product_bom" alt="" coords="411,32228,612,32316">
+<area shape="rect" id="node374" href="pp_product_bomline.html" title="pp_product_bomline" alt="" coords="399,32333,624,32421">
+<area shape="rect" id="node375" href="pp_product_planning.html" title="pp_product_planning" alt="" coords="396,30793,627,30881">
+<area shape="rect" id="node376" href="pp_wf_node_product.html" title="pp_wf_node_product" alt="" coords="397,30899,626,30987">
+<area shape="rect" id="node377" href="qm_specification.html" title="qm_specification" alt="" coords="411,31004,611,31092">
+<area shape="rect" id="node378" href="r_category.html" title="r_category" alt="" coords="433,28371,589,28459">
+<area shape="rect" id="node379" href="r_issueproject.html" title="r_issueproject" alt="" coords="421,4856,602,4944">
+<area shape="rect" id="node380" href="r_request.html" title="r_request" alt="" coords="437,9055,585,9143">
+<area shape="rect" id="node381" href="r_request_v.html" title="r_request_v" alt="" coords="803,9605,965,9669">
+<area shape="rect" id="node382" href="r_requestaction.html" title="r_requestaction" alt="" coords="416,15025,607,15113">
+<area shape="rect" id="node383" href="r_requestupdate.html" title="r_requestupdate" alt="" coords="413,29845,609,29933">
+<area shape="rect" id="node384" href="rv_asset_customer.html" title="rv_asset_customer" alt="" coords="779,23712,989,23776">
+<area shape="rect" id="node385" href="rv_asset_delivery.html" title="rv_asset_delivery" alt="" coords="784,25343,984,25407">
+<area shape="rect" id="node386" href="rv_asset_summonth.html" title="rv_asset_summonth" alt="" coords="774,32351,994,32415">
+<area shape="rect" id="node387" href="rv_bpartneropen.html" title="rv_bpartneropen" alt="" coords="787,6679,981,6743">
+<area shape="rect" id="node388" href="rv_c_invoice.html" title="rv_c_invoice" alt="" coords="801,9419,967,9483">
+<area shape="rect" id="node389" href="rv_c_invoicetax.html" title="rv_c_invoicetax" alt="" coords="791,7828,977,7892">
+<area shape="rect" id="node390" href="rv_commissionrundetail.html" title="rv_commissionrundetail" alt="" coords="761,10788,1007,10852">
+<area shape="rect" id="node391" href="rv_fact_acct.html" title="rv_fact_acct" alt="" coords="803,22040,965,22104">
+<area shape="rect" id="node392" href="s_expensetype.html" title="s_expensetype" alt="" coords="419,26436,604,26524">
+<area shape="rect" id="node393" href="rv_fact_acct_day.html" title="rv_fact_acct_day" alt="" coords="786,31661,982,31725">
+<area shape="rect" id="node394" href="rv_fact_acct_period.html" title="rv_fact_acct_period" alt="" coords="776,31848,992,31912">
+<area shape="rect" id="node395" href="rv_openitem.html" title="rv_openitem" alt="" coords="801,7004,967,7068">
+<area shape="rect" id="node396" href="rv_openitemtodate.html" title="rv_openitemtodate" alt="" coords="779,6597,989,6661">
+<area shape="rect" id="node397" href="rv_orderdetail.html" title="rv_orderdetail" alt="" coords="796,10980,972,11044">
+<area shape="rect" id="node398" href="rv_payment.html" title="rv_payment" alt="" coords="804,7167,964,7231">
+<area shape="rect" id="node399" href="s_resourcetype.html" title="s_resourcetype" alt="" coords="417,26225,606,26313">
+<area shape="rect" id="node400" href="s_timeexpense.html" title="s_timeexpense" alt="" coords="419,14393,604,14481">
+<area shape="rect" id="node401" href="s_timeexpenseline.html" title="s_timeexpenseline" alt="" coords="407,9371,616,9459">
+<area shape="rect" id="node402" href="s_training.html" title="s_training" alt="" coords="436,26331,587,26419">
+<area shape="rect" id="node403" href="s_training_class.html" title="s_training_class" alt="" coords="414,29951,609,30039">
+<area shape="rect" id="node404" href="t_aging.html" title="t_aging" alt="" coords="445,5277,578,5365">
+<area shape="rect" id="node405" href="t_distributionrundetail.html" title="t_distributionrundetail" alt="" coords="393,25031,630,25119">
+<area shape="rect" id="node406" href="t_inventoryvalue.html" title="t_inventoryvalue" alt="" coords="413,32017,610,32105">
+<area shape="rect" id="node407" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="433,7896,590,7984">
+<area shape="rect" id="node408" href="t_invoicegl_v.html" title="t_invoicegl_v" alt="" coords="799,6760,969,6824">
+<area shape="rect" id="node409" href="t_replenish.html" title="t_replenish" alt="" coords="432,22397,591,22485">
+<area shape="rect" id="node410" href="t_rv_reconciliation.html" title="t_rv_reconciliation" alt="" coords="780,22121,988,22185">
+<area shape="rect" id="node411" href="t_transaction.html" title="t_transaction" alt="" coords="797,9500,971,9588">
+<area shape="rect" id="node412" href="t_trialbalance.html" title="t_trialbalance" alt="" coords="797,28523,971,28611">
+<area shape="rect" id="node413" href="test.html" title="test" alt="" coords="827,32140,941,32228">
+<area shape="rect" id="node414" href="u_posterminal.html" title="u_posterminal" alt="" coords="421,14499,602,14587">
+<area shape="rect" id="node415" href="w_advertisement.html" title="w_advertisement" alt="" coords="412,14604,611,14692">
+<area shape="rect" id="node416" href="w_basket.html" title="w_basket" alt="" coords="439,14709,584,14797">
+<area shape="rect" id="node417" href="w_basketline.html" title="w_basketline" alt="" coords="426,31425,597,31513">
+<area shape="rect" id="node418" href="w_clickcount.html" title="w_clickcount" alt="" coords="425,14815,597,14903">
+<area shape="rect" id="node419" href="w_countercount.html" title="w_countercount" alt="" coords="415,14077,608,14165">
+</map>
+
+					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/i_fajournal.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
+		</div>
+	      </section>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="../bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="../bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="../bower/codemirror/codemirror.js"></script>
+<script src="../bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="../bower/admin-lte/dist/js/app.min.js"></script>
+<script src="table.js"></script>
+<script src="../schemaSpy.js"></script>
+</body>
+</html>

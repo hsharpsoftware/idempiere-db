@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>t_trialbalance - idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="../schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../bower/html5shiv/html5shiv.min.js"></script>
+  <script src="../bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="../components.html" title="List of system components">Components</a></li>-->
+			<li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>t_trialbalance</h1></br>
+		      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 id="Columns" class="box-title">Columns</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+            <div class="box-body">
+				<table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Column</th>
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Columns in tables that reference this column'>Children</th>
+				  <th title='Columns in tables that are referenced by this column'>Parents</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_pinstance_id">ad_pinstance_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.ad_pinstance_id references adempiere.ad_pinstance.ad_pinstance_id via ad_pinstance_t_trialbalance">
+						<a href='../../adempiere/tables/ad_pinstance.html'>ad_pinstance</a><span class='relatedKey'>.ad_pinstance_id</span>
+					</td>
+					<td class="constraint detail">
+						ad_pinstance_t_trialbalance <span title='Cascade on delete:&#10;Deletion of parent deletes child'>C</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fact_acct_id">fact_acct_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_client_id">ad_client_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_org_id">ad_org_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="created">created</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="createdby">createdby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updated">updated</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updatedby">updatedby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="c_acctschema_id">c_acctschema_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="account_id">account_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="datetrx">datetrx</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="dateacct">dateacct</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_period_id">c_period_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_period_id&#39;s name implies that it&#39;s a child of c_period.c_period_id, but it doesn&#39;t reference that column.">
+						<a href='c_period.html'>c_period</a><span class='relatedKey'>.c_period_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_table_id">ad_table_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.ad_table_id&#39;s name implies that it&#39;s a child of ad_table.ad_table_id, but it doesn&#39;t reference that column.">
+						<a href='ad_table.html'>ad_table</a><span class='relatedKey'>.ad_table_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="record_id">record_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="line_id">line_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_category_id">gl_category_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.gl_category_id&#39;s name implies that it&#39;s a child of gl_category.gl_category_id, but it doesn&#39;t reference that column.">
+						<a href='gl_category.html'>gl_category</a><span class='relatedKey'>.gl_category_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="gl_budget_id">gl_budget_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.gl_budget_id&#39;s name implies that it&#39;s a child of gl_budget.gl_budget_id, but it doesn&#39;t reference that column.">
+						<a href='gl_budget.html'>gl_budget</a><span class='relatedKey'>.gl_budget_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_tax_id">c_tax_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_tax_id&#39;s name implies that it&#39;s a child of c_tax.c_tax_id, but it doesn&#39;t reference that column.">
+						<a href='c_tax.html'>c_tax</a><span class='relatedKey'>.c_tax_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_locator_id">m_locator_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.m_locator_id&#39;s name implies that it&#39;s a child of m_locator.m_locator_id, but it doesn&#39;t reference that column.">
+						<a href='m_locator.html'>m_locator</a><span class='relatedKey'>.m_locator_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="postingtype">postingtype</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_currency_id">c_currency_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_currency_id&#39;s name implies that it&#39;s a child of c_currency.c_currency_id, but it doesn&#39;t reference that column.">
+						<a href='c_currency.html'>c_currency</a><span class='relatedKey'>.c_currency_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtsourcedr">amtsourcedr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtsourcecr">amtsourcecr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtsourcebalance">amtsourcebalance</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtacctdr">amtacctdr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtacctcr">amtacctcr</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="amtacctbalance">amtacctbalance</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_uom_id">c_uom_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_uom_id&#39;s name implies that it&#39;s a child of c_uom.c_uom_id, but it doesn&#39;t reference that column.">
+						<a href='c_uom.html'>c_uom</a><span class='relatedKey'>.c_uom_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="qty">qty</span></td>
+				 <td>numeric</td>
+				 <td>131089</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="m_product_id">m_product_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.m_product_id&#39;s name implies that it&#39;s a child of m_product.m_product_id, but it doesn&#39;t reference that column.">
+						<a href='m_product.html'>m_product</a><span class='relatedKey'>.m_product_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_bpartner_id">c_bpartner_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_bpartner_id&#39;s name implies that it&#39;s a child of c_bpartner.c_bpartner_id, but it doesn&#39;t reference that column.">
+						<a href='c_bpartner.html'>c_bpartner</a><span class='relatedKey'>.c_bpartner_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_orgtrx_id">ad_orgtrx_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="c_locfrom_id">c_locfrom_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="c_locto_id">c_locto_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_salesregion_id">c_salesregion_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_salesregion_id&#39;s name implies that it&#39;s a child of c_salesregion.c_salesregion_id, but it doesn&#39;t reference that column.">
+						<a href='c_salesregion.html'>c_salesregion</a><span class='relatedKey'>.c_salesregion_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_project_id">c_project_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_project_id&#39;s name implies that it&#39;s a child of c_project.c_project_id, but it doesn&#39;t reference that column.">
+						<a href='c_project.html'>c_project</a><span class='relatedKey'>.c_project_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_campaign_id">c_campaign_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_campaign_id&#39;s name implies that it&#39;s a child of c_campaign.c_campaign_id, but it doesn&#39;t reference that column.">
+						<a href='c_campaign.html'>c_campaign</a><span class='relatedKey'>.c_campaign_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="c_activity_id">c_activity_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.c_activity_id&#39;s name implies that it&#39;s a child of c_activity.c_activity_id, but it doesn&#39;t reference that column.">
+						<a href='c_activity.html'>c_activity</a><span class='relatedKey'>.c_activity_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="user1_id">user1_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="user2_id">user2_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="a_asset_id">a_asset_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="t_trialbalance.a_asset_id&#39;s name implies that it&#39;s a child of a_asset.a_asset_id, but it doesn&#39;t reference that column.">
+						<a href='a_asset.html'>a_asset</a><span class='relatedKey'>.a_asset_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="description">description</span></td>
+				 <td>varchar</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="accountvalue">accountvalue</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>
+				<p title='44 columns'>Table contained <span id="recordNumber">0</span> rows<p/>
+			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
+			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
+			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="t_trialbalance.html" title="t_trialbalance" alt="" coords="300,5,636,1365">
+<area shape="rect" id="node2" title="adempiere.ad_pinstance" alt="" coords="5,13,256,101">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/t_trialbalance.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="ad_pinstance_log.html" title="ad_pinstance_log" alt="" coords="366,5,570,93">
+<area shape="rect" id="node2" title="adempiere.ad_pinstance" alt="" coords="5,535,256,623">
+<area shape="rect" id="node3" href="ad_pinstance_para.html" title="ad_pinstance_para" alt="" coords="361,111,575,199">
+<area shape="rect" id="node4" href="t_aging.html" title="t_aging" alt="" coords="401,216,535,304">
+<area shape="rect" id="node5" href="t_inventoryvalue.html" title="t_inventoryvalue" alt="" coords="369,321,567,409">
+<area shape="rect" id="node6" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="389,427,547,515">
+<area shape="rect" id="node7" href="t_replenish.html" title="t_replenish" alt="" coords="389,532,547,620">
+<area shape="rect" id="node8" href="t_report.html" title="t_report" alt="" coords="399,637,537,725">
+<area shape="rect" id="node9" href="t_reportstatement.html" title="t_reportstatement" alt="" coords="365,743,571,831">
+<area shape="rect" id="node10" href="t_spool.html" title="t_spool" alt="" coords="401,848,535,936">
+<area shape="rect" id="node11" href="t_transaction.html" title="t_transaction" alt="" coords="381,953,555,1041">
+<area shape="rect" id="node12" href="t_trialbalance.html" title="t_trialbalance" alt="" coords="300,1059,636,2419">
+</map>
+
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/t_trialbalance.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="t_trialbalance.html" title="t_trialbalance" alt="" coords="335,969,671,2329">
+<area shape="rect" id="node2" href="a_asset.html" title="a_asset" alt="" coords="6,4372,290,4959">
+<area shape="rect" id="node3" title="adempiere.ad_pinstance" alt="" coords="23,5,273,93">
+<area shape="rect" id="node4" href="ad_table.html" title="ad_table" alt="" coords="5,333,291,627">
+<area shape="rect" id="node5" href="c_activity.html" title="c_activity" alt="" coords="66,4237,230,4355">
+<area shape="rect" id="node6" href="c_bpartner.html" title="c_bpartner" alt="" coords="23,2584,273,3288">
+<area shape="rect" id="node7" href="c_campaign.html" title="c_campaign" alt="" coords="56,4073,240,4220">
+<area shape="rect" id="node8" href="c_currency.html" title="c_currency" alt="" coords="49,1593,247,1769">
+<area shape="rect" id="node9" href="c_period.html" title="c_period" alt="" coords="71,111,225,316">
+<area shape="rect" id="node10" href="c_project.html" title="c_project" alt="" coords="23,3469,273,4056">
+<area shape="rect" id="node11" href="c_salesregion.html" title="c_salesregion" alt="" coords="47,3305,249,3452">
+<area shape="rect" id="node12" href="c_tax.html" title="c_tax" alt="" coords="20,913,276,1324">
+<area shape="rect" id="node13" href="c_uom.html" title="c_uom" alt="" coords="49,1787,247,1963">
+<area shape="rect" id="node14" href="gl_budget.html" title="gl_budget" alt="" coords="63,779,233,896">
+<area shape="rect" id="node15" href="gl_category.html" title="gl_category" alt="" coords="56,644,240,761">
+<area shape="rect" id="node16" href="m_locator.html" title="m_locator" alt="" coords="47,1341,249,1576">
+<area shape="rect" id="node17" href="m_product.html" title="m_product" alt="" coords="6,1980,290,2567">
+</map>
+
+					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/t_trialbalance.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node2" title="adempiere.a_asset_class" alt="" coords="37,11017,291,11105">
+<area shape="rect" id="node3" title="adempiere.a_asset_group" alt="" coords="33,11649,295,11737">
+<area shape="rect" id="node4" title="adempiere.a_asset_type" alt="" coords="39,11228,289,11316">
+<area shape="rect" id="node5" title="adempiere.a_asset" alt="" coords="59,11333,269,11421">
+<area shape="rect" id="node6" title="adempiere.ad_user" alt="" coords="57,7731,271,7819">
+<area shape="rect" id="node7" title="adempiere.c_activity" alt="" coords="52,11439,276,11527">
+<area shape="rect" id="node8" title="adempiere.c_bpartner" alt="" coords="47,11544,281,11632">
+<area shape="rect" id="node9" title="adempiere.c_bpartner_location" alt="" coords="15,10701,313,10789">
+<area shape="rect" id="node10" title="adempiere.c_location" alt="" coords="49,11755,279,11843">
+<area shape="rect" id="node11" title="adempiere.c_project" alt="" coords="53,10491,275,10579">
+<area shape="rect" id="node12" title="adempiere.m_attributesetinstance" alt="" coords="5,10807,323,10895">
+<area shape="rect" id="node13" title="adempiere.m_inoutline" alt="" coords="44,11972,284,12060">
+<area shape="rect" id="node14" title="adempiere.m_locator" alt="" coords="50,10596,278,10684">
+<area shape="rect" id="node15" title="adempiere.m_product" alt="" coords="47,10912,281,11000">
+<area shape="rect" id="node16" href="a_asset_info_ins.html" title="a_asset_info_ins" alt="" coords="765,12521,963,12609">
+<area shape="rect" id="node17" href="a_asset_info_oth.html" title="a_asset_info_oth" alt="" coords="764,12205,964,12293">
+<area shape="rect" id="node18" href="a_asset_info_tax.html" title="a_asset_info_tax" alt="" coords="765,12311,963,12399">
+<area shape="rect" id="node19" href="a_asset_split.html" title="a_asset_split" alt="" coords="778,12416,950,12504">
+<area shape="rect" id="node20" href="ad_ctxhelp.html" title="ad_ctxhelp" alt="" coords="785,13373,943,13461">
+<area shape="rect" id="node21" href="ad_table.html" title="ad_table" alt="" coords="367,12911,652,13204">
+<area shape="rect" id="node32" title="adempiere.ad_client" alt="" coords="53,6236,275,6324">
+<area shape="rect" id="node33" title="adempiere.ad_org" alt="" coords="61,7625,267,7713">
+<area shape="rect" id="node34" title="adempiere.ad_val_rule" alt="" coords="45,13021,283,13109">
+<area shape="rect" id="node35" title="adempiere.ad_window" alt="" coords="46,13127,282,13215">
+<area shape="rect" id="node36" title="adempiere.ad_entitytype" alt="" coords="38,12916,290,13004">
+<area shape="rect" id="node22" href="ad_field_v.html" title="ad_field_v" alt="" coords="789,13479,939,13543">
+<area shape="rect" id="node23" href="ad_field_vt.html" title="ad_field_vt" alt="" coords="787,12943,941,13007">
+<area shape="rect" id="node24" href="ad_org_v.html" title="ad_org_v" alt="" coords="793,11775,935,11839">
+<area shape="rect" id="node37" title="adempiere.ad_language" alt="" coords="41,9116,287,9204">
+<area shape="rect" id="node38" title="adempiere.c_bp_group" alt="" coords="43,11123,285,11211">
+<area shape="rect" id="node39" title="adempiere.c_dunning" alt="" coords="48,9221,280,9309">
+<area shape="rect" id="node40" title="adempiere.c_greeting" alt="" coords="48,9432,280,9520">
+<area shape="rect" id="node41" title="adempiere.c_invoiceschedule" alt="" coords="21,9537,307,9625">
+<area shape="rect" id="node42" title="adempiere.c_paymentterm" alt="" coords="31,8800,297,8888">
+<area shape="rect" id="node43" title="adempiere.c_taxgroup" alt="" coords="45,9643,283,9731">
+<area shape="rect" id="node44" title="adempiere.c_1099box" alt="" coords="48,9748,280,9836">
+<area shape="rect" id="node45" title="adempiere.ad_printformat" alt="" coords="33,9853,295,9941">
+<area shape="rect" id="node46" title="adempiere.ad_image" alt="" coords="51,8905,277,8993">
+<area shape="rect" id="node47" title="adempiere.m_discountschema" alt="" coords="17,9011,311,9099">
+<area shape="rect" id="node48" title="adempiere.m_pricelist" alt="" coords="47,9327,281,9415">
+<area shape="rect" id="node26" href="ad_package_imp_backup.html" title="ad_package_imp_backup" alt="" coords="735,13024,993,13112">
+<area shape="rect" id="node27" href="ad_pinstance_log.html" title="ad_pinstance_log" alt="" coords="407,12651,611,12739">
+<area shape="rect" id="node28" title="adempiere.ad_pinstance" alt="" coords="39,12301,289,12389">
+<area shape="rect" id="node29" href="ad_pinstance_para.html" title="ad_pinstance_para" alt="" coords="403,12756,616,12844">
+<area shape="rect" id="node30" href="ad_tab_v.html" title="ad_tab_v" alt="" coords="793,13129,935,13193">
+<area shape="rect" id="node31" href="ad_tab_vt.html" title="ad_tab_vt" alt="" coords="791,13211,937,13275">
+<area shape="rect" id="node50" title="adempiere.c_channel" alt="" coords="49,7836,279,7924">
+<area shape="rect" id="node52" href="c_dunning_header_v.html" title="c_dunning_header_v" alt="" coords="752,10263,976,10327">
+<area shape="rect" id="node53" href="c_salesregion.html" title="c_salesregion" alt="" coords="409,9040,610,9187">
+<area shape="rect" id="node54" href="c_dunning_header_vt.html" title="c_dunning_header_vt" alt="" coords="749,10344,979,10408">
+<area shape="rect" id="node55" href="c_dunning_line_v.html" title="c_dunning_line_v" alt="" coords="763,8880,965,8944">
+<area shape="rect" id="node76" title="adempiere.c_campaign" alt="" coords="43,7415,285,7503">
+<area shape="rect" id="node77" title="adempiere.c_currency" alt="" coords="46,7520,282,7608">
+<area shape="rect" id="node78" title="adempiere.c_phase" alt="" coords="56,7204,272,7292">
+<area shape="rect" id="node79" title="adempiere.c_projecttype" alt="" coords="37,7309,291,7397">
+<area shape="rect" id="node80" title="adempiere.m_pricelist_version" alt="" coords="17,10385,311,10473">
+<area shape="rect" id="node81" title="adempiere.m_warehouse" alt="" coords="37,10280,291,10368">
+<area shape="rect" id="node58" href="c_dunning_line_vt.html" title="c_dunning_line_vt" alt="" coords="761,8717,967,8781">
+<area shape="rect" id="node59" href="c_invoice_candidate_v.html" title="c_invoice_candidate_v" alt="" coords="746,11856,982,11920">
+<area shape="rect" id="node60" href="c_invoice_header_v.html" title="c_invoice_header_v" alt="" coords="756,9531,972,9595">
+<area shape="rect" id="node61" href="c_invoice_header_vt.html" title="c_invoice_header_vt" alt="" coords="753,9612,975,9676">
+<area shape="rect" id="node62" href="c_invoice_v.html" title="c_invoice_v" alt="" coords="784,8229,944,8293">
+<area shape="rect" id="node63" href="c_invoice_v1.html" title="c_invoice_v1" alt="" coords="780,8311,948,8375">
+<area shape="rect" id="node64" href="c_invoiceline_v.html" title="c_invoiceline_v" alt="" coords="771,5283,957,5347">
+<area shape="rect" id="node98" title="adempiere.c_taxcategory" alt="" coords="36,4612,292,4700">
+<area shape="rect" id="node125" title="adempiere.c_revenuerecognition" alt="" coords="9,3647,319,3735">
+<area shape="rect" id="node126" title="adempiere.c_subscriptiontype" alt="" coords="18,2699,310,2787">
+<area shape="rect" id="node127" title="adempiere.c_uom" alt="" coords="61,2804,267,2892">
+<area shape="rect" id="node128" title="adempiere.m_attributeset" alt="" coords="35,2909,293,2997">
+<area shape="rect" id="node129" title="adempiere.m_freightcategory" alt="" coords="21,3015,307,3103">
+<area shape="rect" id="node130" title="adempiere.m_parttype" alt="" coords="45,3120,283,3208">
+<area shape="rect" id="node131" title="adempiere.m_product_category" alt="" coords="13,3225,315,3313">
+<area shape="rect" id="node132" title="adempiere.r_mailtext" alt="" coords="51,3331,277,3419">
+<area shape="rect" id="node133" title="adempiere.s_expensetype" alt="" coords="33,3436,295,3524">
+<area shape="rect" id="node134" title="adempiere.s_resource" alt="" coords="46,3541,282,3629">
+<area shape="rect" id="node67" href="c_order_header_v.html" title="c_order_header_v" alt="" coords="762,9775,966,9839">
+<area shape="rect" id="node68" href="c_order_header_vt.html" title="c_order_header_vt" alt="" coords="759,9693,969,9757">
+<area shape="rect" id="node69" href="c_payment_v.html" title="c_payment_v" alt="" coords="779,8392,949,8456">
+<area shape="rect" id="node70" href="c_payselection_check_v.html" title="c_payselection_check_v" alt="" coords="741,8799,987,8863">
+<area shape="rect" id="node71" href="c_payselection_check_vt.html" title="c_payselection_check_vt" alt="" coords="738,8636,990,8700">
+<area shape="rect" id="node72" href="c_payselection_remittance_v.html" title="c_payselection_remittance_v" alt="" coords="724,8473,1004,8537">
+<area shape="rect" id="node73" href="c_payselection_remittance_vt.html" title="c_payselection_remittance_vt" alt="" coords="721,8555,1007,8619">
+<area shape="rect" id="node74" href="c_period.html" title="c_period" alt="" coords="432,5383,587,5588">
+<area shape="rect" id="node75" title="adempiere.c_year" alt="" coords="62,5473,266,5561">
+<area shape="rect" id="node82" href="c_project_details_v.html" title="c_project_details_v" alt="" coords="757,4608,971,4672">
+<area shape="rect" id="node120" title="adempiere.m_locatortype" alt="" coords="35,3752,293,3840">
+<area shape="rect" id="node84" href="c_project_details_vt.html" title="c_project_details_vt" alt="" coords="755,4527,973,4591">
+<area shape="rect" id="node85" href="c_project_header_v.html" title="c_project_header_v" alt="" coords="757,9287,971,9351">
+<area shape="rect" id="node86" href="c_project_header_vt.html" title="c_project_header_vt" alt="" coords="754,9124,974,9188">
+<area shape="rect" id="node87" href="c_rfqresponse_v.html" title="c_rfqresponse_v" alt="" coords="767,9937,961,10001">
+<area shape="rect" id="node88" href="c_rfqresponse_vt.html" title="c_rfqresponse_vt" alt="" coords="764,10100,964,10164">
+<area shape="rect" id="node89" href="c_rfqresponseline_v.html" title="c_rfqresponseline_v" alt="" coords="754,2819,974,2883">
+<area shape="rect" id="node90" href="c_rfqresponseline_vt.html" title="c_rfqresponseline_vt" alt="" coords="751,2168,977,2232">
+<area shape="rect" id="node91" href="c_rfqresponselineqty_v.html" title="c_rfqresponselineqty_v" alt="" coords="743,3957,985,4021">
+<area shape="rect" id="node92" href="c_rfqresponselineqty_vt.html" title="c_rfqresponselineqty_vt" alt="" coords="741,3713,987,3777">
+<area shape="rect" id="node94" title="adempiere.ad_rule" alt="" coords="59,5920,269,6008">
+<area shape="rect" id="node95" title="adempiere.c_country" alt="" coords="50,6025,278,6113">
+<area shape="rect" id="node96" title="adempiere.c_countrygroup" alt="" coords="29,6131,299,6219">
+<area shape="rect" id="node97" title="adempiere.c_region" alt="" coords="55,6341,273,6429">
+<area shape="rect" id="node99" title="adempiere.c_taxprovider" alt="" coords="37,6447,291,6535">
+<area shape="rect" id="node100" title="adempiere.c_tax" alt="" coords="67,6552,261,6640">
+<area shape="rect" id="node101" href="dd_order_header_v.html" title="dd_order_header_v" alt="" coords="757,7741,971,7805">
+<area shape="rect" id="node102" href="dd_order_header_vt.html" title="dd_order_header_vt" alt="" coords="755,7660,973,7724">
+<area shape="rect" id="node103" href="fact_acct_balance.html" title="fact_acct_balance" alt="" coords="763,7253,965,7317">
+<area shape="rect" id="node104" href="gl_budget.html" title="gl_budget" alt="" coords="425,5740,594,5857">
+<area shape="rect" id="node105" href="gl_journalline_acct_v.html" title="gl_journalline_acct_v" alt="" coords="751,7497,977,7561">
+<area shape="rect" id="node106" href="i_asset.html" title="i_asset" alt="" coords="799,12732,929,12820">
+<area shape="rect" id="node107" href="i_fajournal.html" title="i_fajournal" alt="" coords="787,12627,941,12715">
+<area shape="rect" id="node108" href="m_costmovement_v.html" title="m_costmovement_v" alt="" coords="755,379,973,443">
+<area shape="rect" id="node109" href="m_inout_candidate_v.html" title="m_inout_candidate_v" alt="" coords="751,11937,977,12001">
+<area shape="rect" id="node110" href="m_inout_header_v.html" title="m_inout_header_v" alt="" coords="761,9368,967,9432">
+<area shape="rect" id="node111" href="m_inout_header_vt.html" title="m_inout_header_vt" alt="" coords="758,9449,970,9513">
+<area shape="rect" id="node112" href="m_inout_line_v.html" title="m_inout_line_v" alt="" coords="772,3876,956,3940">
+<area shape="rect" id="node113" href="m_inout_line_vt.html" title="m_inout_line_vt" alt="" coords="769,3795,959,3859">
+<area shape="rect" id="node114" href="m_inout_lineconfirm_v.html" title="m_inout_lineconfirm_v" alt="" coords="745,1111,983,1175">
+<area shape="rect" id="node115" href="m_inout_lineconfirm_vt.html" title="m_inout_lineconfirm_vt" alt="" coords="743,1192,985,1256">
+<area shape="rect" id="node116" href="m_inoutconfirm_v.html" title="m_inoutconfirm_v" alt="" coords="761,12019,967,12083">
+<area shape="rect" id="node117" href="m_inoutconfirm_vt.html" title="m_inoutconfirm_vt" alt="" coords="759,10507,969,10571">
+<area shape="rect" id="node118" href="m_inoutlinema_v.html" title="m_inoutlinema_v" alt="" coords="765,1273,963,1337">
+<area shape="rect" id="node119" href="m_inoutlinema_vt.html" title="m_inoutlinema_vt" alt="" coords="763,1355,965,1419">
+<area shape="rect" id="node121" href="m_movement_candidate_v.html" title="m_movement_candidate_v" alt="" coords="732,5795,996,5859">
+<area shape="rect" id="node122" href="m_movementlinema_v.html" title="m_movementlinema_v" alt="" coords="747,1436,981,1500">
+<area shape="rect" id="node123" href="m_movementlinema_vt.html" title="m_movementlinema_vt" alt="" coords="745,1517,983,1581">
+<area shape="rect" id="node124" href="m_packagelines_avail_v.html" title="m_packagelines_avail_v" alt="" coords="741,460,987,524">
+<area shape="rect" id="node135" href="m_product_stock_v.html" title="m_product_stock_v" alt="" coords="756,541,972,605">
+<area shape="rect" id="node136" href="m_product_substituterelated_v.html" title="m_product_substituterelated_v" alt="" coords="716,623,1012,687">
+<area shape="rect" id="node137" href="m_storage.html" title="m_storage" alt="" coords="788,1599,940,1663">
+<area shape="rect" id="node138" href="m_transaction_v.html" title="m_transaction_v" alt="" coords="767,3063,961,3127">
+<area shape="rect" id="node139" href="pp_order_bom_header_v.html" title="pp_order_bom_header_v" alt="" coords="737,4364,991,4428">
+<area shape="rect" id="node140" href="pp_order_bom_header_vt.html" title="pp_order_bom_header_vt" alt="" coords="735,4445,993,4509">
+<area shape="rect" id="node141" href="pp_order_bomline_v.html" title="pp_order_bomline_v" alt="" coords="753,1843,975,1907">
+<area shape="rect" id="node142" href="pp_order_bomline_vt.html" title="pp_order_bomline_vt" alt="" coords="751,2005,977,2069">
+<area shape="rect" id="node143" href="pp_order_header_v.html" title="pp_order_header_v" alt="" coords="757,4120,971,4184">
+<area shape="rect" id="node144" href="pp_order_header_vt.html" title="pp_order_header_vt" alt="" coords="755,4201,973,4265">
+<area shape="rect" id="node145" href="pp_order_node_v.html" title="pp_order_node_v" alt="" coords="763,10588,965,10652">
+<area shape="rect" id="node146" href="pp_order_node_vt.html" title="pp_order_node_vt" alt="" coords="761,10669,967,10733">
+<area shape="rect" id="node147" href="pp_order_workflow_header_v.html" title="pp_order_workflow_header_v" alt="" coords="721,5445,1007,5509">
+<area shape="rect" id="node148" href="pp_order_workflow_header_vt.html" title="pp_order_workflow_header_vt" alt="" coords="719,5364,1009,5428">
+<area shape="rect" id="node149" href="pp_product_bomline_v.html" title="pp_product_bomline_v" alt="" coords="745,2249,983,2313">
+<area shape="rect" id="node150" href="pp_product_bomline_vt.html" title="pp_product_bomline_vt" alt="" coords="742,2331,986,2395">
+<area shape="rect" id="node151" href="r_request_v.html" title="r_request_v" alt="" coords="783,9205,945,9269">
+<area shape="rect" id="node152" href="rv_allocation.html" title="rv_allocation" alt="" coords="780,9856,948,9920">
+<area shape="rect" id="node153" href="rv_asset_customer.html" title="rv_asset_customer" alt="" coords="759,10913,969,10977">
+<area shape="rect" id="node154" href="rv_asset_delivery.html" title="rv_asset_delivery" alt="" coords="764,10995,964,11059">
+<area shape="rect" id="node155" href="rv_asset_summonth.html" title="rv_asset_summonth" alt="" coords="754,11076,974,11140">
+<area shape="rect" id="node156" href="rv_bpartner.html" title="rv_bpartner" alt="" coords="784,10425,944,10489">
+<area shape="rect" id="node157" href="rv_bpartneropen.html" title="rv_bpartneropen" alt="" coords="767,7904,961,7968">
+<area shape="rect" id="node158" href="rv_c_invoice.html" title="rv_c_invoice" alt="" coords="781,8961,947,9025">
+<area shape="rect" id="node159" href="rv_c_invoice_customerprodqtr.html" title="rv_c_invoice_customerprodqtr" alt="" coords="717,10751,1011,10815">
+<area shape="rect" id="node160" href="rv_c_invoice_customervendqtr.html" title="rv_c_invoice_customervendqtr" alt="" coords="717,10832,1011,10896">
+<area shape="rect" id="node161" href="rv_c_invoice_productmonth.html" title="rv_c_invoice_productmonth" alt="" coords="727,704,1001,768">
+<area shape="rect" id="node162" href="rv_c_invoice_productqtr.html" title="rv_c_invoice_productqtr" alt="" coords="739,785,989,849">
+<area shape="rect" id="node163" href="rv_c_invoice_vendormonth.html" title="rv_c_invoice_vendormonth" alt="" coords="730,11157,998,11221">
+<area shape="rect" id="node164" href="rv_c_invoiceline.html" title="rv_c_invoiceline" alt="" coords="769,4039,959,4103">
+<area shape="rect" id="node165" href="rv_c_invoicetax.html" title="rv_c_invoicetax" alt="" coords="771,7823,957,7887">
+<area shape="rect" id="node166" href="rv_c_rfq_unanswered.html" title="rv_c_rfq_unanswered" alt="" coords="749,10019,979,10083">
+<area shape="rect" id="node167" href="rv_c_rfqresponse.html" title="rv_c_rfqresponse" alt="" coords="763,4876,965,4940">
+<area shape="rect" id="node168" href="rv_cash_detail.html" title="rv_cash_detail" alt="" coords="775,9043,953,9107">
+<area shape="rect" id="node169" href="rv_click_month.html" title="rv_click_month" alt="" coords="771,11239,957,11303">
+<area shape="rect" id="node170" href="rv_commissionrundetail.html" title="rv_commissionrundetail" alt="" coords="741,7416,987,7480">
+<area shape="rect" id="node171" href="rv_cost.html" title="rv_cost" alt="" coords="799,3469,929,3533">
+<area shape="rect" id="node172" href="rv_costdetail.html" title="rv_costdetail" alt="" coords="780,3388,948,3452">
+<area shape="rect" id="node173" href="rv_costsummary.html" title="rv_costsummary" alt="" coords="767,3307,961,3371">
+<area shape="rect" id="node174" href="rv_dd_orderdetail.html" title="rv_dd_orderdetail" alt="" coords="763,4795,965,4859">
+<area shape="rect" id="node175" href="rv_fact_acct.html" title="rv_fact_acct" alt="" coords="783,4957,945,5021">
+<area shape="rect" id="node176" href="gl_category.html" title="gl_category" alt="" coords="417,5605,601,5723">
+<area shape="rect" id="node177" href="rv_fact_acct_day.html" title="rv_fact_acct_day" alt="" coords="766,5608,962,5672">
+<area shape="rect" id="node178" href="rv_fact_acct_period.html" title="rv_fact_acct_period" alt="" coords="756,5527,972,5591">
+<area shape="rect" id="node179" href="rv_fact_simple.html" title="rv_fact_simple" alt="" coords="774,5120,954,5184">
+<area shape="rect" id="node180" href="rv_inoutconfirm.html" title="rv_inoutconfirm" alt="" coords="769,11320,959,11384">
+<area shape="rect" id="node181" href="rv_inoutdetails.html" title="rv_inoutdetails" alt="" coords="773,5201,955,5265">
+<area shape="rect" id="node182" href="rv_inoutlineconfirm.html" title="rv_inoutlineconfirm" alt="" coords="757,3551,971,3615">
+<area shape="rect" id="node183" href="rv_m_forecast.html" title="rv_m_forecast" alt="" coords="775,3225,953,3289">
+<area shape="rect" id="node184" href="rv_m_forecast_period.html" title="rv_m_forecast_period" alt="" coords="749,3144,979,3208">
+<area shape="rect" id="node185" href="rv_m_product_whereused_v.html" title="rv_m_product_whereused_v" alt="" coords="726,867,1002,931">
+<area shape="rect" id="node186" href="rv_m_requisition.html" title="rv_m_requisition" alt="" coords="766,948,962,1012">
+<area shape="rect" id="node187" href="rv_m_transaction.html" title="rv_m_transaction" alt="" coords="764,3632,964,3696">
+<area shape="rect" id="node188" href="rv_m_transaction_sum.html" title="rv_m_transaction_sum" alt="" coords="745,1680,983,1744">
+<area shape="rect" id="node189" href="rv_openitem.html" title="rv_openitem" alt="" coords="781,7985,947,8049">
+<area shape="rect" id="node190" href="rv_openitemtodate.html" title="rv_openitemtodate" alt="" coords="759,8067,969,8131">
+<area shape="rect" id="node191" href="rv_orderdetail.html" title="rv_orderdetail" alt="" coords="776,7335,952,7399">
+<area shape="rect" id="node192" href="rv_payment.html" title="rv_payment" alt="" coords="784,8148,944,8212">
+<area shape="rect" id="node193" href="rv_pp_mrp.html" title="rv_pp_mrp" alt="" coords="787,5,941,69">
+<area shape="rect" id="node194" href="rv_pp_order.html" title="rv_pp_order" alt="" coords="782,4283,946,4347">
+<area shape="rect" id="node195" href="rv_pp_order_bomline.html" title="rv_pp_order_bomline" alt="" coords="750,2412,978,2476">
+<area shape="rect" id="node196" href="rv_pp_order_receipt_issue.html" title="rv_pp_order_receipt_issue" alt="" coords="731,2087,997,2151">
+<area shape="rect" id="node197" href="rv_pp_order_storage.html" title="rv_pp_order_storage" alt="" coords="751,1761,977,1825">
+<area shape="rect" id="node198" href="rv_pp_order_transactions.html" title="rv_pp_order_transactions" alt="" coords="735,1029,993,1093">
+<area shape="rect" id="node199" href="rv_pp_order_workflow.html" title="rv_pp_order_workflow" alt="" coords="747,11401,981,11465">
+<area shape="rect" id="node200" href="rv_pp_product_bomline.html" title="rv_pp_product_bomline" alt="" coords="741,2493,987,2557">
+<area shape="rect" id="node201" href="rv_printformatdetail.html" title="rv_printformatdetail" alt="" coords="755,13292,973,13356">
+<area shape="rect" id="node202" href="rv_projectcycle.html" title="rv_projectcycle" alt="" coords="771,10181,957,10245">
+<area shape="rect" id="node203" href="rv_projectlineissue.html" title="rv_projectlineissue" alt="" coords="759,2981,969,3045">
+<area shape="rect" id="node204" href="rv_storage.html" title="rv_storage" alt="" coords="787,1924,941,1988">
+<area shape="rect" id="node205" href="rv_storage_per_product.html" title="rv_storage_per_product" alt="" coords="741,2575,987,2639">
+<area shape="rect" id="node206" href="rv_t_1099extract.html" title="rv_t_1099extract" alt="" coords="767,11483,961,11547">
+<area shape="rect" id="node207" href="rv_transaction.html" title="rv_transaction" alt="" coords="775,2900,953,2964">
+<area shape="rect" id="node208" href="rv_warehouseprice.html" title="rv_warehouseprice" alt="" coords="759,2656,969,2720">
+<area shape="rect" id="node209" href="t_1099extract.html" title="t_1099extract" alt="" coords="777,11564,951,11652">
+<area shape="rect" id="node210" href="t_aging.html" title="t_aging" alt="" coords="443,12016,576,12104">
+<area shape="rect" id="node211" href="t_bankregister.html" title="t_bankregister" alt="" coords="773,11669,955,11757">
+<area shape="rect" id="node212" href="t_bom_indented.html" title="t_bom_indented" alt="" coords="767,87,961,175">
+<area shape="rect" id="node213" href="t_bomline.html" title="t_bomline" alt="" coords="789,192,939,280">
+<area shape="rect" id="node214" href="t_bomline_costs.html" title="t_bomline_costs" alt="" coords="767,2737,961,2801">
+<area shape="rect" id="node215" href="t_cashflow.html" title="t_cashflow" alt="" coords="786,5689,942,5777">
+<area shape="rect" id="node216" href="t_inventoryvalue.html" title="t_inventoryvalue" alt="" coords="411,10696,608,10784">
+<area shape="rect" id="node217" href="t_invoicegl.html" title="t_invoicegl" alt="" coords="431,12193,588,12281">
+<area shape="rect" id="node218" href="t_invoicegl_v.html" title="t_invoicegl_v" alt="" coords="779,7579,949,7643">
+<area shape="rect" id="node219" href="t_replenish.html" title="t_replenish" alt="" coords="785,12100,943,12188">
+<area shape="rect" id="node220" href="t_report.html" title="t_report" alt="" coords="441,12545,578,12633">
+<area shape="rect" id="node221" href="t_reportstatement.html" title="t_reportstatement" alt="" coords="407,12299,612,12387">
+<area shape="rect" id="node222" href="t_rv_reconciliation.html" title="t_rv_reconciliation" alt="" coords="760,5039,968,5103">
+<area shape="rect" id="node223" href="t_spool.html" title="t_spool" alt="" coords="443,12440,576,12528">
+<area shape="rect" id="node224" href="t_transaction.html" title="t_transaction" alt="" coords="777,12837,951,12925">
+<area shape="rect" id="node225" href="t_trialbalance.html" title="t_trialbalance" alt="" coords="696,5876,1032,7236">
+<area shape="rect" id="node226" href="test.html" title="test" alt="" coords="807,4689,921,4777">
+<area shape="rect" id="node227" href="x_packagelineweight.html" title="x_packagelineweight" alt="" coords="753,297,975,361">
+</map>
+
+					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/t_trialbalance.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
+		</div>
+	      </section>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="../bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="../bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="../bower/codemirror/codemirror.js"></script>
+<script src="../bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="../bower/admin-lte/dist/js/app.min.js"></script>
+<script src="table.js"></script>
+<script src="../schemaSpy.js"></script>
+</body>
+</html>

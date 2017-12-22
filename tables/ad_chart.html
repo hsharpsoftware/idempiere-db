@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ad_chart - idempiere Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <!-- SchemaSpy -->
+  <link rel="stylesheet" href="../schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="../bower/html5shiv/html5shiv.min.js"></script>
+  <script src="../bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../index.html" class="navbar-brand"><b>idempiere</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="../components.html" title="List of system components">Components</a></li>-->
+			<li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>ad_chart</h1></br>
+		      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 id="Columns" class="box-title">Columns</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+            <div class="box-body">
+				<table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Column</th>
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Columns in tables that reference this column'>Children</th>
+				  <th title='Columns in tables that are referenced by this column'>Parents</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="ad_chart_id">ad_chart_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_field_v.ad_chart_id&#39;s name implies that it&#39;s a child of ad_chart.ad_chart_id, but it doesn&#39;t reference that column.">
+						<a href='ad_field_v.html'>ad_field_v</a><span class='relatedKey'>.ad_chart_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				   <tr>
+					<td title="ad_field_vt.ad_chart_id&#39;s name implies that it&#39;s a child of ad_chart.ad_chart_id, but it doesn&#39;t reference that column.">
+						<a href='ad_field_vt.html'>ad_field_vt</a><span class='relatedKey'>.ad_chart_id</span>
+					</td>
+					<td class="constraint detail">
+						Implied Constraint <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_client_id">ad_client_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_org_id">ad_org_id</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="charttype">charttype</span></td>
+				 <td>varchar</td>
+				 <td>2</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="created">created</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="createdby">createdby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="description">description</span></td>
+				 <td>varchar</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isactive">isactive</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="name">name</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updated">updated</span></td>
+				 <td>timestamp</td>
+				 <td>29,6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>statement_timestamp()</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="updatedby">updatedby</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="winheight">winheight</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::numeric</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="isdisplaylegend">isdisplaylegend</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;Y&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="chartorientation">chartorientation</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;V&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="istimeseries">istimeseries</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;N&#39;::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="timeunit">timeunit</span></td>
+				 <td>bpchar</td>
+				 <td>1</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::bpchar</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="timescope">timescope</span></td>
+				 <td>numeric</td>
+				 <td>10</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="domainlabel">domainlabel</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="rangelabel">rangelabel</span></td>
+				 <td>varchar</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td><span id="ad_chart_uu">ad_chart_uu</span></td>
+				 <td>varchar</td>
+				 <td>36</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>NULL::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="entitytype">entitytype</span></td>
+				 <td>varchar</td>
+				 <td>40</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>&#39;U&#39;::character varying</td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				  </table>				 
+				 </td>
+				 <td>
+				  <table border='0' cellspacing='0' cellpadding='0'>
+				   <tr>
+					<td title="ad_chart.entitytype references adempiere.ad_entitytype.entitytype via entityt_adchart">
+						<a href='../../adempiere/tables/ad_entitytype.html'>ad_entitytype</a><span class='relatedKey'>.entitytype</span>
+					</td>
+					<td class="constraint detail">
+						entityt_adchart <span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span>
+					</td>
+				   </tr>
+				  </table>					 
+				 </td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>
+				<p title='21 columns'>Table contained <span id="recordNumber">4</span> rows<p/>
+			</div>
+		</div>
+				<div class="box box-primary">		
+			<div class="box-header with-border">
+              <i class="fa fa-code-fork"></i>
+
+              <h3 id="Relationships" class="box-title">Relationships</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>	
+			<div class="box-body">	
+			<div class="nav-tabs-custom" style="cursor: move;">
+            <!-- Tabs within a box -->
+			<h5>Close relationships within degrees of separation</h5>
+            <ul class="nav nav-tabs pull-left ui-sortable-handle">
+			  			              <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>			  			 
+			  			              <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>			  			 
+			  			              <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>			  			 
+			  			              <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>			  			 
+            </ul>
+            <div class="tab-content no-padding">            
+				<div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="ad_chart.html" title="ad_chart" alt="" coords="301,5,613,691">
+<area shape="rect" id="node2" title="adempiere.ad_entitytype" alt="" coords="5,600,257,688">
+</map>
+
+					<a name='diagram'><img id='oneDegreeImg' src='../diagrams/ad_chart.1degree.png' usemap='#oneDegreeRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="ad_chart.html" title="ad_chart" alt="" coords="301,5,613,691">
+<area shape="rect" id="node2" title="adempiere.ad_entitytype" alt="" coords="5,3081,257,3169">
+<area shape="rect" id="node3" href="ad_chartdatasource.html" title="ad_chartdatasource" alt="" coords="347,708,567,796">
+<area shape="rect" id="node4" href="ad_column.html" title="ad_column" alt="" coords="375,813,539,901">
+<area shape="rect" id="node5" href="ad_element.html" title="ad_element" alt="" coords="377,919,538,1007">
+<area shape="rect" id="node6" href="ad_field.html" title="ad_field" alt="" coords="375,1024,539,1112">
+<area shape="rect" id="node7" href="ad_fieldgroup.html" title="ad_fieldgroup" alt="" coords="369,1129,546,1217">
+<area shape="rect" id="node8" href="ad_form.html" title="ad_form" alt="" coords="388,1235,527,1323">
+<area shape="rect" id="node9" href="ad_image.html" title="ad_image" alt="" coords="383,1340,531,1428">
+<area shape="rect" id="node10" href="ad_indexcolumn.html" title="ad_indexcolumn" alt="" coords="359,1445,555,1533">
+<area shape="rect" id="node11" href="ad_infocolumn.html" title="ad_infocolumn" alt="" coords="365,1551,550,1639">
+<area shape="rect" id="node12" href="ad_infowindow.html" title="ad_infowindow" alt="" coords="365,1656,550,1744">
+<area shape="rect" id="node13" href="ad_menu.html" title="ad_menu" alt="" coords="385,1761,530,1849">
+<area shape="rect" id="node14" href="ad_message.html" title="ad_message" alt="" coords="373,1867,541,1955">
+<area shape="rect" id="node15" href="ad_modelvalidator.html" title="ad_modelvalidator" alt="" coords="353,1972,562,2060">
+<area shape="rect" id="node16" href="ad_modification.html" title="ad_modification" alt="" coords="361,2077,554,2165">
+<area shape="rect" id="node17" href="ad_process.html" title="ad_process" alt="" coords="377,2183,538,2271">
+<area shape="rect" id="node18" href="ad_process_para.html" title="ad_process_para" alt="" coords="357,2288,558,2376">
+<area shape="rect" id="node19" href="ad_ref_list.html" title="ad_ref_list" alt="" coords="381,2393,534,2481">
+<area shape="rect" id="node20" href="ad_ref_table.html" title="ad_ref_table" alt="" coords="374,2499,541,2587">
+<area shape="rect" id="node21" href="ad_reference.html" title="ad_reference" alt="" coords="371,2604,543,2692">
+<area shape="rect" id="node22" href="ad_replicationstrategy.html" title="ad_replicationstrategy" alt="" coords="339,2709,576,2797">
+<area shape="rect" id="node23" href="ad_replicationtable.html" title="ad_replicationtable" alt="" coords="351,2815,564,2903">
+<area shape="rect" id="node24" href="ad_reportview.html" title="ad_reportview" alt="" coords="367,2920,547,3008">
+<area shape="rect" id="node25" href="ad_rule.html" title="ad_rule" alt="" coords="391,3025,524,3113">
+<area shape="rect" id="node26" href="ad_statusline.html" title="ad_statusline" alt="" coords="371,3131,544,3219">
+<area shape="rect" id="node27" href="ad_sysconfig.html" title="ad_sysconfig" alt="" coords="371,3236,544,3324">
+<area shape="rect" id="node28" href="ad_tab.html" title="ad_tab" alt="" coords="379,3341,535,3429">
+<area shape="rect" id="node29" href="ad_table.html" title="ad_table" alt="" coords="387,3447,527,3535">
+<area shape="rect" id="node30" href="ad_tableindex.html" title="ad_tableindex" alt="" coords="369,3552,546,3640">
+<area shape="rect" id="node31" href="ad_task.html" title="ad_task" alt="" coords="390,3657,525,3745">
+<area shape="rect" id="node32" href="ad_val_rule.html" title="ad_val_rule" alt="" coords="377,3763,538,3851">
+<area shape="rect" id="node33" href="ad_viewcolumn.html" title="ad_viewcolumn" alt="" coords="363,3868,552,3956">
+<area shape="rect" id="node34" href="ad_viewcomponent.html" title="ad_viewcomponent" alt="" coords="349,3973,565,4061">
+<area shape="rect" id="node35" href="ad_wf_nextcondition.html" title="ad_wf_nextcondition" alt="" coords="345,4079,570,4167">
+<area shape="rect" id="node36" href="ad_wf_node.html" title="ad_wf_node" alt="" coords="375,4184,540,4272">
+<area shape="rect" id="node37" href="ad_wf_node_para.html" title="ad_wf_node_para" alt="" coords="355,4289,559,4377">
+<area shape="rect" id="node38" href="ad_wf_nodenext.html" title="ad_wf_nodenext" alt="" coords="360,4395,555,4483">
+<area shape="rect" id="node39" href="ad_wf_responsible.html" title="ad_wf_responsible" alt="" coords="351,4500,563,4588">
+<area shape="rect" id="node40" href="ad_window.html" title="ad_window" alt="" coords="378,4605,537,4693">
+<area shape="rect" id="node41" href="ad_workbench.html" title="ad_workbench" alt="" coords="366,4711,549,4799">
+<area shape="rect" id="node42" href="ad_workbenchwindow.html" title="ad_workbenchwindow" alt="" coords="339,4816,575,4904">
+<area shape="rect" id="node43" href="ad_workflow.html" title="ad_workflow" alt="" coords="373,4921,542,5009">
+<area shape="rect" id="node44" href="pa_colorschema.html" title="pa_colorschema" alt="" coords="359,5027,555,5115">
+<area shape="rect" id="node45" href="pa_measurecalc.html" title="pa_measurecalc" alt="" coords="361,5132,554,5220">
+<area shape="rect" id="node46" href="pp_order_node.html" title="pp_order_node" alt="" coords="363,5237,551,5325">
+<area shape="rect" id="node47" href="pp_order_nodenext.html" title="pp_order_nodenext" alt="" coords="349,5343,566,5431">
+<area shape="rect" id="node48" href="pp_order_workflow.html" title="pp_order_workflow" alt="" coords="349,5448,565,5536">
+<area shape="rect" id="node49" href="pp_wf_node_product.html" title="pp_wf_node_product" alt="" coords="343,5553,572,5641">
+</map>
+
+					<a name='diagram'><img id='twodegreesDegreeImg' src='../diagrams/ad_chart.2degrees.png' usemap='#twoDegreesRelationshipsDiagram' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="ad_chart.html" title="ad_chart" alt="" coords="301,395,613,1080">
+<area shape="rect" id="node2" title="adempiere.ad_entitytype" alt="" coords="5,989,257,1077">
+<area shape="rect" id="node3" href="ad_field_v.html" title="ad_field_v" alt="" coords="657,5,927,333">
+<area shape="rect" id="node4" href="ad_field_vt.html" title="ad_field_vt" alt="" coords="657,351,927,708">
+</map>
+
+					<a name='diagram'><img id='oneimpliedDegreeImg' src='../diagrams/ad_chart.implied1degrees.png' usemap='#oneDegreeRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+				<div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">					
+					<map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="ad_chart.html" title="ad_chart" alt="" coords="301,892,613,1577">
+<area shape="rect" id="node2" title="adempiere.ad_entitytype" alt="" coords="5,3267,257,3355">
+<area shape="rect" id="node3" href="ad_chartdatasource.html" title="ad_chartdatasource" alt="" coords="347,49,567,137">
+<area shape="rect" id="node4" href="ad_column.html" title="ad_column" alt="" coords="369,576,545,664">
+<area shape="rect" id="node5" href="pa_dashboardcontent.html" title="pa_dashboardcontent" alt="" coords="15,576,248,664">
+<area shape="rect" id="node6" href="ad_element.html" title="ad_element" alt="" coords="377,1736,538,1824">
+<area shape="rect" id="node7" href="ad_field.html" title="ad_field" alt="" coords="369,365,545,453">
+<area shape="rect" id="node8" href="ad_field_v.html" title="ad_field_v" alt="" coords="657,233,927,561">
+<area shape="rect" id="node9" href="ad_process.html" title="ad_process" alt="" coords="377,787,538,875">
+<area shape="rect" id="node10" href="ad_tab.html" title="ad_tab" alt="" coords="373,260,541,348">
+<area shape="rect" id="node11" href="ad_table.html" title="ad_table" alt="" coords="379,471,535,559">
+<area shape="rect" id="node12" href="ad_val_rule.html" title="ad_val_rule" alt="" coords="377,681,538,769">
+<area shape="rect" id="node13" href="ad_window.html" title="ad_window" alt="" coords="378,155,537,243">
+<area shape="rect" id="node14" href="ad_field_vt.html" title="ad_field_vt" alt="" coords="657,579,927,936">
+<area shape="rect" id="node15" href="ad_language.html" title="ad_language" alt="" coords="373,1595,542,1683">
+<area shape="rect" id="node16" href="ad_fieldgroup.html" title="ad_fieldgroup" alt="" coords="369,1841,546,1929">
+<area shape="rect" id="node17" href="ad_form.html" title="ad_form" alt="" coords="388,1947,527,2035">
+<area shape="rect" id="node18" href="ad_image.html" title="ad_image" alt="" coords="383,2052,531,2140">
+<area shape="rect" id="node19" href="ad_indexcolumn.html" title="ad_indexcolumn" alt="" coords="359,2157,555,2245">
+<area shape="rect" id="node20" href="ad_infocolumn.html" title="ad_infocolumn" alt="" coords="365,2263,550,2351">
+<area shape="rect" id="node21" href="ad_infowindow.html" title="ad_infowindow" alt="" coords="365,2368,550,2456">
+<area shape="rect" id="node22" href="ad_menu.html" title="ad_menu" alt="" coords="385,2473,530,2561">
+<area shape="rect" id="node23" href="ad_message.html" title="ad_message" alt="" coords="373,2579,541,2667">
+<area shape="rect" id="node24" href="ad_modelvalidator.html" title="ad_modelvalidator" alt="" coords="353,2684,562,2772">
+<area shape="rect" id="node25" href="ad_modification.html" title="ad_modification" alt="" coords="361,2789,554,2877">
+<area shape="rect" id="node26" href="ad_process_para.html" title="ad_process_para" alt="" coords="357,2895,558,2983">
+<area shape="rect" id="node27" href="ad_ref_list.html" title="ad_ref_list" alt="" coords="381,3000,534,3088">
+<area shape="rect" id="node28" href="ad_ref_table.html" title="ad_ref_table" alt="" coords="374,3105,541,3193">
+<area shape="rect" id="node29" href="ad_reference.html" title="ad_reference" alt="" coords="371,3211,543,3299">
+<area shape="rect" id="node30" href="ad_replicationstrategy.html" title="ad_replicationstrategy" alt="" coords="339,3316,576,3404">
+<area shape="rect" id="node31" href="ad_replicationtable.html" title="ad_replicationtable" alt="" coords="351,3421,564,3509">
+<area shape="rect" id="node32" href="ad_reportview.html" title="ad_reportview" alt="" coords="367,3527,547,3615">
+<area shape="rect" id="node33" href="ad_rule.html" title="ad_rule" alt="" coords="391,3632,524,3720">
+<area shape="rect" id="node34" href="ad_statusline.html" title="ad_statusline" alt="" coords="371,3737,544,3825">
+<area shape="rect" id="node35" href="ad_sysconfig.html" title="ad_sysconfig" alt="" coords="371,3843,544,3931">
+<area shape="rect" id="node36" href="ad_tableindex.html" title="ad_tableindex" alt="" coords="369,3948,546,4036">
+<area shape="rect" id="node37" href="ad_task.html" title="ad_task" alt="" coords="390,4053,525,4141">
+<area shape="rect" id="node38" href="ad_viewcolumn.html" title="ad_viewcolumn" alt="" coords="363,4159,552,4247">
+<area shape="rect" id="node39" href="ad_viewcomponent.html" title="ad_viewcomponent" alt="" coords="349,4264,565,4352">
+<area shape="rect" id="node40" href="ad_wf_nextcondition.html" title="ad_wf_nextcondition" alt="" coords="345,4369,570,4457">
+<area shape="rect" id="node41" href="ad_wf_node.html" title="ad_wf_node" alt="" coords="375,4475,540,4563">
+<area shape="rect" id="node42" href="ad_wf_node_para.html" title="ad_wf_node_para" alt="" coords="355,4580,559,4668">
+<area shape="rect" id="node43" href="ad_wf_nodenext.html" title="ad_wf_nodenext" alt="" coords="360,4685,555,4773">
+<area shape="rect" id="node44" href="ad_wf_responsible.html" title="ad_wf_responsible" alt="" coords="351,4791,563,4879">
+<area shape="rect" id="node45" href="ad_workbench.html" title="ad_workbench" alt="" coords="366,4896,549,4984">
+<area shape="rect" id="node46" href="ad_workbenchwindow.html" title="ad_workbenchwindow" alt="" coords="339,5001,575,5089">
+<area shape="rect" id="node47" href="ad_workflow.html" title="ad_workflow" alt="" coords="373,5107,542,5195">
+<area shape="rect" id="node48" href="pa_colorschema.html" title="pa_colorschema" alt="" coords="359,5212,555,5300">
+<area shape="rect" id="node49" href="pa_measurecalc.html" title="pa_measurecalc" alt="" coords="361,5317,554,5405">
+<area shape="rect" id="node50" href="pp_order_node.html" title="pp_order_node" alt="" coords="363,5423,551,5511">
+<area shape="rect" id="node51" href="pp_order_nodenext.html" title="pp_order_nodenext" alt="" coords="349,5528,566,5616">
+<area shape="rect" id="node52" href="pp_order_workflow.html" title="pp_order_workflow" alt="" coords="349,5633,565,5721">
+<area shape="rect" id="node53" href="pp_wf_node_product.html" title="pp_wf_node_product" alt="" coords="343,5739,572,5827">
+</map>
+
+					<a name='diagram'><img id='twoimpliedDegreeImg' src='../diagrams/ad_chart.implied2degrees.png' usemap='#twoDegreesRelationshipsDiagramImplied' class='diagram' border='0' alt='' align='left'></a>							
+				</div>
+			  			</div>
+			</div>
+		  </div><!-- /.box-body -->
+		</div>
+	      </section>
+    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+      </div>
+      <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.0.0-rc2</a></strong>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="../bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="../bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="../bower/codemirror/codemirror.js"></script>
+<script src="../bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="../bower/admin-lte/dist/js/app.min.js"></script>
+<script src="table.js"></script>
+<script src="../schemaSpy.js"></script>
+</body>
+</html>
